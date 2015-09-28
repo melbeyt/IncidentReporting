@@ -34,7 +34,7 @@
     };
 
     // Default log level: info
-    Force.setLogLevel("info");
+    Force.setLogLevel("debug");
 
 
     // Utility Function to turn methods with callbacks into jQuery promises
@@ -1403,7 +1403,8 @@
         Force.SObject = Force.RemoteObject.extend({
             // sobjectType is expected on every instance
             sobjectType:null,
-
+            // ADDED BY ME if this object has children, we'll need to know the cache and field name of the relationship field on each to order saves
+            children: [],
             // Id is the id attribute
             idAttribute: 'Id',
 
