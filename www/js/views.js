@@ -1,5 +1,5 @@
 // -------------------------------------------------- The Views ---------------------------------------------------- //
-
+// Main landing page from which users can select a form type; also handles some initializations
 app.views.MainPage = Backbone.View.extend({
     template: _.template($("#landing-page").html()),
 
@@ -46,6 +46,7 @@ app.views.MainPage = Backbone.View.extend({
     }
 });
 
+// Page to search a collection (location in this case) to associate with a form
 app.views.SearchPage = Backbone.View.extend({
 
     template: _.template($("#search-page").html()),
@@ -101,6 +102,7 @@ app.views.SearchPage = Backbone.View.extend({
     }
 });
 
+// Page to list existing activity forms
 app.views.ActivityFormListView = Backbone.View.extend({
 
     listItemViews: [],
@@ -117,6 +119,7 @@ app.views.ActivityFormListView = Backbone.View.extend({
     }
 });
 
+// View to list locations
 app.views.LocationListView = Backbone.View.extend({
     listItemViews: [],
 
@@ -132,6 +135,7 @@ app.views.LocationListView = Backbone.View.extend({
     }
 });
 
+// View for a single activity form item in a list
 app.views.ActivityFormListItemView = Backbone.View.extend({
 
     tagName: "li",
@@ -149,6 +153,7 @@ app.views.ActivityFormListItemView = Backbone.View.extend({
     }
 });
 
+// View for a single location item in a list
 app.views.LocationListItemView = Backbone.View.extend({
     tagName: "li",
     template: _.template($("#location-list-item").html()),
@@ -163,6 +168,7 @@ app.views.LocationListItemView = Backbone.View.extend({
     }
 });
 
+// View for the button bar along the bottom to toggle connection and control syncing
 app.views.OfflineToggler = Backbone.View.extend({
 
     template: _.template($("#offline-toggler").html()),
@@ -193,6 +199,7 @@ app.views.OfflineToggler = Backbone.View.extend({
 
 });
 
+// Page to sync all locally modified records
 app.views.SyncPage = Backbone.View.extend({
 
     template: _.template($("#sync-page").html()),
@@ -219,7 +226,6 @@ app.views.SyncPage = Backbone.View.extend({
     },
 
     // todo: be sure we're adding all locally modified records to sync collection
-    // todo: test with children
     sync: function(event) {
         var that = this;
         if (this.model.length == 0 || this.model.at(0).get("__sync_failed__")) {
@@ -260,6 +266,7 @@ app.views.SyncPage = Backbone.View.extend({
     }
 });
 
+// Page to edit activity forms (or add, for a new one)
 app.views.EditActivityFormPage = Backbone.View.extend({
 
     action: null,
@@ -409,20 +416,13 @@ app.views.EditActivityFormPage = Backbone.View.extend({
             cacheMode: cacheMode,
             mergeMode: mergeMode,
             success: function(file) {
-                var a = new app.models.ActivityFormAnswer({Activity_Form__c: file.get("Id"), Question_Order__c: 1, Answer__c: "Test"});
-                a.save(null, {cacheMode: cacheMode, mergeMode: mergeMode, success: function () {
-                    that.locked = false;
-                    if (that.action == "Edit") {
-                        app.router.navigate(that.backAction, {trigger:true});
-                    } else {
-                        app.router.navigate("#", {trigger:true}
-                        );
-                    }
-                }, error: function (data, err, options) {
-                    that.locked = false;
-                    that.handleError(new Force.Error(err));
-                }});
-
+                that.locked = false;
+                if (that.action == "Edit") {
+                    app.router.navigate(that.backAction, {trigger:true});
+                } else {
+                    app.router.navigate("#", {trigger:true}
+                    );
+                }
             },
             error: function(data, err, options) { that.locked = false; that.handleError(new Force.Error(err)); }
         };

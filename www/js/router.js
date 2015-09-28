@@ -1,7 +1,7 @@
 // ----------------------------------------------- The Application Router ------------------------------------------ //
 
 app.Router = Backbone.StackRouter.extend({
-
+    // template Ids and functions to link together
     routes: {
         "": "mainPage",
         "list": "list",

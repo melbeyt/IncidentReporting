@@ -1,60 +1,4 @@
-
-// The Activity Form Model
-app.models.ActivityForm = Force.SObject.extend({
-    sobjectType: "Activity_Form__c",
-    children: [new app.models.ActivityFormAnswerCollection],
-    fieldlist: function(method) {
-        return method == "read"
-            ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"]
-            : ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c"];
-    },
-    cache: function() { return app.cache;},
-    cacheForOriginals: function() { return app.cacheForOriginals;},
-    cacheMode: function(method) {
-        if (!app.offlineTracker.get("isOnline")) {
-            return Force.CACHE_MODE.CACHE_ONLY;
-        }
-        else {
-            return (method == "read" ? Force.CACHE_MODE.CACHE_FIRST : Force.CACHE_MODE.SERVER_FIRST);
-        }
-    }
-});
-
-// The Activity Form Collection Model
-app.models.ActivityFormCollection = Force.SObjectCollection.extend({
-    model: app.models.ActivityForm,
-    fieldlist: ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"],
-    cache: function() { return app.cache},
-    cacheForOriginals: function() { return app.cacheForOriginals;},
-
-    getCriteria: function() {
-        return this.key;
-    },
-
-    setCriteria: function(key) {
-        this.key = key;
-    },
-
-    config: function() {
-        // Offline: do a cache query
-        if (!app.offlineTracker.get("isOnline")) {
-            // Not using like query because it does a case-sensitive sort
-            return {type:"cache", cacheQuery:{queryType:"smart", smartSql:"SELECT {activity_form__c:_soup} FROM {activity_form__c} WHERE {activity_form__c:Form_Group__c} LIKE '" + (this.key == null ? "" : this.key) + "%' ORDER BY LOWER({activity_form_c:Form_Group__c})", pageSize:25}};
-        }
-        // Online
-        else {
-            // First time: do a full query
-            if (this.key == null) {
-                return {type:"soql", query: "SELECT " + this.fieldlist.join(",") + " FROM Activity_Form__c ORDER BY Form_Group__c"};
-            }
-            // Other times: do a SOQL query
-            else {
-                return {type:"soql", query: "SELECT " + this.fieldlist.join(",") + " FROM Activity_Form__c WHERE Form_Group__c like '" + this.key + "%' ORDER BY Form_Group__c LIMIT 25"};
-            }
-        }
-    }
-});
-
+// Activity Form Answer Model and Collection
 app.models.ActivityFormAnswer = Force.SObject.extend({
     sobjectType: "Activity_Form_Answer__c",
     relationshipField: "Activity_Form__c",
@@ -91,6 +35,63 @@ app.models.ActivityFormAnswerCollection = Force.SObjectCollection.extend({
     }
 });
 
+
+// Activity Form Model and Collection (requires Activity Form Answer models to be defined first)
+app.models.ActivityForm = Force.SObject.extend({
+    sobjectType: "Activity_Form__c",
+    children: [new app.models.ActivityFormAnswerCollection],
+    fieldlist: function(method) {
+        return method == "read"
+            ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"]
+            : ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c"];
+    },
+    cache: function() { return app.cache;},
+    cacheForOriginals: function() { return app.cacheForOriginals;},
+    cacheMode: function(method) {
+        if (!app.offlineTracker.get("isOnline")) {
+            return Force.CACHE_MODE.CACHE_ONLY;
+        }
+        else {
+            return (method == "read" ? Force.CACHE_MODE.CACHE_FIRST : Force.CACHE_MODE.SERVER_FIRST);
+        }
+    }
+});
+
+app.models.ActivityFormCollection = Force.SObjectCollection.extend({
+    model: app.models.ActivityForm,
+    fieldlist: ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"],
+    cache: function() { return app.cache},
+    cacheForOriginals: function() { return app.cacheForOriginals;},
+
+    getCriteria: function() {
+        return this.key;
+    },
+
+    setCriteria: function(key) {
+        this.key = key;
+    },
+
+    config: function() {
+        // Offline: do a cache query
+        if (!app.offlineTracker.get("isOnline")) {
+            // Not using like query because it does a case-sensitive sort
+            return {type:"cache", cacheQuery:{queryType:"smart", smartSql:"SELECT {activity_form__c:_soup} FROM {activity_form__c} WHERE {activity_form__c:Form_Group__c} LIKE '" + (this.key == null ? "" : this.key) + "%' ORDER BY LOWER({activity_form_c:Form_Group__c})", pageSize:25}};
+        }
+        // Online
+        else {
+            // First time: do a full query
+            if (this.key == null) {
+                return {type:"soql", query: "SELECT " + this.fieldlist.join(",") + " FROM Activity_Form__c ORDER BY Form_Group__c"};
+            }
+            // Other times: do a SOQL query
+            else {
+                return {type:"soql", query: "SELECT " + this.fieldlist.join(",") + " FROM Activity_Form__c WHERE Form_Group__c like '" + this.key + "%' ORDER BY Form_Group__c LIMIT 25"};
+            }
+        }
+    }
+});
+
+
 // Online/Offline Tracker
 app.models.OfflineTracker = Backbone.Model.extend({
     initialize: function() {
@@ -107,7 +108,7 @@ app.models.OfflineTracker = Backbone.Model.extend({
     }
 });
 
-
+// Location model and collection
 app.models.Location = Force.SObject.extend({
     sobjectType: "Location__c",
     fieldlist: ["Id", "Location_ID__c"],

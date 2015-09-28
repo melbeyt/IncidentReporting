@@ -33,6 +33,7 @@ function asyncForEach (collection, method, args, callback) {
     );
 }
 
+// helper function to save all of one type of children. args expects the oldId and newId of the parent
 function saveHelper (children, args, successCB, failureCB) {
     var childrenToSave = [];
     var oldId = null;
@@ -74,6 +75,7 @@ function saveHelper (children, args, successCB, failureCB) {
     });
 }
 
+// Save a single record and recursively save its children
 function saveOne (record, args, successCB, failureCB) {
     var oldId = record.get("Id");
     var options = {
@@ -98,14 +100,17 @@ function saveOne (record, args, successCB, failureCB) {
     record.save(null, options);
 }
 
+// format an html datetime into Salesforce's format
 function formatDateTimeForSF (datetime) {
     return datetime + ':0.0000Z';
 }
 
+// turn a Salesforce datetime string and format for javascript
 function formatDateTimeForJS (datetime) {
     return datetime.substring(0, datetime.length - 8);
 }
 
+// get the current datetime as a Salesforce-formatted string
 function currentDateTime () {
     var today = new Date();
     return today.getFullYear() + '-' +  (today.getMonth() + 1) + '-' + today.getDate() + 'T' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + '.000Z';
