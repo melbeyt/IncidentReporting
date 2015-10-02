@@ -4,7 +4,8 @@ app.views.MainPage = Backbone.View.extend({
     template: _.template($("#landing-page").html()),
 
     events: {
-        "click .logoutUser": "logoutUser"
+        "click .logoutUser": "logoutUser",
+        "click .inspectSmartstore": "inspectSmartstore"
     },
 
     initialize: function() {
