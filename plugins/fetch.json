@@ -18,5 +18,17 @@
             "url": "https://github.com/forcedotcom/PushPlugin",
             "subdir": "."
         }
+    },
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        }
+    },
+    "org.apache.cordova.network-information": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.network-information"
+        }
     }
 }
