@@ -633,7 +633,14 @@
                                 {__locally_created__:localAction,
                                  __locally_updated__:false,
                                  __locally_deleted__:false});
-            data[cache.keyField] = (localAction ? cache.makeLocalId() : id);
+
+            // ADDED BY ME
+            if (localAction) {
+                var localId = cache.makeLocalId();
+                data = _.extend(data,
+                    {__localId__: localId});
+            }
+            data[cache.keyField] = (localAction ? localId : id);
             return cache.save(data);
         };
 

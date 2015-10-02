@@ -8,6 +8,7 @@ app.Router = Backbone.StackRouter.extend({
         "add/:type": "list",
         "add/form/:id/:fromServer": "addForm",
         "edit/forms/:id/:fromServer": "editActivityForm",
+        "delete/photo/:Id": "deletePhoto",
         "sync":"sync"
     },
 
@@ -16,11 +17,12 @@ app.Router = Backbone.StackRouter.extend({
         app.cache = new Force.StoreCache("activity_form__c", [ {path:"RecordTypeId", type:"string"}, {path: "LastModifiedDate", type:"string"} ]);
         app.locationCache = new Force.StoreCache("location__c", [ {path: "Location_ID__c", type:"string"} ]);
         app.answerCache = new Force.StoreCache("activity_form_answer__c", [ {path:"Activity_Form__c", type: "string"}, {path:"Question_Order__c", type: "integer"}]);
+        app.photoCache = new Force.StoreCache("attachment", [{path:"ParentId", type:"string"}]);
 
         // Cache for conflict detection
         app.cacheForOriginals = new Force.StoreCache("original-activity_forms");
 
-        return $.when(app.cache.init(), app.locationCache.init(), app.answerCache.init(), app.cacheForOriginals.init());
+        return $.when(app.cache.init(), app.locationCache.init(), app.answerCache.init(), app.photoCache.init(), app.cacheForOriginals.init());
     },
 
     initialize: function() {
@@ -81,6 +83,32 @@ app.Router = Backbone.StackRouter.extend({
                     console.log("error: " + JSON.stringify(error));
                 }
                 alert("Failed to get record for edit");
+            },
+            cacheMode: Force.CACHE_MODE.CACHE_ONLY
+        });
+    },
+
+    deletePhoto: function (Id) {
+        // todo prompt for confirmation
+        var photo = new app.models.Attachment({Id: Id});
+        photo.fetch({
+            success: function (data) {
+                photo.destroy({
+                    success: function(data) {
+                        app.editPage.render();
+                    },
+                    error: function(data, err, options) {
+                        var error = new Force.Error(err);
+                        alert("Failed to delete photo: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
+                    },
+                    cacheMode: Force.CACHE_MODE.CACHE_ONLY
+                });
+            },
+            error: function (model, error) {
+                if (error) {
+                    console.log("error deleting photo: " + JSON.stringify(error));
+                }
+                alert("Error deleting photo: " + JSON.stringify(error));
             },
             cacheMode: Force.CACHE_MODE.CACHE_ONLY
         });

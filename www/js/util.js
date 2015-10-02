@@ -100,6 +100,53 @@ function saveOne (record, args, successCB, failureCB) {
     record.save(null, options);
 }
 
+function getOfflineChildren (collection, parent) {
+    return new Promise(function (resolve, reject) {
+       if (parent.has("__localId__")) {
+           collection.parent = parent.get("__localId__");
+           collection.doCacheSearch = true;
+           collection.fetch({
+               success: function () {
+                   var ret = [];
+                   for (var i = 0; i < collection.length; i++) {
+                       var m = collection.at(i);
+                       m.set("ParentId", parent.get("Id"));
+                       ret.push(m);
+                   }
+                   resolve(ret);
+               }, error: function (model, error) {
+                   reject("Error occured fetching offline-created children: " + JSON.stringify(error));
+               }
+           })
+       } else {
+           resolve([]);
+       }
+    });
+}
+
+function getOnlineChildren (collection, parent) {
+    return new Promise(function (resolve, reject) {
+        if (parent.get("Id").indexOf("local_") == -1) {
+            collection.parent = parent.get("Id");
+            collection.doCacheSearch = true;
+            collection.fetch({
+                success: function () {
+                    var ret = [];
+                    for (var i = 0; i < collection.length; i++) {
+                        var m = collection.at(i);
+                        ret.push(m);
+                    }
+                    resolve(ret);
+                }, error: function (model, error) {
+                    reject("Error occured fetching online-created children: " + JSON.stringify(error));
+                }
+            })
+        } else {
+            resolve([]);
+        }
+    });
+}
+
 // format an html datetime into Salesforce's format
 function formatDateTimeForSF (datetime) {
     return datetime + ':0.0000Z';

@@ -278,18 +278,20 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         "click .back": "goBack",
         "change": "change",
         "click .save": "save",
-        "click .merge": "saveMerge",
-        "click .overwrite": "saveOverwrite",
-        "click .toggleDelete": "toggleDelete"
+        "click .toggleDelete": "toggleDelete",
+        "click .camera": "takePhoto"
     },
 
     initialize: function() {
         this.locked = false;
+        this.attachments = new app.models.AttachmentCollection;
         this.offlineTogglerView = new app.views.OfflineToggler({model: app.offlineTracker});
         app.offlineTracker.on("change:isOnline", this.render, this);
     },
 
     render: function(eventName) {
+        var imgs = [];
+        this.attachments = new app.models.AttachmentCollection;
         this.action = (null == this.model.id) ? "Add" : "Edit";
         if (this.action == "Add") {
             switch (app.searchPage.getType()) {
@@ -351,9 +353,36 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                         attributes: {type: "Activity_Form__c"}
                     });
             }
+        } else {
+            var that = this;
+            //get photos from cache
+            this.attachments = [];
+            getOnlineChildren(new app.models.AttachmentCollection, this.model).then(function (result) {
+                that.attachments = that.attachments.concat(result);
+                getOfflineChildren(new app.models.AttachmentCollection, that.model).then(function (result) {
+                    that.attachments = that.attachments.concat(result);
+
+                    for (var i = 0; i < that.attachments.length; i++) {
+                        var ret = {};
+                        ret.src = "data:image/jpeg;base64," + that.attachments[i].get("Body");
+                        ret.name = that.attachments[i].get("Name");
+                        ret.parent = that.attachments[i].get("ParentId");
+                        ret.id = that.attachments[i].get("Id");
+                        imgs.push(ret);
+                    }
+
+                    $(that.el).html(that.template(_.extend({action: that.action, imgs: imgs}, that.model.toJSON())));
+                }, function (reason) {
+                    alert(reason);
+                    console.log(reason);
+                })
+            }, function (reason) {
+                alert(reason);
+                console.log(reason);
+            });
         }
         this.backAction = app.router.getLastPage() || "#";
-        $(this.el).html(this.template(_.extend({action: this.action}, this.model.toJSON())));
+        $(this.el).html(this.template(_.extend({action: this.action, imgs: imgs}, this.model.toJSON())));
         this.offlineTogglerView.setElement($("#offlineStatusPage", this.el)).render();
         var online = app.offlineTracker.get("isOnline");
         $(".merge", this.el).hide();
@@ -416,15 +445,37 @@ app.views.EditActivityFormPage = Backbone.View.extend({
             cacheMode: cacheMode,
             mergeMode: mergeMode,
             success: function(file) {
-                that.locked = false;
-                if (that.action == "Edit") {
-                    app.router.navigate(that.backAction, {trigger:true});
+                // save attachment to server if we're online - they were already saved to the cache
+                if (app.offlineTracker.get("isOnline")) {
+                    var saveHelper = function (record, args, success, failure) {
+                        record.save(null, {
+                            success: function () {
+                                success();
+                            },
+                            error: function () {
+                                failure();
+                            }
+                        });
+                    };
+                    asyncForEach(that.attachments, saveHelper, {}, function (successes, failures) {
+                        that.locked = false;
+                        if (failures.length > 0) {
+                            alert("Error saving attachments: " + JSON.stringify(failures[0]));
+                            console.log("Error saving attachments: " + JSON.stringify(failures[0]));
+                        } else {
+                            app.router.navigate("#", {trigger: true});
+                        }
+                    });
                 } else {
-                    app.router.navigate("#", {trigger:true}
-                    );
+                    that.locked = false;
+                    app.router.navigate("#", {trigger: true});
                 }
             },
-            error: function(data, err, options) { that.locked = false; that.handleError(new Force.Error(err)); }
+            error: function(data, err, options) {
+                that.locked = false;
+                alert("Error saving record: " + err.responseText);
+                that.handleError(new Force.Error(err));
+            }
         };
     },
 
@@ -432,16 +483,8 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         // prevent multi saves from button mashing
         if (!this.locked) {
             this.locked = true;
-            this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_FAIL_IF_CHANGED));
+            this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_ACCEPT_YOURS));
         }
-    },
-
-    saveMerge: function() {
-        this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_ACCEPT_YOURS));
-    },
-
-    saveOverwrite: function() {
-        this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.OVERWRITE));
     },
 
     toggleDelete: function() {
@@ -459,6 +502,30 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     alert("Failed to delete form: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
                 }
             });
+        }
+    },
+
+    takePhoto: function () {
+        var that = this;
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL
+        });
+
+        function onSuccess(imageData) {
+            that.model.save(null, {success: function () {
+                var attachment = new app.models.Attachment({ParentId: that.model.get("Id"), Name: currentDateTime(), Body: imageData});
+                attachment.save(null, {success: function () {
+                    that.render();
+                }, error: function (err) {
+                    alert("Error saving photo: " + err);
+                }, cacheMode: Force.CACHE_MODE.CACHE_ONLY});
+            }, error: function (error) {
+                alert("Record save failed: " + error);
+            }});
+        }
+
+        function onFail(message) {
+            alert('Photo caputre failed: ' + message);
         }
     }
 });

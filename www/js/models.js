@@ -35,11 +35,48 @@ app.models.ActivityFormAnswerCollection = Force.SObjectCollection.extend({
     }
 });
 
+// Models to hold photos taken of incidents
+app.models.Attachment = Force.SObject.extend({
+    sobjectType: "Attachment",
+    fieldlist: ["Id", "ParentId", "Body", "Name"],
+    relationshipField: "ParentId",
+    cache: function () { return app.photoCache; },
+    cacheMode: function (method) {
+        if (!app.offlineTracker.get("isOnline")) {
+            return Force.CACHE_MODE.CACHE_ONLY;
+        }
+        else {
+            return (method == "read" ? Force.CACHE_MODE.CACHE_FIRST : Force.CACHE_MODE.SERVER_FIRST);
+        }
+    }
+});
+
+app.models.AttachmentCollection = Force.SObjectCollection.extend({
+    model: app.models.Attachment,
+    fieldlist: ["Id", "ParentId", "Body", "Name"],
+    parent: "",
+    doCacheSearch: false,
+    cache: function () { return app.photoCache; },
+    config: function () {
+        // Offline or cache flag: do a cache query
+        if (!app.offlineTracker.get("isOnline") || this.doCacheSearch) {
+            return {type:"cache", cacheQuery:{queryType:"smart", smartSql:"SELECT {attachment:_soup} FROM {attachment} WHERE {attachment:ParentId} LIKE '" + this.parent + "'", pageSize:25}};
+        }
+        // Online
+        else {
+            // do a full query
+            return {
+                type: "soql",
+                query: "SELECT " + this.fieldlist.join(",") + " FROM Attachment WHERE ParentId in ('" + this.parent + "')"
+            };
+        }
+    }
+});
 
 // Activity Form Model and Collection (requires Activity Form Answer models to be defined first)
 app.models.ActivityForm = Force.SObject.extend({
     sobjectType: "Activity_Form__c",
-    children: [new app.models.ActivityFormAnswerCollection],
+    children: [new app.models.ActivityFormAnswerCollection, new app.models.AttachmentCollection],
     fieldlist: function(method) {
         return method == "read"
             ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"]
@@ -74,7 +111,6 @@ app.models.ActivityFormCollection = Force.SObjectCollection.extend({
     config: function() {
         // Offline: do a cache query
         if (!app.offlineTracker.get("isOnline")) {
-            // Not using like query because it does a case-sensitive sort
             return {type:"cache", cacheQuery:{queryType:"smart", smartSql:"SELECT {activity_form__c:_soup} FROM {activity_form__c} WHERE {activity_form__c:Form_Group__c} LIKE '" + (this.key == null ? "" : this.key) + "%' ORDER BY LOWER({activity_form_c:Form_Group__c})", pageSize:25}};
         }
         // Online
@@ -90,7 +126,6 @@ app.models.ActivityFormCollection = Force.SObjectCollection.extend({
         }
     }
 });
-
 
 // Online/Offline Tracker
 app.models.OfflineTracker = Backbone.Model.extend({

@@ -35,10 +35,10 @@
         </footer>
         <div class="content">
             <a href="#add/incident">
-                <div class="btn btn-link">Incident</div>
+                <div class="btn btn-block">Incident</div>
             </a>
             <a href="#add/nearMiss">
-                <div class="btn btn-link">Near Miss</div>
+                <div class="btn btn-block">Near Miss</div>
             </a>
         </div>
     </script>
@@ -137,11 +137,9 @@
 
         <div class="content">
             <div class="content-padded">
-
                 <!-- Swap template based on form type -->
                 <% if (Form_Group__c == "Incident") { %>
                 <div class="input-group">
-                    <!-- TODO: add picture capability -->
                     <div class="input-row" id="formIncident_Date_Time__c">
                         <label>Time of Incident</label>
                         <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="Incident_Date_Time__c" value="<%= Incident_Date_Time__c %>" />
@@ -163,10 +161,22 @@
                         <input style="border-left: 1px solid black" type="text" name="Incident_Description__c" value="<%= Incident_Description__c %>" />
                         <span class="error" id="formIncident_Description__cError" />
                     </div>
+                    <div class="input-row" id="formPhoto">
+                        <a class="btn btn-block camera">Add Photo</a>
+                    </div>
+                    <span>Photos: </span>
+                    <%_.forEach(imgs, function (i) {%>
+                    <div class="input-row" id="photos">
+                        <img height=50 width=50 src="<%= i.src %>">
+                        <%= i.name %>
+                        <a href="#delete/photo/<%= i.id %>">
+                            <span class="btn btn-nav">Delete</span>
+                        </a>
+                    </div>
+                    <% }) %>
                 </div>
                 <% } else if (Form_Group__c == "Near Miss") { %>
                 <div class="input-group">
-                    <!-- TODO: add picture capability -->
                     <div class="input-row" id="formIncident_Date_Time__c">
                         <label>Time of Incident</label>
                         <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="Incident_Date_Time__c" value="<%= Incident_Date_Time__c %>" />
@@ -177,13 +187,23 @@
                         <input style="border-left: 1px solid black" type="text" name="Incident_Description__c" value="<%= Incident_Description__c %>" />
                         <span class="error" id="formIncident_Description__cError" />
                     </div>
+                    <div class="input-row" id="formPhoto">
+                        <a class="btn btn-block camera">Add Photo</a>
+                    </div>
+                    <span>Photos: </span>
+                    <%_.forEach(imgs, function (i) {%>
+                    <div class="input-row" id="photos">
+                            <img height=50 width=50 src="<%= i.src %>">
+                            <%= i.name %>
+                            <a href="#delete/photo/<%= i.id %>">
+                                <span class="btn btn-nav">Delete</span>
+                            </a>
+                    </div>
+                    <% }) %>
                 </div>
                 <% } %>
-
             </div>
-            <div class="content-padded">
-                <a class="btn btn-primary save">Save</a>
-            </div>
+            <a class="btn btn-primary save">Save</a>
         </div>
     </script>
 

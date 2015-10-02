@@ -56,7 +56,6 @@ function appStart(creds, refresh)
     // Force init
     Force.init(creds, null, null, refresh);
 
-
     // Register for push
     // cordova.require("com.salesforce.util.push").registerPushNotificationHandler(
     //     function(message) {
