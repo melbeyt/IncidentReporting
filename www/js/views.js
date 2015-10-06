@@ -331,6 +331,30 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     });
                     break;
                 case "safetyObservation":
+                    this.model.set({
+                        __local__: false,
+                        'RecordTypeId': app.SORecordType,
+                        Form_Group__c: "Safety Observation",
+                        Job__c: "",
+                        Specific_Job_Type__c: "",
+                        Task__c: "",
+                        Eye_Face__c: "Not Observed",
+                        Hearing__c: "Not Observed",
+                        Foot__c: "Not Observed",
+                        Respiratory__c: "Not Observed",
+                        Head__c: "Not Observed",
+                        Hand_Arm__c: "Not Observed",
+                        Fall_Protection__c: "Not Observed",
+                        Proper_Equipment_Used__c: "Not Observed",
+                        Adequate__c: "Not Observed",
+                        Equipment_Stored_Correctly__c: "Not Observed",
+                        General_Comments__c: "",
+                        Observations__c: "",
+                        Potential_Injury_or_Hazard__c: "",
+                        Recommendations__c: "",
+                        LastModifiedDate: "",
+                        attributes: {type: "Activity_Form__c"}
+                    });
                     break;
                 case "JSA":
                     break;
@@ -382,8 +406,10 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                 console.log(reason);
             });
         }
+        var options = ["Safe", "At Risk", "Not Observed"];
+        var consequences = ["", "Serious", "Minor", "Minimal", "Ergonomic"];
         this.backAction = app.router.getLastPage() || "#";
-        $(this.el).html(this.template(_.extend({action: this.action, imgs: imgs}, this.model.toJSON())));
+        $(this.el).html(this.template(_.extend({action: this.action, options: options, consequences: consequences, imgs: imgs}, this.model.toJSON())));
         this.offlineTogglerView.setElement($("#offlineStatusPage", this.el)).render();
         var online = app.offlineTracker.get("isOnline");
         $(".merge", this.el).hide();

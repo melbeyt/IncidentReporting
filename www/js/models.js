@@ -79,8 +79,15 @@ app.models.ActivityForm = Force.SObject.extend({
     children: [new app.models.ActivityFormAnswerCollection, new app.models.AttachmentCollection],
     fieldlist: function(method) {
         return method == "read"
-            ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"]
-            : ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c"];
+            ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c",
+                "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "Eye_Face__c", "Hearing__c", "Foot__c",
+                "Respiratory__c", "Head__c", "Hand_Arm__c", "Fall_Protection__c", "Proper_Equipment_Used__c", "Adequate__c",
+                "Equipment_Stored_Correctly__c", "General_Comments__c", "Observations__c", "Potential_Injury_or_Hazard__c", "Recommendations__c",
+                "LastModifiedBy.Name", "LastModifiedDate"]
+            : ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c",
+                "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "Eye_Face__c", "Hearing__c", "Foot__c",
+                "Respiratory__c", "Head__c", "Hand_Arm__c", "Fall_Protection__c", "Proper_Equipment_Used__c", "Adequate__c",
+                "Equipment_Stored_Correctly__c", "General_Comments__c", "Observations__c", "Potential_Injury_or_Hazard__c", "Recommendations__c"];
     },
     cache: function() { return app.cache;},
     cacheForOriginals: function() { return app.cacheForOriginals;},
@@ -96,7 +103,11 @@ app.models.ActivityForm = Force.SObject.extend({
 
 app.models.ActivityFormCollection = Force.SObjectCollection.extend({
     model: app.models.ActivityForm,
-    fieldlist: ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c", "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "LastModifiedBy.Name", "LastModifiedDate"],
+    fieldlist: ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c",
+                "Inc__c", "Incident_Description__c", "Equipment_in_use__c", "Specific_Job_Type__c", "Eye_Face__c", "Hearing__c", "Foot__c",
+                "Respiratory__c", "Head__c", "Hand_Arm__c", "Fall_Protection__c", "Proper_Equipment_Used__c", "Adequate__c",
+                "Equipment_Stored_Correctly__c", "General_Comments__c", "Observations__c", "Potential_Injury_or_Hazard__c", "Recommendations__c",
+                "LastModifiedBy.Name", "LastModifiedDate"],
     cache: function() { return app.cache},
     cacheForOriginals: function() { return app.cacheForOriginals;},
 

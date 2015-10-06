@@ -12,6 +12,10 @@ function asyncForEach (collection, method, args, callback) {
     var successes = [];
     var errors = [];
     var promises = [];
+    if (collection.length == 0) {
+        callback([], []);
+        return;
+    }
     for (var c in collection) {
         promises.push(new Promise(function (resolve, reject) {
             // do a thing, possibly async, then…

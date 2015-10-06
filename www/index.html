@@ -41,6 +41,9 @@
             <a href="#add/nearMiss">
                 <div class="btn btn-block">Near Miss</div>
             </a>
+            <a href="#add/safetyObservation">
+                <div class="btn btn-block">Safety Observation</div>
+            </a>
         </div>
     </script>
 
@@ -148,13 +151,13 @@
                     </div>
                     <div class="input-row" id="formConsequence__c">
                         <label style="width:35%; padding-left: 6px; padding-right: 6px">Consequence</label>
-                        <input style="border-left: 1px solid black; height:100%; width:65%" list="Consequence__c" name="Consequence__c"  value="<%= Consequence__c %>">
-                        <datalist id="Consequence__c">
-                            <option value="Serious">Serious</option>
-                            <option value="Minor">Minor</option>
-                            <option value="Minimal">Minimal</option>
-                            <option value="Ergonomic">Ergonomic</option>
-                        </datalist>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Consequence__c" id="Consequence__c">
+                            <% if (consequences && consequences.length > 0) { %>
+                            <% _.forEach(consequences, function (c) { %>
+                            <option value="<%= c %>" <% if(Consequence__c == c){ print(' selected'); } %> > <%= c %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
                         <span class="error" id="formConsequence__cError" />
                     </div>
                     <div class="input-row" id="formIncident_Description__c">
@@ -202,6 +205,159 @@
                     </div>
                     <% }) %>
                 </div>
+                <% } else if (Form_Group__c == "Safety Observation") { %>
+                <div class="input-group">
+                    <b>Protective Gear</b>
+                    <div class="input-row">
+                        <label>Eye/Face</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Eye_Face__c" id="Eye_Face__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formEye_Face__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Hearing</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Hearing__c" id="Hearing__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Hearing__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formHearing__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Foot</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Foot__c" id="Foot__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Foot__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formFoot__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Respiratory</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Respiratory__c" id="Respiratory__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Respiratory__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formRespiratory__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Head</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Head__c" id="Head__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formHead__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Hand/Arm</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Hand_Arm__c" id="Hand_Arm__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Hand_Arm__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formHand_Arm__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Fall Protection</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Fall_Protection__c" id="Fall_Protection__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Fall_Protection__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formFall_Protection__cError" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <b>Equipment</b>
+                    <div class="input-row">
+                        <label>Proper Equipment Used</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Proper_Equipment_Used__c" id="Proper_Equipment_Used__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Proper_Equipment_Used__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formProper_Equipment_Used__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Adequate Equipment Inspections</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Adequate__c" id="Adequate__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Adequate__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formAdequate__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Equipment Stored Correctly</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Equipment_Stored_Correctly__c" id="Equipment_Stored_Correctly__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(Equipment_Stored_Correctly__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formEquipment_Stored_Correctly__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>General Comments</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="General_Comments__c" value="<%= General_Comments__c %>"/>
+                        <span class="error" id="formGeneral_Comments__cError" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <b>Observations</b>
+                    <div class="input-row">
+                        <label>Observations</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Observations__c" value="<%= Observations__c %>"/>
+                        <span class="error" id="formObservations__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Potential Injury or Hazard</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Potential_Injury_or_Hazard__c" value="<%= Potential_Injury_or_Hazard__c %>"/>
+                        <span class="error" id="formPotential_Injury_or_Hazard__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Recommendations</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Recommendations__c" value="<%= Recommendations__c %>"/>
+                        <span class="error" id="formRecommendations__cError" />
+                    </div>
+                </div>
+                <div class="input-row" id="formPhoto">
+                    <a class="btn btn-block camera">Add Photo</a>
+                </div>
+                <span>Photos: </span>
+                <%_.forEach(imgs, function (i) {%>
+                <div class="input-row" id="photos">
+                    <img height=50 width=50 src="<%= i.src %>">
+                    <%= i.name %>
+                    <a href="#delete/photo/<%= i.id %>">
+                        <span class="btn btn-nav">Delete</span>
+                    </a>
+                </div>
+                <% }) %>
                 <% } %>
             </div>
             <a class="btn btn-primary save">Save</a>
