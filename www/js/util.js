@@ -153,12 +153,22 @@ function getOnlineChildren (collection, parent) {
 
 // format an html datetime into Salesforce's format
 function formatDateTimeForSF (datetime) {
-    return datetime + ':0.0000Z';
+    if (datetime && datetime.indexOf('.') > -1) {
+        return datetime + 'Z';
+    } else if (datetime && datetime.indexOf('.') == -1) {
+        return datetime + ':00.00Z';
+    } else {
+        return '';
+    }
 }
 
 // turn a Salesforce datetime string and format for javascript
 function formatDateTimeForJS (datetime) {
-    return datetime.substring(0, datetime.length - 8);
+    if (datetime.indexOf('.') > -1) {
+        return datetime.substring(0, datetime.indexOf('.'));
+    } else {
+        return '';
+    }
 }
 
 // get the current datetime as a Salesforce-formatted string
