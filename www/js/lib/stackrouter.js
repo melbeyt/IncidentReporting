@@ -10,12 +10,12 @@
         },
 
         getLastPage: function() {
-            return (this.pageHistory != null && this.pageHistory.length > 0 ? this.pageHistory[this.pageHistory.length - 1] : "#");
+            return (this.pageHistory != null && this.pageHistory.length > 0 ? this.pageHistory[this.pageHistory.length - 1] : "main");
         },
 
         slidePage: function(view) {
             var page = view.render();
-            console.log("+ Navigating to [" + window.location.hash + "]");
+            console.log("+ Navigating to [" + view.name + "]");
             var slideFrom,
             that = this;
 
@@ -23,19 +23,19 @@
                 // If there is no current page (app just started) -> No transition: Position new page in the view port
                 $(page.el).attr('class', 'page stage-center');
                 $('#content').append(page.el);
-                this.pageHistory = [window.location.hash];
+                this.pageHistory = [view.name];
                 this.currentPage = page;
                 return;
             }
 
-            if (window.location.hash === "") {
-                // Always apply a Back (slide from left) transition when we go back 
+            if (view.name === "main") {
+                // Always apply a Back (slide from left) transition when we go back to the main page
                 slideFrom = "left";
                 $(page.el).attr('class', 'page transition stage-left');
                 // Reinitialize page history
-                this.pageHistory = [window.location.hash];
+                this.pageHistory = ["main"];
             } 
-            else if (this.pageHistory.length > 1 && window.location.hash === this.pageHistory[this.pageHistory.length - 2]) {
+            else if (this.pageHistory.length > 1 && view.name === this.pageHistory[this.pageHistory.length - 2]) {
                 // The new page is the same as the previous page -> Back transition
                 slideFrom = "left";
                 $(page.el).attr('class', 'page transition stage-left');
@@ -45,7 +45,10 @@
                 // Forward transition (slide from right)
                 slideFrom = "right";
                 $(page.el).attr('class', 'page transition stage-right');
-                this.pageHistory.push(window.location.hash);
+                // don't push duplicate pages
+                if (this.pageHistory[this.pageHistory.length - 1] !== view.name) {
+                    this.pageHistory.push(view.name);
+                }
             }
 
             $('#content').append(page.el);

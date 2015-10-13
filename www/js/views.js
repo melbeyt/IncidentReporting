@@ -1,6 +1,7 @@
 // -------------------------------------------------- The Views ---------------------------------------------------- //
 // Main landing page from which users can select a form type; also handles some initializations
 app.views.MainPage = Backbone.View.extend({
+    name: "main",
     template: _.template($("#landing-page").html()),
 
     events: {
@@ -49,7 +50,7 @@ app.views.MainPage = Backbone.View.extend({
 
 // Page to search a collection (location in this case) to associate with a form
 app.views.SearchPage = Backbone.View.extend({
-
+    name: "search",
     template: _.template($("#search-page").html()),
 
     events: {
@@ -99,7 +100,7 @@ app.views.SearchPage = Backbone.View.extend({
     },
 
     back: function () {
-        app.router.navigate("#", {trigger:true});
+        app.router.slidePage(app.mainPage);
     }
 });
 
@@ -194,7 +195,7 @@ app.views.OfflineToggler = Backbone.View.extend({
     },
 
     syncFiles: function() {
-        app.router.navigate("#sync", {trigger:true});
+        app.router.slidePage(app.syncPage);
     }
 
 
@@ -202,7 +203,7 @@ app.views.OfflineToggler = Backbone.View.extend({
 
 // Page to sync all locally modified records
 app.views.SyncPage = Backbone.View.extend({
-
+    name: "sync",
     template: _.template($("#sync-page").html()),
 
     events: {
@@ -223,7 +224,7 @@ app.views.SyncPage = Backbone.View.extend({
     },
 
     goBack: function(event) {
-        app.router.navigate("#", {trigger:true});
+        app.router.slidePage(app.mainPage);
     },
 
     // todo: be sure we're adding all locally modified records to sync collection
@@ -243,7 +244,7 @@ app.views.SyncPage = Backbone.View.extend({
             //record.get("__locally_deleted__") ? record.destroy(options)
             saveOne(record, null, function () {
                 if (that.model.length == 0) {
-                    app.router.navigate("#", {trigger:true});
+                    app.router.slidePage(app.mainPage);
                 }
                 else {
                     that.sync();
@@ -269,9 +270,9 @@ app.views.SyncPage = Backbone.View.extend({
 
 // Page to edit activity forms (or add, for a new one)
 app.views.EditActivityFormPage = Backbone.View.extend({
-
+    name: "form",
     action: null,
-    backAction: "#",
+    backAction: null,
 
     template: _.template($("#edit-form-page").html()),
 
@@ -292,6 +293,8 @@ app.views.EditActivityFormPage = Backbone.View.extend({
 
     render: function(eventName) {
         var imgs = [];
+        var options = ["Safe", "At Risk", "Not Observed"];
+        var consequences = ["", "Serious", "Minor", "Minimal", "Ergonomic"];
         this.attachments = new app.models.AttachmentCollection;
         this.action = (null == this.model.id) ? "Add" : "Edit";
         if (this.action == "Add") {
@@ -300,60 +303,60 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     this.model.set({
                         __local__: false,
                         'RecordTypeId': app.IncidentRecordType,
-                        Form_Group__c: "Incident",
-                        Job__c: "",
-                        Specific_Job_Type__c: "",
-                        Task__c: "",
-                        Incident_Description__c: "",
-                        Consequence__c: "",
-                        Equipment_in_use__c: "",
-                        Incident_Date_Time__c: "",
-                        Inc__c: currentDateTime(),
+                        JSA_HSE__Form_Group__c: "Incident",
+                        JSA_HSE__Job__c: "",
+                        JSA_HSE__Specific_Job_Type__c: "",
+                        JSA_HSE__Task__c: "",
+                        JSA_HSE__Incident_Description__c: "",
+                        JSA_HSE__Consequence__c: "",
+                        JSA_HSE__Equipment_in_use__c: "",
+                        JSA_HSE__Incident_Date_Time__c: "",
+                        JSA_HSE__Inc__c: currentDateTime(),
                         LastModifiedDate: "",
-                        attributes: {type: "Activity_Form__c"}
+                        attributes: {type: "JSA_HSE__Activity_Form__c"}
                     });
                     break;
                 case "nearMiss":
                     this.model.set({
                         __local__: false,
                         'RecordTypeId': app.NearMissRecordType,
-                        Form_Group__c: "Near Miss",
-                        Job__c: "",
-                        Specific_Job_Type__c: "",
-                        Task__c: "",
-                        Incident_Description__c: "",
-                        Consequence__c: "",
-                        Equipment_in_use__c: "",
-                        Incident_Date_Time__c: "",
-                        Inc__c: currentDateTime(),
+                        JSA_HSE__Form_Group__c: "Near Miss",
+                        JSA_HSE__Job__c: "",
+                        JSA_HSE__Specific_Job_Type__c: "",
+                        JSA_HSE__Task__c: "",
+                        JSA_HSE__Incident_Description__c: "",
+                        JSA_HSE__Consequence__c: "",
+                        JSA_HSE__Equipment_in_use__c: "",
+                        JSA_HSE__Incident_Date_Time__c: "",
+                        JSA_HSE__Inc__c: currentDateTime(),
                         LastModifiedDate: "",
-                        attributes: {type: "Activity_Form__c"}
+                        attributes: {type: "JSA_HSE__Activity_Form__c"}
                     });
                     break;
                 case "safetyObservation":
                     this.model.set({
                         __local__: false,
                         'RecordTypeId': app.SORecordType,
-                        Form_Group__c: "Safety Observation",
-                        Job__c: "",
-                        Specific_Job_Type__c: "",
-                        Task__c: "",
-                        Eye_Face__c: "Not Observed",
-                        Hearing__c: "Not Observed",
-                        Foot__c: "Not Observed",
-                        Respiratory__c: "Not Observed",
-                        Head__c: "Not Observed",
-                        Hand_Arm__c: "Not Observed",
-                        Fall_Protection__c: "Not Observed",
-                        Proper_Equipment_Used__c: "Not Observed",
-                        Adequate__c: "Not Observed",
-                        Equipment_Stored_Correctly__c: "Not Observed",
-                        General_Comments__c: "",
-                        Observations__c: "",
-                        Potential_Injury_or_Hazard__c: "",
-                        Recommendations__c: "",
+                        JSA_HSE__Form_Group__c: "Safety Observation",
+                        JSA_HSE__Job__c: "",
+                        JSA_HSE__Specific_Job_Type__c: "",
+                        JSA_HSE__Task__c: "",
+                        JSA_HSE__Eye_Face__c: "Not Observed",
+                        JSA_HSE__Hearing__c: "Not Observed",
+                        JSA_HSE__Foot__c: "Not Observed",
+                        JSA_HSE__Respiratory__c: "Not Observed",
+                        JSA_HSE__Head__c: "Not Observed",
+                        JSA_HSE__Hand_Arm__c: "Not Observed",
+                        JSA_HSE__Fall_Protection__c: "Not Observed",
+                        JSA_HSE__Proper_Equipment_Used__c: "Not Observed",
+                        JSA_HSE__Adequate__c: "Not Observed",
+                        JSA_HSE__Equipment_Stored_Correctly__c: "Not Observed",
+                        JSA_HSE__General_Comments__c: "",
+                        JSA_HSE__Observations__c: "",
+                        JSA_HSE__Potential_Injury_or_Hazard__c: "",
+                        JSA_HSE__Recommendations__c: "",
                         LastModifiedDate: "",
-                        attributes: {type: "Activity_Form__c"}
+                        attributes: {type: "JSA_HSE__Activity_Form__c"}
                     });
                     break;
                 case "JSA":
@@ -365,17 +368,17 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     this.model.set({
                         __local__: false,
                         'RecordTypeId': app.IncidentRecordType,
-                        Form_Group__c: "Incident",
-                        Job__c: "",
-                        Specific_Job_Type__c: "",
-                        Task__c: "",
-                        Incident_Description__c: "",
-                        Consequence__c: "",
-                        Equipment_in_use__c: "",
-                        Incident_Date_Time__c: "",
-                        Inc__c: currentDateTime(),
+                        JSA_HSE__Form_Group__c: "Incident",
+                        JSA_HSE__Job__c: "",
+                        JSA_HSE__Specific_Job_Type__c: "",
+                        JSA_HSE__Task__c: "",
+                        JSA_HSE__Incident_Description__c: "",
+                        JSA_HSE__Consequence__c: "",
+                        JSA_HSE__Equipment_in_use__c: "",
+                        JSA_HSE__Incident_Date_Time__c: "",
+                        JSA_HSE__Inc__c: currentDateTime(),
                         LastModifiedDate: "",
-                        attributes: {type: "Activity_Form__c"}
+                        attributes: {type: "JSA_HSE__Activity_Form__c"}
                     });
             }
         } else {
@@ -396,7 +399,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                         imgs.push(ret);
                     }
 
-                    $(that.el).html(that.template(_.extend({action: that.action, imgs: imgs}, that.model.toJSON())));
+                    $(that.el).html(that.template(_.extend({action: that.action, options: options, consequences: consequences, imgs: imgs}, that.model.toJSON())));
                 }, function (reason) {
                     alert(reason);
                     console.log(reason);
@@ -406,9 +409,11 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                 console.log(reason);
             });
         }
-        var options = ["Safe", "At Risk", "Not Observed"];
-        var consequences = ["", "Serious", "Minor", "Minimal", "Ergonomic"];
-        this.backAction = app.router.getLastPage() || "#";
+        
+        if (this.model.has("JSA_HSE__Incident_Date_Time__c")) {
+            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForJS(this.model.get("JSA_HSE__Incident_Date_Time__c")));
+        }
+        this.backAction = app.nameToViewMap[app.router.getLastPage()] || app.mainPage;
         $(this.el).html(this.template(_.extend({action: this.action, options: options, consequences: consequences, imgs: imgs}, this.model.toJSON())));
         this.offlineTogglerView.setElement($("#offlineStatusPage", this.el)).render();
         var online = app.offlineTracker.get("isOnline");
@@ -430,15 +435,12 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         var target = evt.target;
         var type = target.type;
         var value = target.value;
-        if (type === "datetime-local") {
-            value = formatDateTimeForSF(target.value);
-        }
         this.model.set(target.name, value);
         $("#form" + target.name + "Error", this.el).hide();
     },
 
     goBack: function(event) {
-        app.router.navigate(this.backAction ? this.backAction : "#", {trigger:true});
+        app.router.slidePage(this.backAction ? this.backAction : app.mainPage);
     },
 
     showFieldError: function(field, message, error) {
@@ -490,12 +492,12 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                             alert("Error saving attachments: " + JSON.stringify(failures[0]));
                             console.log("Error saving attachments: " + JSON.stringify(failures[0]));
                         } else {
-                            app.router.navigate("#", {trigger: true});
+                            app.router.slidePage(app.mainPage);
                         }
                     });
                 } else {
                     that.locked = false;
-                    app.router.navigate("#", {trigger: true});
+                    app.router.slidePage(app.mainPage);
                 }
             },
             error: function(data, err, options) {
@@ -510,11 +512,13 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         // prevent multi saves from button mashing
         if (!this.locked) {
             this.locked = true;
+            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForSF(this.model.get("JSA_HSE__Incident_Date_Time__c")))
             this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_ACCEPT_YOURS));
         }
     },
 
     toggleDelete: function() {
+        var that = this;
         if (this.model.get("__locally_deleted__")) {
             this.model.set("__locally_deleted__", false);
             this.model.save(null, this.getSaveOptions(null, Force.CACHE_MODE.CACHE_ONLY));
@@ -522,7 +526,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         else {
             this.model.destroy({
                 success: function(data) {
-                    app.router.navigate("#", {trigger:true});
+                    app.router.slidePage(app.mainPage);
                 },
                 error: function(data, err, options) {
                     var error = new Force.Error(err);
@@ -540,7 +544,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
 
         function onSuccess(imageData) {
             that.model.save(null, {success: function () {
-                var attachment = new app.models.Attachment({ParentId: that.model.get("Id"), Name: currentDateTime(), Body: imageData});
+                var attachment = new app.models.Attachment({ParentId: that.model.get("Id"), Name: currentDateTime() + '.jpg', Body: imageData});
                 attachment.save(null, {success: function () {
                     that.render();
                 }, error: function (err) {

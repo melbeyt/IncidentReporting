@@ -1,6 +1,6 @@
 {
-  "remoteAccessConsumerKey": "3MVG9ahGHqp.k2_wGe2V1Z7EKlShSqtl.EiHJh0IQmM.ldK5dKpji707G5V8s3LgEfHJtTB46_xEcw.ZtQ.Cp",
-  "oauthRedirectURI": "https://test.salesforce.com/services/oauth2/success",
+  "remoteAccessConsumerKey": "3MVG9xOCXq4ID1uEzj.xI2Cj0cOw7nD5rF7lUPaQBAZhappxMZcRsWK9ij6uCj6Bs4RjuqKrfAZMP85IRd2in",
+  "oauthRedirectURI": "https://login.salesforce.com/services/oauth2/success",
   "oauthScopes": [
     "web",
     "api",

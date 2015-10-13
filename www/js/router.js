@@ -6,7 +6,7 @@ app.Router = Backbone.StackRouter.extend({
         "": "mainPage",
         "list": "list",
         "add/:type": "list",
-        "add/form/:id/:fromServer": "addForm",
+        "add-form/:id/:fromServer": "addForm",
         "edit/forms/:id/:fromServer": "editActivityForm",
         "delete/photo/:Id": "deletePhoto",
         "sync":"sync"
@@ -15,8 +15,8 @@ app.Router = Backbone.StackRouter.extend({
     setupCaches: function() {
         // Cache for offline support
         app.cache = new Force.StoreCache("activity_form__c", [ {path:"RecordTypeId", type:"string"}, {path: "LastModifiedDate", type:"string"} ]);
-        app.locationCache = new Force.StoreCache("location__c", [ {path: "Location_ID__c", type:"string"} ]);
-        app.answerCache = new Force.StoreCache("activity_form_answer__c", [ {path:"Activity_Form__c", type: "string"}, {path:"Question_Order__c", type: "integer"}]);
+        app.locationCache = new Force.StoreCache("location__c", [ {path: "JSA_HSE__Location_ID__c", type:"string"} ]);
+        app.answerCache = new Force.StoreCache("activity_form_answer__c", [ {path:"JSA_HSE__Activity_Form__c", type: "string"}, {path:"JSA_HSE__Question_Order__c", type: "integer"}]);
         app.photoCache = new Force.StoreCache("attachment", [{path:"ParentId", type:"string"}]);
 
         // Cache for conflict detection
@@ -48,6 +48,13 @@ app.Router = Backbone.StackRouter.extend({
         app.searchPage = new app.views.SearchPage({model: app.searchResults});
         app.syncPage = new app.views.SyncPage({model: app.localActivityForms});
         app.editPage = new app.views.EditActivityFormPage();
+
+        app.nameToViewMap = {
+            "main": app.mainPage,
+            "search": app.searchPage,
+            "sync": app.syncPage,
+            "form": app.editPage
+        };
     },
 
     mainPage: function () {
@@ -65,7 +72,7 @@ app.Router = Backbone.StackRouter.extend({
     },
 
     addForm: function(id) {
-        app.editPage.model = new app.models.ActivityForm({Id: null, Location__c:id});
+        app.editPage.model = new app.models.ActivityForm({Id: null, JSA_HSE__Location__c:id});
         this.slidePage(app.editPage);
     },
 
@@ -75,7 +82,7 @@ app.Router = Backbone.StackRouter.extend({
         form.fetch({
             success: function(data) {
                 app.editPage.model = form;
-                app.editPage.model.set("Incident_Date_Time__c", formatDateTimeForJS(form.get("Incident_Date_Time__c")));
+                app.editPage.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForJS(form.get("JSA_HSE__Incident_Date_Time__c")));
                 that.slidePage(app.editPage);
             },
             error: function(model, error) {

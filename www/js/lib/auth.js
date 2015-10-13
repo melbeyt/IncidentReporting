@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
     //Add event listeners and so forth here
     console.log("onLoad: jquery ready");
     // FastClick
-    new FastClick(document.body);
+    //new FastClick(document.body);
 
     // Container
     if (window.cordova && !cordova.interceptExec) {

@@ -153,10 +153,14 @@ function getOnlineChildren (collection, parent) {
 
 // format an html datetime into Salesforce's format
 function formatDateTimeForSF (datetime) {
-    if (datetime && datetime.indexOf('.') > -1) {
+    if (!datetime) datetime = "";
+    var numColons = datetime.split(':').length - 1;
+    if (datetime.indexOf('.') > -1) {
         return datetime + 'Z';
-    } else if (datetime && datetime.indexOf('.') == -1) {
+    } else if (datetime.indexOf('.') == -1 && numColons == 1) {
         return datetime + ':00.00Z';
+    } else if (numColons > 1) {
+        return datetime + '.00Z';
     } else {
         return '';
     }
@@ -164,7 +168,8 @@ function formatDateTimeForSF (datetime) {
 
 // turn a Salesforce datetime string and format for javascript
 function formatDateTimeForJS (datetime) {
-    if (datetime.indexOf('.') > -1) {
+    if (!datetime) datetime = "";
+    if (datetime.indexOf('.') > -1) {    
         return datetime.substring(0, datetime.indexOf('.'));
     } else {
         return '';
@@ -174,5 +179,5 @@ function formatDateTimeForJS (datetime) {
 // get the current datetime as a Salesforce-formatted string
 function currentDateTime () {
     var today = new Date();
-    return today.getFullYear() + '-' +  (today.getMonth() + 1) + '-' + today.getDate() + 'T' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + '.000Z';
+    return today.getFullYear() + '-' +  (today.getMonth() + 1) + '-' + today.getDate() + 'T' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + '.00Z';
 }
