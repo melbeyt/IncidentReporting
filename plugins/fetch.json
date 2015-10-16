@@ -1,34 +1,60 @@
 {
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
     "com.salesforce": {
         "source": {
             "type": "git",
             "url": "https://github.com/forcedotcom/SalesforceMobileSDK-CordovaPlugin",
             "subdir": "."
-        }
+        },
+        "is_top_level": true,
+        "variables": {}
     },
     "org.apache.cordova.device": {
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.device"
-        }
+        },
+        "is_top_level": false,
+        "variables": {}
     },
     "com.phonegap.plugins.PushPlugin": {
         "source": {
             "type": "git",
             "url": "https://github.com/forcedotcom/PushPlugin",
             "subdir": "."
-        }
-    },
-    "org.apache.cordova.camera": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.camera"
-        }
+        },
+        "is_top_level": false,
+        "variables": {}
     },
     "org.apache.cordova.network-information": {
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.network-information"
-        }
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.statusbar"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

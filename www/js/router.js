@@ -48,6 +48,13 @@ app.Router = Backbone.StackRouter.extend({
         app.searchPage = new app.views.SearchPage({model: app.searchResults});
         app.syncPage = new app.views.SyncPage({model: app.localActivityForms});
         app.editPage = new app.views.EditActivityFormPage();
+
+        app.nameToViewMap = {
+            "main": app.mainPage,
+            "search": app.searchPage,
+            "sync": app.syncPage,
+            "form": app.editPage
+        };
     },
 
     mainPage: function () {

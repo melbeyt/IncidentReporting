@@ -1,9 +1,9 @@
-<!-- NOTE on my phone: -->
-<!--   - pictures don't save to a record -->
-<!--   - date/time doesn't work -->
-<!--   - locations don't list in actual offline -->
-<!--   - edit doesn't work -->
-<!--   - likely because my phone is running an older api -- doesn't seem to recognize promises, so those all fail (or is this because they don't get packaged?) -->
+<!-- Notes for iPad: -->
+<!--    Cordova bug occasionally crashes navigation, need to find workaround or reload ability on error page -->
+<!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
+<!--    Add feedback for saving, syncing, and creating stuff -->
+<!--    Remove ID from all list items, and cache tag from locations -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +31,7 @@
 
     <!-- --------------------------------------------- HTML TEMPLATES ------------------------------------------------- -->
     <!-- --------------------------------------- Main Landing Page Template ------------------------------------------- -->
+
     <script id="landing-page" type="text/template">
         <header class="bar bar-nav">
             <h1 class="title">Select Type of Form</h1>
@@ -123,12 +124,13 @@
         <div>
             <a href="#add/form/<%= Id %>/false">
                 <span class="important"><%= Location_ID__c.split('2015')[0] %></span>
+                <!--
                 <br/><span class="not-important"><%= Id %></span>
                 <% if (__sync_failed__) { %>
                 <span class="pull-right badge badge-negative">Failed to sync</span>
                 <% } else { %>
                 <span class="pull-right badge badge-positive">Cached</span>
-                <% } %>
+                <% } %>-->
             </a>
         </div>
     </script>
@@ -203,11 +205,11 @@
                     <span>Photos: </span>
                     <%_.forEach(imgs, function (i) {%>
                     <div class="input-row" id="photos">
-                            <img height=50 width=50 src="<%= i.src %>">
-                            <%= i.name %>
-                            <a href="#delete/photo/<%= i.id %>">
-                                <span class="btn btn-nav">Delete</span>
-                            </a>
+                        <img height=50 width=50 src="<%= i.src %>">
+                        <%= i.name %>
+                        <a href="#delete/photo/<%= i.id %>">
+                            <span class="btn btn-nav">Delete</span>
+                        </a>
                     </div>
                     <% }) %>
                 </div>

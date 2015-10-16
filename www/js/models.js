@@ -76,7 +76,7 @@ app.models.AttachmentCollection = Force.SObjectCollection.extend({
 // Activity Form Model and Collection (requires Activity Form Answer models to be defined first)
 app.models.ActivityForm = Force.SObject.extend({
     sobjectType: "Activity_Form__c",
-    children: [new app.models.ActivityFormAnswerCollection, new app.models.AttachmentCollection],
+    children: [new app.models.AttachmentCollection],
     fieldlist: function(method) {
         return method == "read"
             ? ["Id", "RecordTypeId", "Form_Group__c", "Consequence__c", "Job__c", "Task__c", "Location__c", "Incident_Date_Time__c",
