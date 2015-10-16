@@ -2,8 +2,7 @@
 <!--    Cordova bug occasionally crashes navigation, need to find workaround or reload ability on error page -->
 <!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
 <!--    Add feedback for saving, syncing, and creating stuff -->
-<!--    Remove ID from all list items, and cache tag from locations -->
-
+<!-- add options menu, remove id and cached label, figure out why search is broken -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Styling -->
     <link rel="stylesheet" href="css/ratchet.css"/>
-    <link rel="stylesheet" href="css/ratchet-theme-android.css"/>
+    <link rel="stylesheet" href="css/ratchet-theme-ios.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
 
     <!-- External Libraries -->
@@ -107,7 +106,7 @@
     <script id="form-list-item" type="text/template">
         <a href="#edit/forms/<%= Id %>/false">
             <div>
-                <span class="important"><%= Form_Group__c %></span>
+                <span class="important"><%= JSA_HSE__Form_Group__c %></span>
                 <br/><span class="not-important"><%= Id %></span>
                 <% if (__sync_failed__) { %>
                 <span class="pull-right badge badge-negative">Failed to sync</span>
@@ -122,15 +121,8 @@
 
     <script id="location-list-item" type="text/template">
         <div>
-            <a href="#add/form/<%= Id %>/false">
-                <span class="important"><%= Location_ID__c.split('2015')[0] %></span>
-                <!--
-                <br/><span class="not-important"><%= Id %></span>
-                <% if (__sync_failed__) { %>
-                <span class="pull-right badge badge-negative">Failed to sync</span>
-                <% } else { %>
-                <span class="pull-right badge badge-positive">Cached</span>
-                <% } %>-->
+            <a href="#add-form/<%= Id %>/false">
+                <span class="important"><%= JSA_HSE__Location_ID__c.split('2015')[0] %></span>
             </a>
         </div>
     </script>
@@ -150,28 +142,28 @@
         <div class="content">
             <div class="content-padded">
                 <!-- Swap template based on form type -->
-                <% if (Form_Group__c == "Incident") { %>
+                <% if (JSA_HSE__Form_Group__c == "Incident") { %>
                 <div class="input-group">
-                    <div class="input-row" id="formIncident_Date_Time__c">
+                    <div class="input-row" id="formJSA_HSE__Incident_Date_Time__c">
                         <label>Time of Incident</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="Incident_Date_Time__c" value="<%= Incident_Date_Time__c %>" />
-                        <span class="error" id="formIncident_Date_Time__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="JSA_HSE__Incident_Date_Time__c" value="<%= JSA_HSE__Incident_Date_Time__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Date_Time__cError" />
                     </div>
-                    <div class="input-row" id="formConsequence__c">
+                    <div class="input-row" id="formJSA_HSE__Consequence__c">
                         <label style="width:35%; padding-left: 6px; padding-right: 6px">Consequence</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Consequence__c" id="Consequence__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Consequence__c" id="JSA_HSE__Consequence__c">
                             <% if (consequences && consequences.length > 0) { %>
                             <% _.forEach(consequences, function (c) { %>
-                            <option value="<%= c %>" <% if(Consequence__c == c){ print(' selected'); } %> > <%= c %></option>
+                            <option value="<%= c %>" <% if(JSA_HSE__Consequence__c == c){ print(' selected'); } %> > <%= c %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formConsequence__cError" />
+                        <span class="error" id="formJSA_HSE__Consequence__cError" />
                     </div>
-                    <div class="input-row" id="formIncident_Description__c">
+                    <div class="input-row" id="formJSA_HSE__Incident_Description__c">
                         <label>Description of Incident</label>
-                        <input style="border-left: 1px solid black" type="text" name="Incident_Description__c" value="<%= Incident_Description__c %>" />
-                        <span class="error" id="formIncident_Description__cError" />
+                        <input style="border-left: 1px solid black" type="text" name="JSA_HSE__Incident_Description__c" value="<%= JSA_HSE__Incident_Description__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Description__cError" />
                     </div>
                     <div class="input-row" id="formPhoto">
                         <a class="btn btn-block camera">Add Photo</a>
@@ -187,17 +179,17 @@
                     </div>
                     <% }) %>
                 </div>
-                <% } else if (Form_Group__c == "Near Miss") { %>
+                <% } else if (JSA_HSE__Form_Group__c == "Near Miss") { %>
                 <div class="input-group">
-                    <div class="input-row" id="formIncident_Date_Time__c">
+                    <div class="input-row" id="formJSA_HSE__Incident_Date_Time__c">
                         <label>Time of Incident</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="Incident_Date_Time__c" value="<%= Incident_Date_Time__c %>" />
-                        <span class="error" id="formIncident_Date_Time__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="JSA_HSE__Incident_Date_Time__c" value="<%= JSA_HSE__Incident_Date_Time__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Date_Time__cError" />
                     </div>
-                    <div class="input-row" id="formIncident_Description__c">
+                    <div class="input-row" id="formJSA_HSE__Incident_Description__c">
                         <label>Description of Incident</label>
-                        <input style="border-left: 1px solid black" type="text" name="Incident_Description__c" value="<%= Incident_Description__c %>" />
-                        <span class="error" id="formIncident_Description__cError" />
+                        <input style="border-left: 1px solid black" type="text" name="JSA_HSE__Incident_Description__c" value="<%= JSA_HSE__Incident_Description__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Description__cError" />
                     </div>
                     <div class="input-row" id="formPhoto">
                         <a class="btn btn-block camera">Add Photo</a>
@@ -205,152 +197,152 @@
                     <span>Photos: </span>
                     <%_.forEach(imgs, function (i) {%>
                     <div class="input-row" id="photos">
-                        <img height=50 width=50 src="<%= i.src %>">
-                        <%= i.name %>
-                        <a href="#delete/photo/<%= i.id %>">
-                            <span class="btn btn-nav">Delete</span>
-                        </a>
+                            <img height=50 width=50 src="<%= i.src %>">
+                            <%= i.name %>
+                            <a href="#delete/photo/<%= i.id %>">
+                                <span class="btn btn-nav">Delete</span>
+                            </a>
                     </div>
                     <% }) %>
                 </div>
-                <% } else if (Form_Group__c == "Safety Observation") { %>
+                <% } else if (JSA_HSE__Form_Group__c == "Safety Observation") { %>
                 <div class="input-group">
                     <b>Protective Gear</b>
                     <div class="input-row">
                         <label>Eye/Face</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Eye_Face__c" id="Eye_Face__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Eye_Face__c" id="JSA_HSE__Eye_Face__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formEye_Face__cError" />
+                        <span class="error" id="formJSA_HSE__Eye_Face__cError" />
                     </div>
                     <div class="input-row">
                         <label>Hearing</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Hearing__c" id="Hearing__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Hearing__c" id="JSA_HSE__Hearing__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Hearing__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Hearing__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formHearing__cError" />
+                        <span class="error" id="formJSA_HSE__Hearing__cError" />
                     </div>
                     <div class="input-row">
                         <label>Foot</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Foot__c" id="Foot__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Foot__c" id="JSA_HSE__Foot__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Foot__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Foot__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formFoot__cError" />
+                        <span class="error" id="formJSA_HSE__Foot__cError" />
                     </div>
                     <div class="input-row">
                         <label>Respiratory</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Respiratory__c" id="Respiratory__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Respiratory__c" id="JSA_HSE__Respiratory__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Respiratory__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Respiratory__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formRespiratory__cError" />
+                        <span class="error" id="formJSA_HSE__Respiratory__cError" />
                     </div>
                     <div class="input-row">
                         <label>Head</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Head__c" id="Head__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Head__c" id="JSA_HSE__Head__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Head__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formHead__cError" />
+                        <span class="error" id="formJSA_HSE__Head__cError" />
                     </div>
                     <div class="input-row">
                         <label>Hand/Arm</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Hand_Arm__c" id="Hand_Arm__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Hand_Arm__c" id="JSA_HSE__Hand_Arm__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Hand_Arm__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Hand_Arm__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formHand_Arm__cError" />
+                        <span class="error" id="formJSA_HSE__Hand_Arm__cError" />
                     </div>
                     <div class="input-row">
                         <label>Fall Protection</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Fall_Protection__c" id="Fall_Protection__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Fall_Protection__c" id="JSA_HSE__Fall_Protection__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Fall_Protection__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Fall_Protection__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formFall_Protection__cError" />
+                        <span class="error" id="formJSA_HSE__Fall_Protection__cError" />
                     </div>
                 </div>
                 <div class="input-group">
                     <b>Equipment</b>
                     <div class="input-row">
                         <label>Proper Equipment Used</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Proper_Equipment_Used__c" id="Proper_Equipment_Used__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Proper_Equipment_Used__c" id="JSA_HSE__Proper_Equipment_Used__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Proper_Equipment_Used__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Proper_Equipment_Used__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formProper_Equipment_Used__cError" />
+                        <span class="error" id="formJSA_HSE__Proper_Equipment_Used__cError" />
                     </div>
                     <div class="input-row">
                         <label>Adequate Equipment Inspections</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Adequate__c" id="Adequate__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Adequate__c" id="JSA_HSE__Adequate__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Adequate__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Adequate__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formAdequate__cError" />
+                        <span class="error" id="formJSA_HSE__Adequate__cError" />
                     </div>
                     <div class="input-row">
                         <label>Equipment Stored Correctly</label>
-                        <select style="border-left: 1px solid black; height:100%; width:65%" name="Equipment_Stored_Correctly__c" id="Equipment_Stored_Correctly__c">
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Equipment_Stored_Correctly__c" id="JSA_HSE__Equipment_Stored_Correctly__c">
                             <% if (options && options.length > 0) { %>
                             <% _.forEach(options, function (o) { %>
-                            <option value="<%= o %>" <% if(Equipment_Stored_Correctly__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <option value="<%= o %>" <% if(JSA_HSE__Equipment_Stored_Correctly__c == o){ print(' selected'); } %> > <%= o %></option>
                             <% }); %>
                             <% } %>
                         </select>
-                        <span class="error" id="formEquipment_Stored_Correctly__cError" />
+                        <span class="error" id="formJSA_HSE__Equipment_Stored_Correctly__cError" />
                     </div>
                     <div class="input-row">
                         <label>General Comments</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="text" name="General_Comments__c" value="<%= General_Comments__c %>"/>
-                        <span class="error" id="formGeneral_Comments__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__General_Comments__c" value="<%= JSA_HSE__General_Comments__c %>"/>
+                        <span class="error" id="formJSA_HSE__General_Comments__cError" />
                     </div>
                 </div>
                 <div class="input-group">
                     <b>Observations</b>
                     <div class="input-row">
                         <label>Observations</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Observations__c" value="<%= Observations__c %>"/>
-                        <span class="error" id="formObservations__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Observations__c" value="<%= JSA_HSE__Observations__c %>"/>
+                        <span class="error" id="formJSA_HSE__Observations__cError" />
                     </div>
                     <div class="input-row">
                         <label>Potential Injury or Hazard</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Potential_Injury_or_Hazard__c" value="<%= Potential_Injury_or_Hazard__c %>"/>
-                        <span class="error" id="formPotential_Injury_or_Hazard__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Potential_Injury_or_Hazard__c" value="<%= JSA_HSE__Potential_Injury_or_Hazard__c %>"/>
+                        <span class="error" id="formJSA_HSE__Potential_Injury_or_Hazard__cError" />
                     </div>
                     <div class="input-row">
                         <label>Recommendations</label>
-                        <input style="border-left: 1px solid black; padding:0px" type="text" name="Recommendations__c" value="<%= Recommendations__c %>"/>
-                        <span class="error" id="formRecommendations__cError" />
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Recommendations__c" value="<%= JSA_HSE__Recommendations__c %>"/>
+                        <span class="error" id="formJSA_HSE__Recommendations__cError" />
                     </div>
                 </div>
                 <div class="input-row" id="formPhoto">
