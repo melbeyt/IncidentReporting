@@ -1,0 +1,388 @@
+<!-- Notes for iPad: -->
+<!--    Navigation sliding is sometimes off -->
+<!--    Incident not displaying photos -->
+<!--    SO crashes? -->
+<!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
+<!--    Add feedback for saving, syncing, and creating stuff -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Styling -->
+    <link rel="stylesheet" href="css/ratchet.css"/>
+    <link rel="stylesheet" href="css/ratchet-theme-ios.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- External Libraries -->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="js/lib/forcetk.mobilesdk.js"></script>
+
+    <!-- Placed by Cordova upon build -->
+    <script src="cordova.js"></script>
+
+    <!-- Salesforce Libraries -->
+    <script src="js/lib/smartsync.js"></script>
+    <script src="js/lib/stackrouter.js"></script>
+    <script src="js/lib/auth.js"></script>
+
+    <!-- --------------------------------------------- HTML TEMPLATES ------------------------------------------------- -->
+    <!-- --------------------------------------- Main Landing Page Template ------------------------------------------- -->
+
+
+    <!--  works -->
+    <script id="landing-page" type="text/template">
+        <header class="bar bar-nav">
+            <h1 class="title">Select Type of Form</h1>
+        </header>
+        <footer class="bar bar-footer">
+            <span id="offlineStatusMain"></span>
+            <a class="btn btn-nav pull-right logoutUser">Logout</a>
+            <a class="btn btn-nav pull-right inspectSmartstore">Db</a>
+        </footer>
+        <div class="content">
+            <a href="#add/incident">
+                <div class="btn btn-block">Incident</div>
+            </a>
+            <a href="#add/nearMiss">
+                <div class="btn btn-block">Near Miss</div>
+            </a>
+            <a href="#add/safetyObservation">
+                <div class="btn btn-block">Safety Observation</div>
+            </a>
+        </div>
+    </script>
+
+    <!--  Search page template: doesn't work -->
+    <script id="search-page" type="text/template">
+        <header class="bar bar-nav">
+            <a class="btn pull-left back">Back</a>
+            <h1 class="title">Select Location</h1>
+        </header>
+        <footer class="bar bar-footer">
+            <span id="offlineStatus"></span>
+            <a class="btn btn-nav pull-right logoutUser">Logout</a>
+            <a class="btn btn-nav pull-right inspectSmartstore">Db</a>
+        </footer>
+
+        <div class="bar bar-standard bar-header-secondary">
+            <input type="search" class="search-key" placeholder="Search"/>
+        </div>
+
+        <div class="content">
+            <ul class="table-view"></ul>
+        </div>
+    </script>
+
+    <!--  Online/Offline Toggler Template -->
+
+    <script id="offline-toggler" type="text/template">
+        <a class="btn toggleStatus <%= isOnline ? 'btn-positive' : 'btn-negative' %>"><%= (isOnline ? "Online" : "Offline") %></a>
+        <a href="#sync" class="btn syncRecords <%= isOnline ? 'enabled' : 'disabled' %>"><%= (isOnline ? "Sync Records" : "No Connection") %></a>
+    </script>
+
+    <!--  Sync Page Template  -->
+
+    <script id="sync-page" type="text/template">
+        <header class="bar bar-nav">
+            <a class="btn pull-left back">Back</a>
+            <h1 class="title">Sync</h1>
+        </header>
+
+        <footer class="bar bar-footer">
+            <span class="btn btn-positive">Online</span>
+        </footer>
+
+        <div class="bar bar-standard bar-header-secondary">
+            <a class="btn btn-block sync">Process <%= countLocallyModified %> records</a>
+        </div>
+
+        <div class="content">
+            <ul class="table-view"></ul>
+        </div>
+    </script>
+
+    <!-- --------------------------------------- List Item Templates ------------------------------------------ -->
+    <script id="form-list-item" type="text/template">
+        <a href="#edit/forms/<%= Id %>/false">
+            <div>
+                <span class="important"><%= JSA_HSE__Form_Group__c %></span>
+                <br/><span class="not-important"><%= Id %></span>
+                <% if (__sync_failed__) { %>
+                <span class="pull-right badge badge-negative">Failed to sync</span>
+                <% } else if (__local__) { %>
+                <span class="pull-right badge badge-primary">Locally<%= (__locally_created__ ? " created" : "") + (__locally_updated__ ? " updated" : "") + (__locally_deleted__ ? " deleted" : "") %></span>
+                <% } else { %>
+                <span class="pull-right badge badge-positive">Cached</span>
+                <% } %>
+            </div>
+        </a>
+    </script>
+
+    <script id="location-list-item" type="text/template">
+        <div>
+            <a href="#add-form/<%= Id %>/false">
+                <span class="important"><%= JSA_HSE__Location_ID__c.split('2015')[0] %></span>
+                <br/><span class="not-important"><%= Id %></span>
+                <% if (__sync_failed__) { %>
+                <span class="pull-right badge badge-negative">Failed to sync</span>
+                <% } else { %>
+                <span class="pull-right badge badge-positive">Cached</span>
+                <% } %>
+            </a>
+        </div>
+    </script>
+
+    <!-- --------------------------------------- Add/edit form page templates -------------------------------------- -->
+    <script id="edit-form-page" type="text/template">
+        <header class="bar bar-nav">
+            <a class="btn btn-nav pull-left back">Back</a>
+            <a class="btn btn-nav pull-right btn-negative toggleDelete">Delete</a>
+            <h1 class="title"><%= action %> Form</h1>
+        </header>
+
+        <footer class="bar bar-footer">
+            <span id="offlineStatusPage"></span>
+        </footer>
+
+        <div class="content">
+            <div class="content-padded">
+                <!-- Swap template based on form type -->
+                <% if (JSA_HSE__Form_Group__c == "Incident") { %>
+                <div class="input-group">
+                    <div class="input-row" id="formJSA_HSE__Incident_Date_Time__c">
+                        <label>Time of Incident</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="JSA_HSE__Incident_Date_Time__c" value="<%= JSA_HSE__Incident_Date_Time__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Date_Time__cError" />
+                    </div>
+                    <div class="input-row" id="formJSA_HSE__Consequence__c">
+                        <label style="width:35%; padding-left: 6px; padding-right: 6px">Consequence</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Consequence__c" id="JSA_HSE__Consequence__c">
+                            <% if (consequences && consequences.length > 0) { %>
+                            <% _.forEach(consequences, function (c) { %>
+                            <option value="<%= c %>" <% if(JSA_HSE__Consequence__c == c){ print(' selected'); } %> > <%= c %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Consequence__cError" />
+                    </div>
+                    <div class="input-row" id="formJSA_HSE__Incident_Description__c">
+                        <label>Description of Incident</label>
+                        <input style="border-left: 1px solid black" type="text" name="JSA_HSE__Incident_Description__c" value="<%= JSA_HSE__Incident_Description__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Description__cError" />
+                    </div>
+                    <div class="input-row" id="formPhoto">
+                        <a class="btn btn-block camera">Add Photo</a>
+                    </div>
+                    <span>Photos: </span>
+                    <%_.forEach(imgs, function (i) {%>
+                    <div class="input-row" id="photos">
+                        <img height=50 width=50 src="<%= i.src %>">
+                        <%= i.name %>
+                        <a href="#delete/photo/<%= i.id %>">
+                            <span class="btn btn-nav">Delete</span>
+                        </a>
+                    </div>
+                    <% }) %>
+                </div>
+                <% } else if (JSA_HSE__Form_Group__c == "Near Miss") { %>
+                <div class="input-group">
+                    <div class="input-row" id="formJSA_HSE__Incident_Date_Time__c">
+                        <label>Time of Incident</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="datetime-local" name="JSA_HSE__Incident_Date_Time__c" value="<%= JSA_HSE__Incident_Date_Time__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Date_Time__cError" />
+                    </div>
+                    <div class="input-row" id="formJSA_HSE__Incident_Description__c">
+                        <label>Description of Incident</label>
+                        <input style="border-left: 1px solid black" type="text" name="JSA_HSE__Incident_Description__c" value="<%= JSA_HSE__Incident_Description__c %>" />
+                        <span class="error" id="formJSA_HSE__Incident_Description__cError" />
+                    </div>
+                    <div class="input-row" id="formPhoto">
+                        <a class="btn btn-block camera">Add Photo</a>
+                    </div>
+                    <span>Photos: </span>
+                    <%_.forEach(imgs, function (i) {%>
+                    <div class="input-row" id="photos">
+                            <img height=50 width=50 src="<%= i.src %>">
+                            <%= i.name %>
+                            <a href="#delete/photo/<%= i.id %>">
+                                <span class="btn btn-nav">Delete</span>
+                            </a>
+                    </div>
+                    <% }) %>
+                </div>
+                <% } else if (JSA_HSE__Form_Group__c == "Safety Observation") { %>
+                <div class="input-group">
+                    <b>Protective Gear</b>
+                    <div class="input-row">
+                        <label>Eye/Face</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Eye_Face__c" id="JSA_HSE__Eye_Face__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Eye_Face__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Eye_Face__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Hearing</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Hearing__c" id="JSA_HSE__Hearing__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Hearing__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Hearing__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Foot</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Foot__c" id="JSA_HSE__Foot__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Foot__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Foot__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Respiratory</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Respiratory__c" id="JSA_HSE__Respiratory__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Respiratory__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Respiratory__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Head</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Head__c" id="JSA_HSE__Head__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Head__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Head__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Hand/Arm</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Hand_Arm__c" id="JSA_HSE__Hand_Arm__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Hand_Arm__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Hand_Arm__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Fall Protection</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Fall_Protection__c" id="JSA_HSE__Fall_Protection__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Fall_Protection__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Fall_Protection__cError" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <b>Equipment</b>
+                    <div class="input-row">
+                        <label>Proper Equipment Used</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Proper_Equipment_Used__c" id="JSA_HSE__Proper_Equipment_Used__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Proper_Equipment_Used__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Proper_Equipment_Used__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Adequate Equipment Inspections</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Adequate__c" id="JSA_HSE__Adequate__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Adequate__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Adequate__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Equipment Stored Correctly</label>
+                        <select style="border-left: 1px solid black; height:100%; width:65%" name="JSA_HSE__Equipment_Stored_Correctly__c" id="JSA_HSE__Equipment_Stored_Correctly__c">
+                            <% if (options && options.length > 0) { %>
+                            <% _.forEach(options, function (o) { %>
+                            <option value="<%= o %>" <% if(JSA_HSE__Equipment_Stored_Correctly__c == o){ print(' selected'); } %> > <%= o %></option>
+                            <% }); %>
+                            <% } %>
+                        </select>
+                        <span class="error" id="formJSA_HSE__Equipment_Stored_Correctly__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>General Comments</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__General_Comments__c" value="<%= JSA_HSE__General_Comments__c %>"/>
+                        <span class="error" id="formJSA_HSE__General_Comments__cError" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <b>Observations</b>
+                    <div class="input-row">
+                        <label>Observations</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Observations__c" value="<%= JSA_HSE__Observations__c %>"/>
+                        <span class="error" id="formJSA_HSE__Observations__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Potential Injury or Hazard</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Potential_Injury_or_Hazard__c" value="<%= JSA_HSE__Potential_Injury_or_Hazard__c %>"/>
+                        <span class="error" id="formJSA_HSE__Potential_Injury_or_Hazard__cError" />
+                    </div>
+                    <div class="input-row">
+                        <label>Recommendations</label>
+                        <input style="border-left: 1px solid black; padding:0px" type="text" name="JSA_HSE__Recommendations__c" value="<%= JSA_HSE__Recommendations__c %>"/>
+                        <span class="error" id="formJSA_HSE__Recommendations__cError" />
+                    </div>
+                </div>
+                <div class="input-row" id="formPhoto">
+                    <a class="btn btn-block camera">Add Photo</a>
+                </div>
+                <span>Photos: </span>
+                <%_.forEach(imgs, function (i) {%>
+                <div class="input-row" id="photos">
+                    <img height=50 width=50 src="<%= i.src %>">
+                    <%= i.name %>
+                    <a href="#delete/photo/<%= i.id %>">
+                        <span class="btn btn-nav">Delete</span>
+                    </a>
+                </div>
+                <% }) %>
+                <% } %>
+            </div>
+            <a class="btn btn-primary save">Save</a>
+        </div>
+    </script>
+
+    <!-- Our Resources -->
+    <script src="js/util.js"></script>
+    <script src="js/models.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/router.js"></script>
+
+</head>
+
+<body>
+<!-- Content is dynamically loaded in by router -->
+<div id="content"></div>
+
+</body>
+</html>

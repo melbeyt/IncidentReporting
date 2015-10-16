@@ -1,0 +1,16 @@
+{
+  "remoteAccessConsumerKey": "3MVG9xOCXq4ID1uEzj.xI2Cj0cOw7nD5rF7lUPaQBAZhappxMZcRsWK9ij6uCj6Bs4RjuqKrfAZMP85IRd2in",
+  "oauthRedirectURI": "https://login.salesforce.com/services/oauth2/success",
+  "oauthScopes": [
+    "web",
+    "api",
+    "offline_access",
+    "refresh_token"
+  ],
+  "isLocal": true,
+  "startPage": "index.html",
+  "errorPage": "error.html",
+  "shouldAuthenticate": true,
+  "attemptOfflineLoad": false,
+  "androidPushNotificationClientId": ""
+}
