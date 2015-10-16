@@ -290,6 +290,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         app.offlineTracker.on("change:isOnline", this.render, this);
     },
 
+    //todo: why aren't images showing up for incidents?
     render: function(eventName) {
         var imgs = [];
         this.attachments = new app.models.AttachmentCollection;
