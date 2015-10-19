@@ -18,7 +18,7 @@ function asyncForEach (collection, method, args, callback) {
     }
     for (var c in collection) {
         promises.push(new Promise(function (resolve, reject) {
-            // do a thing, possibly async, then…
+            // do a thing, possibly async, thenï¿½
             method(collection[c], args, function (result) {
                 successes.push(result);
                 resolve();
@@ -97,7 +97,7 @@ function saveOne (record, args, successCB, failureCB) {
                 successCB();
             }
         },
-        error: function(error) {
+        error: function(model, error) {
             failureCB(error);
         }
     };
@@ -162,17 +162,17 @@ function formatDateTimeForSF (datetime) {
     } else if (numColons > 1) {
         return datetime + '.00Z';
     } else {
-        return '';
+        return datetime;
     }
 }
 
 // turn a Salesforce datetime string and format for javascript
 function formatDateTimeForJS (datetime) {
     if (!datetime) datetime = "";
-    if (datetime.indexOf('.') > -1) {    
+    if (datetime.indexOf('.') > -1) {
         return datetime.substring(0, datetime.indexOf('.'));
     } else {
-        return '';
+        return datetime;
     }
 }
 

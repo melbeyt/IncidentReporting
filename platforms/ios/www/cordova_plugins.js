@@ -94,6 +94,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -116,6 +123,7 @@ module.exports.metadata =
     "org.apache.cordova.network-information": "0.2.15",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.statusbar": "0.1.10",
+    "org.apache.cordova.inappbrowser": "0.6.0",
     "org.apache.cordova.device": "0.3.0",
     "com.phonegap.plugins.PushPlugin": "2.2.1"
 }

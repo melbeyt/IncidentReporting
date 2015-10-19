@@ -220,6 +220,7 @@ static NSString *stripFragment(NSString* url)
                 NSString* prevURL = [self evalForCurrentURL:webView];
                 if ([prevURL isEqualToString:[request.URL absoluteString]]) {
                     VerboseLog(@"Page reload detected.");
+                    return shouldLoad;
                 } else {
                     VerboseLog(@"Detected hash change shouldLoad");
                     return shouldLoad;

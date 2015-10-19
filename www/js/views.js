@@ -5,8 +5,7 @@ app.views.MainPage = Backbone.View.extend({
     template: _.template($("#landing-page").html()),
 
     events: {
-        "click .logoutUser": "logoutUser",
-        "click .inspectSmartstore": "inspectSmartstore"
+        "click .options": "options"
     },
 
     initialize: function() {
@@ -31,20 +30,52 @@ app.views.MainPage = Backbone.View.extend({
 
     render: function () {
         $(this.el).html(this.template());
-        this.offlineTogglerView.setElement($("#offlineStatusMain", this.el)).render();
+        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
         return this;
     },
 
-    inspectSmartstore: function(event) {
+    options: function () {
+        app.router.slidePage(app.optionsPage);
+    }
+});
+
+app.views.OptionsMenu = Backbone.View.extend({
+    name: "options",
+    template: _.template($("#options-menu").html()),
+    backAction: null,
+
+    events: {
+        "click .back": "back",
+        "click .logoutUser": "logoutUser",
+        "click .inspectSmartstore": "inspectSmartstore",
+        "click .simOffline": "simulateOffline"
+    },
+
+    initialize: function () {
+        this.offlineTogglerView = new app.views.OfflineToggler({model: app.offlineTracker});
+    },
+
+    render: function () {
+        $(this.el).html(this.template());
+        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
+        return this;
+    },
+
+    back: function () {
+        var b = app.router.getLastPage();
+        app.router.slidePage(app.nameToViewMap[b] ? app.nameToViewMap[b] : app.mainPage);
+    },
+
+    logoutUser: function () {
+        cordova.require("com.salesforce.plugin.sfaccountmanager").logout();
+    },
+
+    inspectSmartstore: function () {
         cordova.require("com.salesforce.plugin.smartstore").showInspector();
     },
 
-    switchUser: function(event) {
-        cordova.require("com.salesforce.plugin.sfaccountmanager").switchToUser();
-    },
-
-    logoutUser: function(event) {
-        cordova.require("com.salesforce.plugin.sfaccountmanager").logout();
+    simulateOffline: function () {
+        app.offlineTracker.set("isOnline", !app.offlineTracker.get("isOnline"));
     }
 });
 
@@ -55,9 +86,10 @@ app.views.SearchPage = Backbone.View.extend({
 
     events: {
         "keyup .search-key": "search",
+        // keyup event does not fire on ios devices, so we also attach to change event
+        "change .search-key": "search",
         "click .back": "back",
-        "click .logoutUser": "logoutUser",
-        "click .inspectSmartstore": "inspectSmartstore"
+        "click .options": "options"
     },
 
     getType: function () {
@@ -77,26 +109,18 @@ app.views.SearchPage = Backbone.View.extend({
     render: function(eventName) {
         $(this.el).html(this.template());
         $(".search-key", this.el).val(this.model.getCriteria());
-        this.offlineTogglerView.setElement($("#offlineStatus", this.el)).render();
+        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
         this.listView.setElement($("ul", this.el)).render();
         return this;
     },
 
     search: function(event) {
-        this.model.setCriteria($(".search-key", this.el).val());
+        this.model.setCriteria($(".search-key").val());
         this.model.fetch();
     },
 
-    inspectSmartstore: function(event) {
-        cordova.require("com.salesforce.plugin.smartstore").showInspector();
-    },
-
-    switchUser: function(event) {
-        cordova.require("com.salesforce.plugin.sfaccountmanager").switchToUser();
-    },
-
-    logoutUser: function(event) {
-        cordova.require("com.salesforce.plugin.sfaccountmanager").logout();
+    options: function () {
+        app.router.slidePage(app.optionsPage);
     },
 
     back: function () {
@@ -176,7 +200,6 @@ app.views.OfflineToggler = Backbone.View.extend({
     template: _.template($("#offline-toggler").html()),
 
     events: {
-        "click .toggleStatus": "toggle",
         "click .syncFiles": "syncFiles"
     },
 
@@ -187,11 +210,6 @@ app.views.OfflineToggler = Backbone.View.extend({
     render: function(eventName) {
         $(this.el).html(this.template(this.model.toJSON()));
         return this;
-    },
-
-    toggle: function(event) {
-        event.preventDefault();
-        this.model.set("isOnline", !this.model.get("isOnline"));
     },
 
     syncFiles: function() {
@@ -208,23 +226,30 @@ app.views.SyncPage = Backbone.View.extend({
 
     events: {
         "click .back": "goBack",
-        "click .sync": "sync"
+        "click .sync": "sync",
+        "click .options": "options"
     },
 
     initialize: function() {
         var that = this;
         _.each(["reset","add","remove"], function(eventName) { that.model.on(eventName, that.render, that); });
         this.listView = new app.views.ActivityFormListView({model: this.model});
+        this.offlineTogglerView = new app.views.OfflineToggler({model: app.offlineTracker});
     },
 
     render: function(eventName) {
         $(this.el).html(this.template(_.extend({countLocallyModified: this.model.length}, this.model.toJSON())));
         this.listView.setElement($("ul", this.el)).render();
+        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
         return this;
     },
 
     goBack: function(event) {
         app.router.slidePage(app.mainPage);
+    },
+
+    options: function () {
+        app.router.slidePage(app.options);
     },
 
     // todo: be sure we're adding all locally modified records to sync collection
@@ -281,7 +306,8 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         "change": "change",
         "click .save": "save",
         "click .toggleDelete": "toggleDelete",
-        "click .camera": "takePhoto"
+        "click .camera": "takePhoto",
+        "click .options": "options"
     },
 
     initialize: function() {
@@ -408,13 +434,12 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                 console.log(reason);
             });
         }
-
+        
         if (this.model.has("JSA_HSE__Incident_Date_Time__c")) {
             this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForJS(this.model.get("JSA_HSE__Incident_Date_Time__c")));
         }
-        this.backAction = app.nameToViewMap[app.router.getLastPage()] || app.mainPage;
         $(this.el).html(this.template(_.extend({action: this.action, options: options, consequences: consequences, imgs: imgs}, this.model.toJSON())));
-        this.offlineTogglerView.setElement($("#offlineStatusPage", this.el)).render();
+        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
         var online = app.offlineTracker.get("isOnline");
         $(".merge", this.el).hide();
         $(".overwrite", this.el).hide();
@@ -439,7 +464,12 @@ app.views.EditActivityFormPage = Backbone.View.extend({
     },
 
     goBack: function(event) {
-        app.router.slidePage(this.backAction ? this.backAction : app.mainPage);
+        var b = app.router.getLastPage();
+        app.router.slidePage(app.nameToViewMap[b] ? app.nameToViewMap[b] : app.mainPage);
+    },
+
+    options: function (event) {
+        app.router.slidePage(app.optionsPage);
     },
 
     showFieldError: function(field, message, error) {

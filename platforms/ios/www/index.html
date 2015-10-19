@@ -1,7 +1,5 @@
 <!-- Notes for iPad: -->
-<!--    Navigation sliding is sometimes off -->
-<!--    Incident not displaying photos -->
-<!--    SO crashes? -->
+<!--    Cordova bug occasionally crashes navigation, need to find workaround or reload ability on error page -->
 <!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
 <!--    Add feedback for saving, syncing, and creating stuff -->
 <!DOCTYPE html>
@@ -19,6 +17,7 @@
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/lib/forcetk.mobilesdk.js"></script>
+    <script src="js/lib/fastclick.js"></script>
 
     <!-- Placed by Cordova upon build -->
     <script src="cordova.js"></script>
@@ -31,16 +30,13 @@
     <!-- --------------------------------------------- HTML TEMPLATES ------------------------------------------------- -->
     <!-- --------------------------------------- Main Landing Page Template ------------------------------------------- -->
 
-
-    <!--  works -->
     <script id="landing-page" type="text/template">
         <header class="bar bar-nav">
             <h1 class="title">Select Type of Form</h1>
         </header>
         <footer class="bar bar-footer">
-            <span id="offlineStatusMain"></span>
-            <a class="btn btn-nav pull-right logoutUser">Logout</a>
-            <a class="btn btn-nav pull-right inspectSmartstore">Db</a>
+            <span class="offlineStatus"></span>
+            <a class="btn btn-nav pull-right options">Options</a>
         </footer>
         <div class="content">
             <a href="#add/incident">
@@ -55,16 +51,31 @@
         </div>
     </script>
 
-    <!--  Search page template: doesn't work -->
+    <!-- --------------------------------------- Options menu template ------------------------------------------------ -->
+    <script id="options-menu" type="text/template">
+        <header class="bar bar-nav">
+            <a class="btn pull-left back">Back</a>
+            <h1 class="title">Options</h1>
+        </header>
+        <div class="content">
+            <a class="btn btn-block logoutUser">Logout</a>
+            <a class="btn btn-block inspectSmartstore">View Database</a>
+            <a class="btn btn-block simOffline">Simulate Offline</a>
+        </div>
+        <div class="bar bar-footer">
+            <span class="offlineStatus"></span>
+        </div>
+    </script>
+
+    <!-- --------------------------------------- Search page template ------------------------------------------------- -->
     <script id="search-page" type="text/template">
         <header class="bar bar-nav">
             <a class="btn pull-left back">Back</a>
             <h1 class="title">Select Location</h1>
         </header>
         <footer class="bar bar-footer">
-            <span id="offlineStatus"></span>
-            <a class="btn btn-nav pull-right logoutUser">Logout</a>
-            <a class="btn btn-nav pull-right inspectSmartstore">Db</a>
+            <span class="offlineStatus"></span>
+            <a class="btn btn-nav pull-right options">Options</a>
         </footer>
 
         <div class="bar bar-standard bar-header-secondary">
@@ -76,14 +87,14 @@
         </div>
     </script>
 
-    <!--  Online/Offline Toggler Template -->
+    <!-- --------------------------------------- Online/Offline Toggler Template -------------------------------------- -->
 
     <script id="offline-toggler" type="text/template">
         <a class="btn toggleStatus <%= isOnline ? 'btn-positive' : 'btn-negative' %>"><%= (isOnline ? "Online" : "Offline") %></a>
         <a href="#sync" class="btn syncRecords <%= isOnline ? 'enabled' : 'disabled' %>"><%= (isOnline ? "Sync Records" : "No Connection") %></a>
     </script>
 
-    <!--  Sync Page Template  -->
+    <!-- --------------------------------------- Sync Page Template --------------------------------------------------- -->
 
     <script id="sync-page" type="text/template">
         <header class="bar bar-nav">
@@ -92,7 +103,8 @@
         </header>
 
         <footer class="bar bar-footer">
-            <span class="btn btn-positive">Online</span>
+            <span class="offlineStatus"></span>
+            <a class="btn btn-nav pull-right options">Options</a>
         </footer>
 
         <div class="bar bar-standard bar-header-secondary">
@@ -123,14 +135,8 @@
 
     <script id="location-list-item" type="text/template">
         <div>
-            <a href="#add-form/<%= Id %>/false">
+            <a href="#add/form/<%= Id %>/false">
                 <span class="important"><%= JSA_HSE__Location_ID__c.split('2015')[0] %></span>
-                <br/><span class="not-important"><%= Id %></span>
-                <% if (__sync_failed__) { %>
-                <span class="pull-right badge badge-negative">Failed to sync</span>
-                <% } else { %>
-                <span class="pull-right badge badge-positive">Cached</span>
-                <% } %>
             </a>
         </div>
     </script>
@@ -144,7 +150,8 @@
         </header>
 
         <footer class="bar bar-footer">
-            <span id="offlineStatusPage"></span>
+            <span class="offlineStatus"></span>
+            <a class="btn btn-nav pull-right options">Options</a>
         </footer>
 
         <div class="content">

@@ -10,7 +10,7 @@
         },
 
         getLastPage: function() {
-            return (this.pageHistory != null && this.pageHistory.length > 0 ? this.pageHistory[this.pageHistory.length - 1] : "main");
+            return (this.pageHistory != null && this.pageHistory.length > 1 ? this.pageHistory[this.pageHistory.length - 2] : "main");
         },
 
         slidePage: function(view) {

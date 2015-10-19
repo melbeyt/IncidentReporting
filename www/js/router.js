@@ -44,6 +44,7 @@ app.Router = Backbone.StackRouter.extend({
         app.offlineTracker = new app.models.OfflineTracker({isOnline: true});
 
         // We keep a single instance of SearchPage / SyncPage and EditAccountPage
+        app.optionsPage = new app.views.OptionsMenu();
         app.mainPage = new app.views.MainPage();
         app.searchPage = new app.views.SearchPage({model: app.searchResults});
         app.syncPage = new app.views.SyncPage({model: app.localActivityForms});
@@ -53,7 +54,8 @@ app.Router = Backbone.StackRouter.extend({
             "main": app.mainPage,
             "search": app.searchPage,
             "sync": app.syncPage,
-            "form": app.editPage
+            "form": app.editPage,
+            "options": app.optionsPage
         };
     },
 

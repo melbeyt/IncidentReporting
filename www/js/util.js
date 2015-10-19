@@ -18,7 +18,7 @@ function asyncForEach (collection, method, args, callback) {
     }
     for (var c in collection) {
         promises.push(new Promise(function (resolve, reject) {
-            // do a thing, possibly async, then…
+            // do a thing, possibly async, thenï¿½
             method(collection[c], args, function (result) {
                 successes.push(result);
                 resolve();
