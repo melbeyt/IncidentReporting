@@ -1,7 +1,6 @@
 <!-- Notes for iPad: -->
 <!--    Cordova bug occasionally crashes navigation; added line 223 of CDVWebViewDelegate.m to return after page 'reload' and prevent error, though button to same page as before won't work until different one is tried -->
 <!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
-<!--    Add feedback for saving, syncing, and creating stuff -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +94,6 @@
     </script>
 
     <!-- --------------------------------------- Sync Page Template --------------------------------------------------- -->
-
     <script id="sync-page" type="text/template">
         <header class="bar bar-nav">
             <a class="btn pull-left back">Back</a>
