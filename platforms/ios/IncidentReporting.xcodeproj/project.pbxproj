@@ -75,6 +75,7 @@
 		C8226BCB70DF42108A3683DC /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 03148B2ED06542349614DC2E /* CDVJpegHeaderWriter.m */; };
 		B720478DB99B47519DAA405A /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B44403BFEAA3467AB0DBD575 /* CDVStatusBar.m */; };
 		CC5ADEEFFED84B28AB70F537 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */; };
+		EF6745ACC95B4FF6944F5BE3 /* CDVSpinnerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 445A3B1AE5CA48F593FE787A /* CDVSpinnerDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,8 @@
 		7ABF8C06F36940B2A4C89EF9 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		9788B1C92B28483F8E5872BE /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		445A3B1AE5CA48F593FE787A /* CDVSpinnerDialog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSpinnerDialog.m"; path = "com.filfatstudios.spinnerdialog/CDVSpinnerDialog.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		605931E33AF0486DBBCEA6FD /* CDVSpinnerDialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSpinnerDialog.h"; path = "com.filfatstudios.spinnerdialog/CDVSpinnerDialog.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +429,8 @@
 				7ABF8C06F36940B2A4C89EF9 /* CDVStatusBar.h */,
 				4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */,
 				9788B1C92B28483F8E5872BE /* CDVInAppBrowser.h */,
+				445A3B1AE5CA48F593FE787A /* CDVSpinnerDialog.m */,
+				605931E33AF0486DBBCEA6FD /* CDVSpinnerDialog.h */,
 			);
 			name = Plugins;
 			path = IncidentReporting/Plugins;
@@ -641,6 +646,7 @@
 				C8226BCB70DF42108A3683DC /* CDVJpegHeaderWriter.m in Sources */,
 				B720478DB99B47519DAA405A /* CDVStatusBar.m in Sources */,
 				CC5ADEEFFED84B28AB70F537 /* CDVInAppBrowser.m in Sources */,
+				EF6745ACC95B4FF6944F5BE3 /* CDVSpinnerDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

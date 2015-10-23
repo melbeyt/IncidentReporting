@@ -1,0 +1,74 @@
+<!--
+    cordova-plugin-spinnerdialog
+    Copyright © 2015 filfat Studios AB
+    Repo: https://github.com/filfat-Studios-AB/cordova-plugin-spinnerdialog
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    id="com.filfatstudios.spinnerdialog"
+	version="1.0.2">
+    <name>SpinnerDialog</name>
+	<description>
+			Plugin for showing a progress indicator based on Paldom/SpinnerDialog.
+			for Android, iOS, Windows 10 and Windows Phone 8.
+	</description>
+	<license>MIT</license>
+	<keywords>phonegap,android,ios,wp8,windows,phone,spinner,dialog,progress,indicator</keywords>
+
+	<engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/SpinnerDialog.js" target="js/SpinnerDialog.js"/>
+	
+    <js-module src="www/SpinnerDialog.js" name="SpinnerDialog">
+        <clobbers target="SpinnerDialog" />
+    </js-module>
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SpinnerDialog">
+                <param name="android-package" value="com.filfatstudios.spinnerdialog.SpinnerDialog"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/SpinnerDialog.java" target-dir="src/com/filfatstudios/spinnerdialog" />
+        <source-file src="src/android/CallbackProgressDialog.java" target-dir="src/com/filfatstudios/spinnerdialog" />
+    </platform>
+
+	<!-- ios -->
+	<platform name="ios">
+	  <config-file target="config.xml" parent="/*">
+		<feature name="SpinnerDialog">
+		  <param name="ios-package" value="CDVSpinnerDialog"/>
+		</feature>
+	  </config-file>
+
+	  <header-file src="src/ios/CDVSpinnerDialog.h" />
+	  <source-file src="src/ios/CDVSpinnerDialog.m" />
+	</platform>
+
+	<!-- wp8 -->
+	<platform name="wp8">
+		<config-file target="config.xml" parent="/*">
+		  <feature name="SpinnerDialog">
+			<param name="wp-package" value="SpinnerDialog"/>
+		  </feature>
+		</config-file>
+
+		<source-file src="src/wp/SpinnerDialog.cs" />
+	</platform>
+  
+	<!-- windows -->
+	<platform name="windows">
+		<js-module src="src/windows/SpinnerDialogProxy.js" name="SpinnerDialogProxy">
+			<merges target="" />
+		</js-module>
+	</platform>
+	
+</plugin>
+

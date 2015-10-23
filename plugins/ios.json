@@ -75,6 +75,10 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpinnerDialog\"><param name=\"ios-package\" value=\"CDVSpinnerDialog\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -221,6 +225,9 @@
             "PACKAGE_NAME": "com.hse.incidents"
         },
         "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.hse.incidents"
+        },
+        "com.filfatstudios.spinnerdialog": {
             "PACKAGE_NAME": "com.hse.incidents"
         }
     },

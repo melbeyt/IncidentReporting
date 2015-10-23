@@ -56,5 +56,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.filfatstudios.spinnerdialog": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/filfat-Studios-AB/cordova-plugin-spinnerdialog",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
