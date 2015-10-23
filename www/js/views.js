@@ -550,7 +550,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         if (!this.locked) {
             SpinnerDialog.show();
             this.locked = true;
-            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForSF(this.model.get("JSA_HSE__Incident_Date_Time__c")))
+            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForSF(this.model.get("JSA_HSE__Incident_Date_Time__c")));
             this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_ACCEPT_YOURS));
         }
     },
@@ -562,15 +562,21 @@ app.views.EditActivityFormPage = Backbone.View.extend({
             this.model.save(null, this.getSaveOptions(null, Force.CACHE_MODE.CACHE_ONLY));
         }
         else {
-            this.model.destroy({
-                success: function(data) {
-                    app.router.slidePage(app.mainPage);
-                },
-                error: function(data, err, options) {
-                    var error = new Force.Error(err);
-                    alert("Failed to delete form: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
-                }
-            });
+            var del = confirm("Delete this form and any of its attachments?");
+            if (del === true) {
+                SpinnerDialog.show();
+                this.model.destroy({
+                    success: function(data) {
+                        SpinnerDialog.hide();
+                        app.router.slidePage(app.mainPage);
+                    },
+                    error: function(data, err, options) {
+                        SpinnerDialog.hide();
+                        var error = new Force.Error(err);
+                        alert("Failed to delete form: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
+                    }
+                });
+            }
         }
     },
 
