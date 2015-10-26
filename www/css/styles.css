@@ -50,54 +50,64 @@
     padding: 20px 20px 0px 10px;
 }
 
-.header-img-center {
-    align-self: center;
-    -webkit-align-self: center;
-}
-
 .header-img-right {
     float: right;
+    padding-top: 10px;
+    height: 50px;
 }
 
 .list-item {
-    padding: 15px;
+    padding: 0 65px 15px;
     border-bottom: 1px solid #fff;
     border-top: 1px solid #fff;
+    height: 80px;
+    font-size: 20px;
+    line-height: 80px;
 }
 
-.sync-button-bar {
-    padding-top: 5px;
-    padding-bottom: 15px;
+.bar-header-secondary.sync-button-bar {
+    padding: 0;
+    line-height: 80px;
 }
 
 .btn.btn-block.sync {
-    height: 60px;
+    height: 70px;
     padding: 0;
-    line-height: 60px;
+    line-height: 70px;
     font-size: 20px;
+    margin: 0 auto;
+    top: 5px;
 }
 
 .btn.btn-nav.photo-delete {
     float: right;
-    height: 45px;
-    width: 100px;
+    height: 40px;
+    width: 120px;
     padding: 0;
-    margin: 25px;
-    line-height: 45px;
-    font-size: 15px;
+    margin: 38px 25px;
+    line-height: 40px;
+    font-size: 20px;
 }
 
 .btn.btn-command {
-    height: 40px;
-    width: 120px;
+    height: 50px;
+    width: 20%;
     margin: 0px 20px 20px;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 50px;
     padding: 0px;
+}
+
+.pull-right.badge.badge-primary {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 0;
+    margin-top: 25px;
 }
 
 .photo-title {
     padding: 0 20px;
+    font-size: 20px;
 }
 
 .details {
@@ -127,6 +137,7 @@
 .incident-thumbnail {
     height: 100px;
     width: 100px;
+    margin: 10px;
 }
 
 .important {
@@ -150,7 +161,7 @@
 }
 
 .section-title {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     line-height: 50px;
 }
@@ -158,6 +169,7 @@
 .btn-nav.connected {
     background-color: rgba(65, 151, 65, 0.70);
     margin-top: 0px;
+    color: #fff;
 }
 
 .btn-nav.not-connected {
@@ -174,7 +186,7 @@
 .camera {
     height: 100%;
     margin: 0 auto;
-    line-height: 60px;
+    line-height: 80px;
     padding: 0;
     font-size: 20px;
 }
@@ -183,4 +195,10 @@
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
   background-color: #ff9900;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
 }

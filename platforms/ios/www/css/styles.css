@@ -2,12 +2,11 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #ddd;
     -webkit-transform:translate3d(0,0,0);
 }
 
 .stage-center {
-    top: 0;
+    top: 0px;
     left: 0;
 }
 
@@ -17,6 +16,11 @@
 
 .stage-right {
     left: 100%;
+}
+
+.content-pane {
+    position: relative;
+    clear: left;
 }
 
 .transition {
@@ -41,6 +45,71 @@
     width: 100px;
 }
 
+.header-img {
+    height: 45px;
+    padding: 20px 20px 0px 10px;
+}
+
+.header-img-right {
+    float: right;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.list-item {
+    padding: 0 65px 15px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    height: 80px;
+    font-size: 20px;
+    line-height: 80px;
+}
+
+.bar-header-secondary.sync-button-bar {
+    padding: 0;
+    line-height: 80px;
+}
+
+.btn.btn-block.sync {
+    height: 70px;
+    padding: 0;
+    line-height: 70px;
+    font-size: 20px;
+    margin: 0 auto;
+    top: 5px;
+}
+
+.btn.btn-nav.photo-delete {
+    float: right;
+    height: 40px;
+    width: 120px;
+    padding: 0;
+    margin: 38px 25px;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.btn.btn-command {
+    height: 50px;
+    width: 20%;
+    margin: 0px 20px 20px;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0px;
+}
+
+.pull-right.badge.badge-primary {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 0;
+    margin-top: 25px;
+}
+
+.photo-title {
+    padding: 0 20px;
+    font-size: 20px;
+}
+
 .details {
     height: 100px;
 }
@@ -49,6 +118,26 @@
     position: absolute;
     right: 11px;
     display: none;
+}
+
+.input-row .input-cell {
+    border-left: 1px solid rgb(255, 255, 255);
+    height: 100%;
+    width: 65%;
+}
+
+.input-row.photo-row {
+    border: 0;
+}
+
+.input-row.picture {
+    height: auto;
+}
+
+.incident-thumbnail {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
 }
 
 .important {
@@ -61,9 +150,55 @@
     font-size: 0.8em;
 }
 
+.sub-title {
+    color: #fff;
+    font-weight: bold;
+    float: left;
+    font-size: 35px;
+    position: relative;
+    padding: 35px 15px 40px 15px;
+    margin-left: 50px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.btn-nav.connected {
+    background-color: rgba(65, 151, 65, 0.70);
+    margin-top: 0px;
+    color: #fff;
+}
+
+.btn-nav.not-connected {
+    background-color: rgba(45, 45, 45, 0.7);
+    margin-top: 0px;
+}
+
+.btn.back {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    margin-top: 2px;
+}
+
+.camera {
+    height: 100%;
+    margin: 0 auto;
+    line-height: 80px;
+    padding: 0;
+    font-size: 20px;
+}
 
 .count-other {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
   background-color: #ff9900;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
 }

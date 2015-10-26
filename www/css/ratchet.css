@@ -244,8 +244,9 @@ body {
   font-size: 17px;
   line-height: 21px;
   color: #000;
-  background: #efeff4 url('../img/houstonSky.jpeg') no-repeat fixed;
+  background: url('../img/houstonSky.jpeg') no-repeat fixed;
   background-size: cover;
+  background-position: center;
   margin: 0px;
 }
 
@@ -257,6 +258,9 @@ a {
 }
 a:active {
   color: #3071a9;
+}
+a:hover {
+  text-decoration: none;
 }
 
 .content {
@@ -615,9 +619,9 @@ input[type="button"] {
 }
 
 .bar .btn-nav {
-  color: #fff;
+  color: #929292;
   border: 2px solid#fff;
-  background-color: rgba(250,250,250,0.3);
+  background-color: rgba(247, 247, 247, .98);
   font-size: 20px;
   line-height: 20px;
   width: 20%;
@@ -658,8 +662,8 @@ input[type="button"] {
 }
 
 .bar input[type="search"] {
-  height: 29px;
-  margin: 6px 0;
+  height: 95%;
+  margin: 3px 0;
   color: #fff;
 }
 
@@ -916,7 +920,7 @@ select {
 }
 
 .input-row {
-  height: 60px;
+  height: 80px;
   overflow: hidden;
   border-bottom: 1px solid #ddd;
 }
@@ -926,7 +930,8 @@ select {
   width: 35%;
   padding: 0px 15px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  line-height: 60px;
+  line-height: 80px;
+  font-size: 20px;
 }
 
 .input-row input {
@@ -935,6 +940,7 @@ select {
   padding-left: 0;
   margin-bottom: 0;
   border: 0;
+  font-size: 16px;
 }
 
 .segmented-control {

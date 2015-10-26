@@ -33,7 +33,7 @@
 
     <script id="landing-page" type="text/template">
         <div class="bar bar-header">
-            <img src="img/hseLogo.png" class="header-img header-img-center">
+            <img src="img/hseLogo.png" class="header-img">
             <img src="img/hseSlalom.png" class="header-img header-img-right">
         </div>
         <footer class="bar bar-footer">
@@ -62,7 +62,7 @@
             <a class="btn pull-left back">
                 <img src="img/backArrow.png">
             </a>
-            <img src="img/hseLogo.png" class="header-img header-img-center">
+            <img src="img/hseLogo.png" class="header-img">
             <img src="img/hseSlalom.png" class="header-img header-img-right">
         </div>
         <div class="content">
@@ -84,7 +84,7 @@
             <a class="btn pull-left back">
                 <img src="img/backArrow.png">
             </a>
-            <img src="img/hseLogo.png" class="header-img header-img-center">
+            <img src="img/hseLogo.png" class="header-img">
             <img src="img/hseSlalom.png" class="header-img header-img-right">
         </div>
         <footer class="bar bar-footer">
@@ -115,7 +115,7 @@
             <a class="btn pull-left back">
                 <img src="img/backArrow.png">
             </a>
-            <img src="img/hseLogo.png" class="header-img header-img-center">
+            <img src="img/hseLogo.png" class="header-img ">
             <img src="img/hseSlalom.png" class="header-img header-img-right">
         </div>
 
@@ -152,11 +152,11 @@
     </script>
 
     <script id="location-list-item" type="text/template">
-        <div class="list-item">
-            <a href="#add/form/<%= Id %>/false">
+        <a href="#add/form/<%= Id %>/false">
+            <div class="list-item">
                 <span class="important"><%= JSA_HSE__Location_ID__c.split('2015')[0] %></span>
-            </a>
-        </div>
+            </div>
+        </a>
     </script>
 
     <!-- --------------------------------------- Add/edit form page templates -------------------------------------- -->
@@ -165,7 +165,7 @@
             <a class="btn pull-left back">
                 <img src="img/backArrow.png">
             </a>
-            <img src="img/hseLogo.png" class="header-img header-img-center">
+            <img src="img/hseLogo.png" class="header-img ">
             <img src="img/hseSlalom.png" class="header-img header-img-right">
         </div>
 
@@ -243,7 +243,7 @@
                     </div>
                 <% } else if (JSA_HSE__Form_Group__c == "Safety Observation") { %>
                 <div class="input-group">
-                    <span class="section-title">Protective Gear</span>
+                    <div class="section-title">Protective Gear</div>
                     <div class="input-row">
                         <label>Eye/Face</label>
                         <select class="input-cell" name="JSA_HSE__Eye_Face__c" id="JSA_HSE__Eye_Face__c">

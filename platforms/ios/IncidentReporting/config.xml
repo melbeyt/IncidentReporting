@@ -60,6 +60,9 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="SpinnerDialog">
+        <param name="ios-package" value="CDVSpinnerDialog" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="StatusBarOverlaysWebView" value="false" />
@@ -78,7 +81,4 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <feature name="SpinnerDialog">
-        <param name="ios-package" value="CDVSpinnerDialog" />
-    </feature>
 </widget>

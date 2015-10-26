@@ -98,29 +98,35 @@ app.Router = Backbone.StackRouter.extend({
     },
 
     deletePhoto: function (Id) {
-        // todo prompt for confirmation
-        var photo = new app.models.Attachment({Id: Id});
-        photo.fetch({
-            success: function (data) {
-                photo.destroy({
-                    success: function(data) {
-                        app.editPage.render();
-                    },
-                    error: function(data, err, options) {
-                        var error = new Force.Error(err);
-                        alert("Failed to delete photo: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
-                    },
-                    cacheMode: Force.CACHE_MODE.CACHE_ONLY
-                });
-            },
-            error: function (model, error) {
-                if (error) {
-                    console.log("error deleting photo: " + JSON.stringify(error));
-                }
-                alert("Error deleting photo: " + JSON.stringify(error));
-            },
-            cacheMode: Force.CACHE_MODE.CACHE_ONLY
-        });
+        var del = confirm("Delete this photo?");
+        if (del === true) {
+            window.plugins.SpinnerDialog.show();
+            var photo = new app.models.Attachment({Id: Id});
+            photo.fetch({
+                success: function (data) {
+                    photo.destroy({
+                        success: function (data) {
+                            window.plugins.SpinnerDialog.hide();
+                            app.editPage.render();
+                        },
+                        error: function (data, err, options) {
+                            window.plugins.SpinnerDialog.hide();
+                            var error = new Force.Error(err);
+                            alert("Failed to delete photo: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
+                        },
+                        cacheMode: Force.CACHE_MODE.CACHE_ONLY
+                    });
+                },
+                error: function (model, error) {
+                    window.plugins.SpinnerDialog.hide();
+                    if (error) {
+                        console.log("error deleting photo: " + JSON.stringify(error));
+                    }
+                    alert("Error deleting photo: " + JSON.stringify(error));
+                },
+                cacheMode: Force.CACHE_MODE.CACHE_ONLY
+            });
+        }
     },
 
     sync: function() {

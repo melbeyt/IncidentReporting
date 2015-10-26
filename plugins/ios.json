@@ -77,6 +77,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"SpinnerDialog\"><param name=\"ios-package\" value=\"CDVSpinnerDialog\" /></feature>",
                             "count": 1
                         }
@@ -116,7 +120,7 @@
                         },
                         {
                             "xml": false,
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "CoreLocation.framework": [
@@ -227,7 +231,10 @@
         "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
-        "com.filfatstudios.spinnerdialog": {
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.hse.incidents"
+        },
+        "ru.mcler.phonegap.plugins.SpinnerDialog": {
             "PACKAGE_NAME": "com.hse.incidents"
         }
     },

@@ -57,10 +57,18 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.filfatstudios.spinnerdialog": {
+    "org.apache.cordova.inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ru.mcler.phonegap.plugins.SpinnerDialog": {
         "source": {
             "type": "git",
-            "url": "https://github.com/filfat-Studios-AB/cordova-plugin-spinnerdialog",
+            "url": "https://github.com/mcler/SpinnerDialog.git",
             "subdir": "."
         },
         "is_top_level": true,

@@ -94,10 +94,17 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.filfatstudios.spinnerdialog/www/SpinnerDialog.js",
-        "id": "com.filfatstudios.spinnerdialog.SpinnerDialog",
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
-            "SpinnerDialog"
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/ru.mcler.phonegap.plugins.SpinnerDialog/www/SpinnerDialog.js",
+        "id": "ru.mcler.phonegap.plugins.SpinnerDialog.SpinnerDialog",
+        "merges": [
+            "window.plugins.SpinnerDialog"
         ]
     },
     {
@@ -123,7 +130,8 @@ module.exports.metadata =
     "org.apache.cordova.network-information": "0.2.15",
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.statusbar": "0.1.10",
-    "com.filfatstudios.spinnerdialog": "1.0.2",
+    "org.apache.cordova.inappbrowser": "0.6.0",
+    "ru.mcler.phonegap.plugins.SpinnerDialog": "0.3.3",
     "org.apache.cordova.device": "0.3.0",
     "com.phonegap.plugins.PushPlugin": "2.2.1"
 }

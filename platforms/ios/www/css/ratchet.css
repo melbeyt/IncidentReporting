@@ -240,11 +240,14 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   line-height: 21px;
   color: #000;
-  background-color: #fff;
+  background: url('../img/houstonSky.jpeg') no-repeat fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0px;
 }
 
 a {
@@ -256,16 +259,18 @@ a {
 a:active {
   color: #3071a9;
 }
+a:hover {
+  text-decoration: none;
+}
 
 .content {
   position: absolute;
-  top: 0;
+  top: 60px;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: #fff;
 }
 
 .content > * {
@@ -275,15 +280,15 @@ a:active {
 }
 
 .bar-nav ~ .content {
-  padding-top: 44px;
+  padding-top: 70px;
 }
 
 .bar-header-secondary ~ .content {
-  padding-top: 88px;
+  padding-top: 120px;
 }
 
 .bar-footer ~ .content {
-  padding-bottom: 44px;
+  padding-bottom: 60px;
 }
 
 .bar-footer-secondary ~ .content {
@@ -444,11 +449,15 @@ p {
 }
 
 .btn-block {
+  color: #fff;
+  border: 2px solid#fff;
+  background-color: rgba(250,250,250,0.3);
+  font-size: 30px;
+  line-height: 70px;
+  width: 80%;
+  margin: 40px auto;
   display: block;
-  width: 100%;
   padding: 15px 0;
-  margin-bottom: 10px;
-  font-size: 18px;
 }
 
 input[type="submit"],
@@ -489,7 +498,6 @@ input[type="button"] {
   right: 0;
   left: 0;
   z-index: 10;
-  height: 44px;
   padding-right: 10px;
   padding-left: 10px;
   background-color: white;
@@ -500,7 +508,6 @@ input[type="button"] {
 }
 
 .bar-header-secondary {
-  top: 44px;
 }
 
 .bar-footer {
@@ -611,6 +618,17 @@ input[type="button"] {
   font-size: 16px;
 }
 
+.bar .btn-nav {
+  color: #929292;
+  border: 2px solid#fff;
+  background-color: rgba(247, 247, 247, .98);
+  font-size: 20px;
+  line-height: 20px;
+  width: 20%;
+  margin: 2px 15px;
+  padding: 15px 0px;
+}
+
 .bar .btn-nav.pull-left {
   margin-left: -5px;
 }
@@ -618,7 +636,7 @@ input[type="button"] {
   margin-right: -3px;
 }
 .bar .btn-nav.pull-right {
-  margin-right: -5px;
+  float: right;
 }
 .bar .btn-nav.pull-right .icon-right-nav {
   margin-left: -3px;
@@ -644,8 +662,9 @@ input[type="button"] {
 }
 
 .bar input[type="search"] {
-  height: 29px;
-  margin: 6px 0;
+  height: 95%;
+  margin: 3px 0;
+  color: #fff;
 }
 
 .bar .segmented-control {
@@ -720,10 +739,10 @@ input[type="button"] {
 
 .table-view {
   padding-left: 0;
-  margin-top: 0;
+  margin-top: 2px;
   margin-bottom: 15px;
   list-style: none;
-  background-color: #fff;
+  background-color: rgba(250, 250, 250, .7);
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -883,7 +902,9 @@ select {
 }
 
 .input-group {
-  background-color: #fff;
+  background-color: rgba(250, 250, 250, .7);
+  width: 100%;
+  padding: 10px;
 }
 
 .input-group input,
@@ -899,7 +920,7 @@ select {
 }
 
 .input-row {
-  height: 35px;
+  height: 80px;
   overflow: hidden;
   border-bottom: 1px solid #ddd;
 }
@@ -907,9 +928,10 @@ select {
 .input-row label {
   float: left;
   width: 35%;
-  padding: 8px 15px;
+  padding: 0px 15px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  line-height: 1.1;
+  line-height: 80px;
+  font-size: 20px;
 }
 
 .input-row input {
@@ -918,6 +940,7 @@ select {
   padding-left: 0;
   margin-bottom: 0;
   border: 0;
+  font-size: 16px;
 }
 
 .segmented-control {

@@ -249,14 +249,16 @@ app.views.SyncPage = Backbone.View.extend({
     },
 
     options: function () {
-        app.router.slidePage(app.options);
+        app.router.slidePage(app.optionsPage);
     },
 
     // todo: be sure we're adding all locally modified records to sync collection
     sync: function(event) {
+        window.plugins.SpinnerDialog.show();
         var that = this;
         if (this.model.length == 0 || this.model.at(0).get("__sync_failed__")) {
             // we push sync failures back to the end of the list - if we encounter one, it means we are done
+            window.plugins.SpinnerDialog.hide();
             return;
         }
         else {
@@ -269,6 +271,7 @@ app.views.SyncPage = Backbone.View.extend({
             //record.get("__locally_deleted__") ? record.destroy(options)
             saveOne(record, null, function () {
                 if (that.model.length == 0) {
+                    window.plugins.SpinnerDialog.hide();
                     app.router.slidePage(app.mainPage);
                 }
                 else {
@@ -284,6 +287,7 @@ app.views.SyncPage = Backbone.View.extend({
                 } else {
                     errStr = "An error has occured: \n" + JSON.stringify(error);
                 }
+                window.plugins.SpinnerDialog.hide();
                 alert(errStr);
                 record = record.set("__sync_failed__", true);
                 that.model.push(record);
@@ -518,19 +522,23 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     asyncForEach(that.attachments, saveHelper, {}, function (successes, failures) {
                         that.locked = false;
                         if (failures.length > 0) {
+                            window.plugins.SpinnerDialog.hide();
                             alert("Error saving attachments: " + JSON.stringify(failures[0]));
                             console.log("Error saving attachments: " + JSON.stringify(failures[0]));
                         } else {
+                            window.plugins.SpinnerDialog.hide();
                             app.router.slidePage(app.mainPage);
                         }
                     });
                 } else {
                     that.locked = false;
+                    window.plugins.SpinnerDialog.hide();
                     app.router.slidePage(app.mainPage);
                 }
             },
             error: function(data, err, options) {
                 that.locked = false;
+                window.plugins.SpinnerDialog.hide();
                 alert("Error saving record: " + err.responseText);
                 that.handleError(new Force.Error(err));
             }
@@ -540,8 +548,9 @@ app.views.EditActivityFormPage = Backbone.View.extend({
     save: function() {
         // prevent multi saves from button mashing
         if (!this.locked) {
+            window.plugins.SpinnerDialog.show();
             this.locked = true;
-            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForSF(this.model.get("JSA_HSE__Incident_Date_Time__c")))
+            this.model.set("JSA_HSE__Incident_Date_Time__c", formatDateTimeForSF(this.model.get("JSA_HSE__Incident_Date_Time__c")));
             this.model.save(null, this.getSaveOptions(Force.MERGE_MODE.MERGE_ACCEPT_YOURS));
         }
     },
@@ -553,15 +562,21 @@ app.views.EditActivityFormPage = Backbone.View.extend({
             this.model.save(null, this.getSaveOptions(null, Force.CACHE_MODE.CACHE_ONLY));
         }
         else {
-            this.model.destroy({
-                success: function(data) {
-                    app.router.slidePage(app.mainPage);
-                },
-                error: function(data, err, options) {
-                    var error = new Force.Error(err);
-                    alert("Failed to delete form: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
-                }
-            });
+            var del = confirm("Delete this form and any of its attachments?");
+            if (del === true) {
+                window.plugins.SpinnerDialog.show();
+                this.model.destroy({
+                    success: function(data) {
+                        window.plugins.SpinnerDialog.hide();
+                        app.router.slidePage(app.mainPage);
+                    },
+                    error: function(data, err, options) {
+                        window.plugins.SpinnerDialog.hide();
+                        var error = new Force.Error(err);
+                        alert("Failed to delete form: " + (error.type === "RestError" ? error.details[0].message : "Remote change detected - delete aborted"));
+                    }
+                });
+            }
         }
     },
 
@@ -572,20 +587,24 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         });
 
         function onSuccess(imageData) {
+            window.plugins.SpinnerDialog.show();
             that.model.save(null, {success: function () {
                 var attachment = new app.models.Attachment({ParentId: that.model.get("Id"), Name: currentDateTime() + '.jpg', Body: imageData});
                 attachment.save(null, {success: function () {
+                    window.plugins.SpinnerDialog.hide();
                     that.render();
                 }, error: function (err) {
+                    window.plugins.SpinnerDialog.hide();
                     alert("Error saving photo: " + err);
                 }, cacheMode: Force.CACHE_MODE.CACHE_ONLY});
             }, error: function (error) {
+                window.plugins.SpinnerDialog.hide();
                 alert("Record save failed: " + error);
             }});
         }
 
         function onFail(message) {
-            alert('Photo caputre failed: ' + message);
+            alert('Photo capture failed: ' + message);
         }
     }
 });

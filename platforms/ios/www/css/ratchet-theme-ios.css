@@ -9,14 +9,13 @@
  */
 
 a {
-  color: #007aff;
+  color: #fff;
 }
 a:active {
-  color: #0062cc;
+  color: #5d5d5d;
 }
 
 .content {
-  background-color: #efeff4;
 }
 
 .h5, h5,
@@ -117,13 +116,24 @@ p {
 }
 
 .bar {
-  background-color: rgba(247, 247, 247, .98);
+  background-color: rgba(250, 250, 250, .4);
   border-bottom: 0;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
           box-shadow: 0 0 1px rgba(0, 0, 0, .85);
 }
+
+.bar.bar-header {
+    height: 60px;
+    margin-bottom: 40px;
+}
+
 .bar.bar-header-secondary {
-  top: 44px;
+  position: relative;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    height: 80px;
+    padding: 0;
+    margin-bottom: 10px;
 }
 .bar.bar-footer-secondary {
   bottom: 44px;
@@ -132,6 +142,8 @@ p {
   bottom: 50px;
 }
 .bar.bar-footer, .bar.bar-footer-secondary, .bar.bar-footer-secondary-tab {
+    height: 70px;
+    margin-top: 40px;
   border-top: 0;
 }
 
@@ -261,12 +273,17 @@ textarea,
   height: auto;
 }
 
+select {
+    color: #585858;
+    font-size: 16px;
+}
+
 .input-group {
-  padding: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#c8c7cc' x='0' y='0' width='100%' height='0.5'/></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#c8c7cc' x='0' y='0' width='100%' height='0.5'/></svg>");
-  background-repeat: no-repeat;
-  background-position: 0 100%, 0 0;
-  border: 0;
+    background-color: rgba(250, 250, 250, .4);
+    width: 100%;
+    padding: 30px 10px;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .input-group input {
@@ -274,6 +291,7 @@ textarea,
   background-repeat: no-repeat;
   background-position: 15px 100%;
   border: 0;
+    height: 100%
 }
 
 .input-group input:last-child {
@@ -281,10 +299,8 @@ textarea,
 }
 
 .input-row {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#c8c7cc' x='0' y='0' width='100%' height='0.5'/></svg>");
-  background-repeat: no-repeat;
-  background-position: 15px 100%;
-  border-bottom: 0;
+  border: 1px solid #fff;
+    margin: 2px;
 }
 
 .input-row:last-child,
