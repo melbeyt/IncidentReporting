@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		027F2404E9B3451498113253 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC1873F1864D0BA762F70D /* PushPlugin.m */; };
 		067BF462628C438695C663C9 /* libSalesforceHybridSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CA4788478A47C487CE6CDD /* libSalesforceHybridSDK.a */; };

@@ -63,6 +63,9 @@
     <feature name="SpinnerDialog">
         <param name="ios-package" value="CDVSpinnerDialog" />
     </feature>
+    <splash height="2048" src="www/img/hseIPadPortraitSplash.png" width="1536" />
+    <splash height="1536" src="www/img/hseIPadLandscapeSplash.png" width="2048" />
+    <splash height="1136" src="www/img/hseIPhonePortraitSplash.png" width="640" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="StatusBarOverlaysWebView" value="false" />
@@ -81,4 +84,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon src="www/img/hseIcon.png" />
 </widget>

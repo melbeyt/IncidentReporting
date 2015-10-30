@@ -1,6 +1,7 @@
 <!-- Notes for iPad: -->
 <!--    Cordova bug occasionally crashes navigation; added line 223 of CDVWebViewDelegate.m to return after page 'reload' and prevent error, though button to same page as before won't work until different one is tried -->
 <!--    Syncing or saving attachments takes FOREVER gets stuck in syncSObjectWithServer in create mode -->
+<!-- todo: add ability to add attachments -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,7 +121,6 @@
         </div>
 
         <footer class="bar bar-footer">
-            <span class="offlineStatus"></span>
             <a class="btn btn-nav pull-right options">Options</a>
         </footer>
 
@@ -128,7 +128,7 @@
             <span class="sub-title">Sync</span>
             <div class="content-pane">
                 <div class="bar bar-standard bar-header-secondary sync-button-bar">
-                    <a class="btn btn-block sync">Process <%= (countLocallyModified == 1 ? countLocallyModified + " record" : countLocallyModified + " records") %> </a>
+                    <a class="btn btn-block sync <%= isOnline ? 'enabled' : 'disabled' %>"><%= isOnline ? "Process " + (countLocallyModified == 1 ? countLocallyModified + " record" : countLocallyModified + " records") : "No Connection" %> </a>
                 </div>
                 <ul class="table-view"></ul>
             </div>
@@ -205,6 +205,7 @@
                     <div class="input-group">
                         <div class="input-row photo-row" id="formPhoto">
                             <a class="btn btn-block camera">Add Photo</a>
+                            <a class="btn btn-block attachment">Choose Existing Photo</a>
                         </div>
                         <span class="section-title">Photos: </span>
                         <%_.forEach(imgs, function (i) {%>

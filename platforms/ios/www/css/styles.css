@@ -121,9 +121,11 @@
 }
 
 .input-row .input-cell {
-    border-left: 1px solid rgb(255, 255, 255);
     height: 100%;
     width: 65%;
+    border: 2px solid rgb(117, 117, 117);
+    background-color: #f8f8f8;
+    color: rgb(117, 117, 117);
 }
 
 .input-row.photo-row {
@@ -183,12 +185,28 @@
     margin-top: 2px;
 }
 
+.btn-block+.btn-block {
+    margin-top: 0;
+}
+
 .camera {
     height: 100%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 0 2%;
     line-height: 80px;
     padding: 0;
     font-size: 20px;
+    display: inline-block;
+}
+
+.attachment {
+    height: 100%;
+    width: 45%;
+    margin: 0 2%;
+    line-height: 80px;
+    padding: 0;
+    font-size: 20px;
+    display: inline-block;
 }
 
 .count-other {

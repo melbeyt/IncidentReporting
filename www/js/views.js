@@ -234,13 +234,11 @@ app.views.SyncPage = Backbone.View.extend({
         var that = this;
         _.each(["reset","add","remove"], function(eventName) { that.model.on(eventName, that.render, that); });
         this.listView = new app.views.ActivityFormListView({model: this.model});
-        this.offlineTogglerView = new app.views.OfflineToggler({model: app.offlineTracker});
     },
 
     render: function(eventName) {
-        $(this.el).html(this.template(_.extend({countLocallyModified: this.model.length}, this.model.toJSON())));
+        $(this.el).html(this.template(_.extend({isOnline: app.offlineTracker.get("isOnline"), countLocallyModified: this.model.length}, this.model.toJSON())));
         this.listView.setElement($("ul", this.el)).render();
-        this.offlineTogglerView.setElement($(".offlineStatus", this.el)).render();
         return this;
     },
 
@@ -311,6 +309,7 @@ app.views.EditActivityFormPage = Backbone.View.extend({
         "click .save": "save",
         "click .toggleDelete": "toggleDelete",
         "click .camera": "takePhoto",
+        "click .attachment": "getAttachment",
         "click .options": "options"
     },
 
@@ -577,6 +576,35 @@ app.views.EditActivityFormPage = Backbone.View.extend({
                     }
                 });
             }
+        }
+    },
+
+    getAttachment: function () {
+        var that = this;
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        });
+
+        function onSuccess(imageData) {
+            window.plugins.SpinnerDialog.show();
+            that.model.save(null, {success: function () {
+                var attachment = new app.models.Attachment({ParentId: that.model.get("Id"), Name: currentDateTime() + '.jpg', Body: imageData});
+                attachment.save(null, {success: function () {
+                    window.plugins.SpinnerDialog.hide();
+                    that.render();
+                }, error: function (err) {
+                    window.plugins.SpinnerDialog.hide();
+                    alert("Error saving attachment: " + err);
+                }, cacheMode: Force.CACHE_MODE.CACHE_ONLY});
+            }, error: function (error) {
+                window.plugins.SpinnerDialog.hide();
+                alert("Record save failed: " + error);
+            }});
+        }
+
+        function onFail(message) {
+            alert('Accessing photo library failed: ' + message);
         }
     },
 
