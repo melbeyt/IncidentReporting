@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="ru.mcler.phonegap.plugins.SpinnerDialog"
+      version="0.3.3">
+
+    <name>SpinnerDialog</name>
+    
+	<description>
+			PhoneGap waiting dialog plugin with spinner for Android and iOS. Forked from Paldom version.
+	</description>
+	<license>MIT</license>
+	<keywords>phonegap,android,ios,spinner,dialog,SpinnerDialog</keywords>
+
+	<js-module src="www/SpinnerDialog.js" name="SpinnerDialog">
+	  <merges target="window.plugins.SpinnerDialog" />
+	</js-module>
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SpinnerDialog">
+                <param name="android-package" value="ru.mcler.phonegap.plugins.SpinnerDialog"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/SpinnerDialog.java" target-dir="src/ru/mcler/phonegap/plugins" />
+        
+    </platform>
+
+	<!-- ios -->
+	<platform name="ios">
+	  <config-file target="config.xml" parent="/*">
+		<feature name="SpinnerDialog">
+		  <param name="ios-package" value="CDVSpinnerDialog"/>
+		</feature>
+	  </config-file>
+
+	  <header-file src="src/ios/CDVSpinnerDialog.h" />
+	  <source-file src="src/ios/CDVSpinnerDialog.m" />
+	</platform>
+	
+</plugin>
+
