@@ -9,11 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
                         {
@@ -53,15 +53,19 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
                             "count": 1
                         },
                         {
@@ -74,10 +78,6 @@
                         },
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         },
                         {
@@ -216,22 +216,25 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
         "com.salesforce": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
-        "org.apache.cordova.network-information": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
         "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
-        "org.apache.cordova.statusbar": {
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
-        "org.apache.cordova.inappbrowser": {
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.hse.incidents"
+        },
+        "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.hse.incidents"
         },
         "ru.mcler.phonegap.plugins.SpinnerDialog": {
@@ -240,9 +243,6 @@
     },
     "dependent_plugins": {
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.hse.incidents"
-        },
-        "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.hse.incidents"
         }
     }

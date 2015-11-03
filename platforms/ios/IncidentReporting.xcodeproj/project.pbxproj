@@ -5,22 +5,21 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
-		027F2404E9B3451498113253 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC1873F1864D0BA762F70D /* PushPlugin.m */; };
-		067BF462628C438695C663C9 /* libSalesforceHybridSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CA4788478A47C487CE6CDD /* libSalesforceHybridSDK.a */; };
-		073A4BF43EA549F699484B20 /* libSalesforceCommonUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E214FF5CE316467284B06FB7 /* libSalesforceCommonUtils.a */; };
-		09FD73F038A84232B228BB41 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9A6D698C64597A373ACF1 /* InitialViewController.m */; };
-		0C84431FC05144E183FE52B7 /* AppDelegate+SalesforceHybridSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 585A6D54056747E3A1897376 /* AppDelegate+SalesforceHybridSDK.m */; };
-		10C4AF3518714CCAA999C404 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F936C2CEA0A44AC08C17D001 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		12573972A72B4ED18F6217FA /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = F50610DA276E4B56B83C7F20 /* AppDelegate+notification.m */; };
-		14A10A0A2E75446584AA56F8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06D374E9F8B41D880950A89 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		1BD7B11442D24C229F65A039 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 909F395A547A4174B330996C /* CDVCamera.m */; };
+		029F97E52CAC432EB5A4B612 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDFC369E7AC4C289713236B /* libsqlcipher.a */; };
+		06FBCA96C2E340D6A321FB8B /* libSalesforceOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A96EE9F398D416087216B69 /* libSalesforceOAuth.a */; };
+		0A05A3C63CBE46BB9371A6D8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A93DBD80184DD9ADEDBA4E /* libxml2.dylib */; };
+		0D2521793FE14DAB90A857D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B8DB357B241368EA91CED /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
-		2817DFE1BDE24B229BC8729E /* libSalesforceSDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C8597DA7164EB88892831E /* libSalesforceSDKCore.a */; };
+		1DBCC8F52F0146D7AA1D9CA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D95C213A9DBA43A483A6DFDD /* libz.dylib */; };
+		270D95552E1543718261931C /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8902617ABB3D44A3BC361984 /* AddressBookUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		2CBE2EBBD1B64CA99D13EB4E /* libSalesforceNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 829892C41940461191E9C9C1 /* libSalesforceNetwork.a */; };
+		2A7002854F9B48A899C00555 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59459FAB384C42F4AA3CA387 /* UIImage+CropScaleOrientation.m */; };
+		2A82F5DBB65D49CC8DE20CF0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E987C0E790BE45E89D8406CB /* Settings.bundle */; };
+		2ADB550009844A1B8035C3B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA99C8756D4405DBDC5EF33 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2D8C3E765C6B4972AB9F2527 /* AppDelegate+SalesforceHybridSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 995CE499825A4F7E98BA4C23 /* AppDelegate+SalesforceHybridSDK.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
@@ -34,18 +33,29 @@
 		308D05371370CCF300D202BF /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D052E1370CCF300D202BF /* icon-72.png */; };
 		308D05381370CCF300D202BF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D052F1370CCF300D202BF /* icon.png */; };
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
-		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
+		30B4F30019D5E07200D9F7D8 /* Default-667h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FD19D5E07200D9F7D8 /* Default-667h.png */; };
+		30B4F30119D5E07200D9F7D8 /* Default-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FE19D5E07200D9F7D8 /* Default-736h.png */; };
+		30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */; };
+		30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C1856519D5FC0A00212699 /* icon-60@3x.png */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
-		3F081378A7D34430AEA9A475 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04574319A4084F3EB642790E /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4EAB366622014492B5CD890A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B41ED12C30CF4F5B8C198F0A /* libz.dylib */; };
-		54D4685E60D8431C8A2C48D4 /* SalesforceSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9A64944FBFA74302A16B5D19 /* SalesforceSDKResources.bundle */; };
+		32D100820F6346589C8D9B4F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88884E6BE264DF7B5B3DEFF /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3C6F8418B12546E48F77353F /* libSalesforceSecurity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 475C3B10A376475FB571CDF5 /* libSalesforceSecurity.a */; };
+		411218BF52FA496081B78233 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 089E7ADE7B864AD2B042A20E /* CDVReachability.m */; };
+		41C3107132804DDCA407EEC3 /* libSalesforceHybridSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5139E73C12A84701A830AE9B /* libSalesforceHybridSDK.a */; };
+		42E7A6D8C4CF41A99964B39A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352DC03A5B9F4136A636B99C /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4380751E256A4AA488F9EBF9 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EED0EC76A245A395759335 /* PushPlugin.m */; };
+		4698D5DE37744AEDABD208B1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F0A8D002C443C2AA90E313 /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4AFB6AF528BF4678B131073B /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 57686B3F5D094E61A8D4E3E1 /* CDVStatusBar.m */; };
+		50331394EED2415BAC6280AD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AA606375F742A5BF6E04AC /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		54F22976E30B4D38B930F22C /* libSalesforceRestAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1973B22B810C495A81BACA02 /* libSalesforceRestAPI.a */; };
+		56996F8089B9426AA921B76E /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 488EDAA5410940A58DCE7430 /* AppDelegate+notification.m */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
-		5B686862C9264E899F912BE2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EAB6F075430C46188C93E854 /* Settings.bundle */; };
-		5DDD0FE12F1F4F43A6C1F854 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64F7A1337864795B42DE7B5 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		6C9B79E95B1D4778B830FB0D /* libSmartSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B869DEC329444D74B8FE206C /* libSmartSync.a */; };
-		6D77B26F16FC4058A2107195 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AB732110EBD4704918BA84E /* Images.xcassets */; };
-		77B5E2334F5841DD9D8D7A64 /* libSalesforceRestAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 721DAAAE75B14C48AD223252 /* libSalesforceRestAPI.a */; };
-		798EFA9E567B49BABCCABDE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05632D95A1B14CA6B652A489 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		620F1641B5D54885A20590CD /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E16314B6064A7897BBAB82 /* CDVCamera.m */; };
+		625432E58DA740FBBC14BE9D /* SalesforceSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A841230C19284DC482A5709D /* SalesforceSDKResources.bundle */; };
+		62A5061C038140CCABFACB38 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3612183130B4D25B2F70DFD /* InitialViewController.m */; };
+		67703A977F0E4AC1B1CBF73E /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D23858FB7430BBCC58AD7 /* CDVInAppBrowser.m */; };
+		691C283FC1FD476989F2CF0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75174F5D37F41A48CF8AB97 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6F17C9574C88463AA27605EC /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC66A26EC6B4522AA4B43E1 /* CDVJpegHeaderWriter.m */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -56,26 +66,19 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		9430BEB7C2964B75ACD2ADAF /* UIApplication+SalesforceHybridSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F02D07AF4C148FABDE0DEA5 /* UIApplication+SalesforceHybridSDK.m */; };
-		9E2E5B26EE544358B7707581 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AC5D489E4423BB4F1E2A /* CDVConnection.m */; };
-		AC8839B060714EE8A2AF2564 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA49FEA53B34350BC1716D1 /* UIImage+CropScaleOrientation.m */; };
-		B0E80C68ACA440A7A9AFBF65 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09BCB0FEB1D4A06A0A580EE /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		B720478DB99B47519DAA405A /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B44403BFEAA3467AB0DBD575 /* CDVStatusBar.m */; };
-		B8DB061C125543ACA0F92B28 /* CDVSpinnerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF4DEC3C234626A58A008C /* CDVSpinnerDialog.m */; };
-		BE55E644AD004D068786B81A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525A7F6D4D054DC49FA3343B /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C8226BCB70DF42108A3683DC /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 03148B2ED06542349614DC2E /* CDVJpegHeaderWriter.m */; };
-		CC5ADEEFFED84B28AB70F537 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */; };
-		CC75EC2C888C4EB7BA4DA430 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034F80AFA1EA4122B5ED5BDD /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		CC8EC5976028450689039A37 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C67986EB294D40CEBD409446 /* CDVReachability.m */; };
+		993EB1997AB44631AEAB10A6 /* libSalesforceSDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57977D7EA8D8437288F3D828 /* libSalesforceSDKCore.a */; };
+		9D3EE90A6B5A4B28BC8DA907 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BDEA678DFA4E89917E334E /* CDVConnection.m */; };
+		9E01D58004F645FCBFD42471 /* libSalesforceCommonUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCBC048FA42494B85CBEA3B /* libSalesforceCommonUtils.a */; };
+		ABAEC911B1AC4777B5738381 /* UIApplication+SalesforceHybridSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 1271CD24A9E14FCE97B13369 /* UIApplication+SalesforceHybridSDK.m */; };
+		CF64A598734642C5AFBFC18C /* libSmartSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 135C7F7D92DB4A7EA3199822 /* libSmartSync.a */; };
+		D156292B54DB4BF88741EB8C /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707AF2C2CEB4717A8C44DE3 /* CDVDevice.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		D54912F5A6984AC6943FA3A9 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 96681350F37C4077A5AA2D8F /* CDVDevice.m */; };
-		D60749D888114E70A0DD2D62 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D4499EF4864EE693C89EBD /* libxml2.dylib */; };
-		E16416B1FF7C4C658E2938A5 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDCD3FE3E044DEF896C3E3E /* AddressBookUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EB4E3312A07B4CCA977DFC8D /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 920FD9ECF0A64B72BC38B218 /* libsqlcipher.a */; };
-		F2B6DF51922A4F02BA6B186F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AA73BF18AA4692879E2FF5 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F33A01C028FF447BBA9E5110 /* libSalesforceSDKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D85CBD7FC8064AA0B1B233D5 /* libSalesforceSDKCommon.a */; };
-		F998D81A0D584096A82E6DE3 /* libSalesforceOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77BFF4E8083A4B6F85B48C6D /* libSalesforceOAuth.a */; };
-		FDC8FD9418D7416EA5C9EF84 /* libSalesforceSecurity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0184DFC6B1E640AA99111700 /* libSalesforceSecurity.a */; };
+		DE130AA824824F6B81605D45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A615FA24244402B3F67B5E /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E47D79770B664EDF985AEDFA /* libSalesforceSDKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C786AFC3914E0F8C135A5B /* libSalesforceSDKCommon.a */; };
+		E6ECB6A45F0C4783BEEF61F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E5D49B428747188871325E /* Images.xcassets */; };
+		F881F80617AA48A291BC7198 /* CDVSpinnerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B09394462C94E8895EB3856 /* CDVSpinnerDialog.m */; };
+		F9F349BBAA0E413C8206C417 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1E3A9A79044F1F866F66B6 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FEB8788239264413A34ACAE2 /* libSalesforceNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 924DA7B2075C40C3A9E7A9B3 /* libSalesforceNetwork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,27 +99,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0184DFC6B1E640AA99111700 /* libSalesforceSecurity.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSecurity.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSecurity.a; sourceTree = "<group>"; };
-		03148B2ED06542349614DC2E /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = org.apache.cordova.camera/CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
-		034F80AFA1EA4122B5ED5BDD /* Security.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		04574319A4084F3EB642790E /* AddressBook.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		05632D95A1B14CA6B652A489 /* UIKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		05C4E4C61B5A4A248A0A67DF /* SFIdentityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFIdentityData.h; path = com.salesforce/salesforce/SFIdentityData.h; sourceTree = "<group>"; };
-		17B93CA1F01A45D4B9A67F17 /* AppDelegate+notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; };
-		1960F752FB9D4BE288556D4E /* CDVSpinnerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSpinnerDialog.h; path = ru.mcler.phonegap.plugins.SpinnerDialog/CDVSpinnerDialog.h; sourceTree = "<group>"; };
+		02B48692863B4043922422EE /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
+		047D23858FB7430BBCC58AD7 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
+		06A615FA24244402B3F67B5E /* Foundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		089E7ADE7B864AD2B042A20E /* CDVReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVReachability.m; path = "org.apache.cordova.network-information/CDVReachability.m"; sourceTree = "<group>"; };
+		0B09394462C94E8895EB3856 /* CDVSpinnerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSpinnerDialog.m; path = ru.mcler.phonegap.plugins.SpinnerDialog/CDVSpinnerDialog.m; sourceTree = "<group>"; };
+		0B6D76EF631E49A787D7A5F6 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
+		1271CD24A9E14FCE97B13369 /* UIApplication+SalesforceHybridSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+SalesforceHybridSDK.m"; path = "com.salesforce/UIApplication+SalesforceHybridSDK.m"; sourceTree = "<group>"; };
+		135C7F7D92DB4A7EA3199822 /* libSmartSync.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSmartSync.a; path = IncidentReporting/Plugins/com.salesforce/libSmartSync.a; sourceTree = "<group>"; };
+		1707AF2C2CEB4717A8C44DE3 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
+		17EED0EC76A245A395759335 /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = com.phonegap.plugins.PushPlugin/PushPlugin.m; sourceTree = "<group>"; };
+		18D212A73C61420BA49E123F /* SFAuthErrorHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthErrorHandlerList.h; path = com.salesforce/salesforce/SFAuthErrorHandlerList.h; sourceTree = "<group>"; };
+		1973B22B810C495A81BACA02 /* libSalesforceRestAPI.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceRestAPI.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceRestAPI.a; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D57F2475CD34635A00BF57F /* SFLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFLogger.h; path = com.salesforce/salesforce/SFLogger.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* IncidentReporting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncidentReporting.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F02D07AF4C148FABDE0DEA5 /* UIApplication+SalesforceHybridSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+SalesforceHybridSDK.m"; path = "com.salesforce/UIApplication+SalesforceHybridSDK.m"; sourceTree = "<group>"; };
-		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
-		22AA73BF18AA4692879E2FF5 /* QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2616F0A22ECA4CDE91499D8F /* SFAuthErrorHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthErrorHandlerList.h; path = com.salesforce/salesforce/SFAuthErrorHandlerList.h; sourceTree = "<group>"; };
+		23400145CB6240BBBD2A068C /* SFIdentityCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFIdentityCoordinator.h; path = com.salesforce/salesforce/SFIdentityCoordinator.h; sourceTree = "<group>"; };
+		27AB06B544354CF69A0EDAE8 /* CDVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = org.apache.cordova.statusbar/CDVStatusBar.h; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2AEF4DEC3C234626A58A008C /* CDVSpinnerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSpinnerDialog.m; path = ru.mcler.phonegap.plugins.SpinnerDialog/CDVSpinnerDialog.m; sourceTree = "<group>"; };
-		2BA49FEA53B34350BC1716D1 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropScaleOrientation.m"; path = "org.apache.cordova.camera/UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -132,30 +133,36 @@
 		308D052E1370CCF300D202BF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		308D052F1370CCF300D202BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		308D05301370CCF300D202BF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		30A0434414DC770100060A13 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
-		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
+		30B4F2FD19D5E07200D9F7D8 /* Default-667h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h.png"; sourceTree = "<group>"; };
+		30B4F2FE19D5E07200D9F7D8 /* Default-736h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h.png"; sourceTree = "<group>"; };
+		30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-736h.png"; sourceTree = "<group>"; };
+		30C1856519D5FC0A00212699 /* icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
-		3144AC5D489E4423BB4F1E2A /* CDVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; };
-		32711304FF9445C5BD5439D0 /* SFUserAccountIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountIdentity.h; path = com.salesforce/salesforce/SFUserAccountIdentity.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* IncidentReporting-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IncidentReporting-Prefix.pch"; sourceTree = "<group>"; };
-		342CA9FE5F4844118DBAC287 /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = org.apache.cordova.camera/CDVJpegHeaderWriter.h; sourceTree = "<group>"; };
-		34C8597DA7164EB88892831E /* libSalesforceSDKCore.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSDKCore.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSDKCore.a; sourceTree = "<group>"; };
-		4215B845698C4E3BA2C83D32 /* CDVReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVReachability.h; path = "org.apache.cordova.network-information/CDVReachability.h"; sourceTree = "<group>"; };
-		4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
-		509311B42D314589A79DB622 /* UIApplication+SalesforceHybridSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+SalesforceHybridSDK.h"; path = "com.salesforce/UIApplication+SalesforceHybridSDK.h"; sourceTree = "<group>"; };
-		525A7F6D4D054DC49FA3343B /* Foundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		525B6F17E7E34F57A1378636 /* SFUserAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountManager.h; path = com.salesforce/salesforce/SFUserAccountManager.h; sourceTree = "<group>"; };
-		585A6D54056747E3A1897376 /* AppDelegate+SalesforceHybridSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+SalesforceHybridSDK.m"; path = "com.salesforce/AppDelegate+SalesforceHybridSDK.m"; sourceTree = "<group>"; };
-		5AB732110EBD4704918BA84E /* Images.xcassets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; path = Images.xcassets; sourceTree = "<group>"; };
+		352DC03A5B9F4136A636B99C /* SystemConfiguration.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		358C4AD9EF1A4E7284690CE9 /* SFUserAccountIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountIdentity.h; path = com.salesforce/salesforce/SFUserAccountIdentity.h; sourceTree = "<group>"; };
+		361D1FAE3B1A4349B16E1388 /* SFUserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccount.h; path = com.salesforce/salesforce/SFUserAccount.h; sourceTree = "<group>"; };
+		3CC66A26EC6B4522AA4B43E1 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = org.apache.cordova.camera/CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
+		40B6FD90A9FD4E38B9520E22 /* SFAuthErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthErrorHandler.h; path = com.salesforce/salesforce/SFAuthErrorHandler.h; sourceTree = "<group>"; };
+		46E48F12901E4258AAC8D99F /* SFSDKAppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFSDKAppConfig.h; path = com.salesforce/salesforce/SFSDKAppConfig.h; sourceTree = "<group>"; };
+		475C3B10A376475FB571CDF5 /* libSalesforceSecurity.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSecurity.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSecurity.a; sourceTree = "<group>"; };
+		488EDAA5410940A58DCE7430 /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; };
+		4B444FF428344948B9F33FD4 /* SalesforceSDKCoreDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKCoreDefines.h; path = com.salesforce/salesforce/SalesforceSDKCoreDefines.h; sourceTree = "<group>"; };
+		4BEB80625E3F4D52991C45EC /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropScaleOrientation.h"; path = "org.apache.cordova.camera/UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
+		4E51B261EDAC4306BAB8FA2A /* SFIdentityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFIdentityData.h; path = com.salesforce/salesforce/SFIdentityData.h; sourceTree = "<group>"; };
+		5139E73C12A84701A830AE9B /* libSalesforceHybridSDK.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceHybridSDK.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceHybridSDK.a; sourceTree = "<group>"; };
+		514328AE00134FD2934573C7 /* SFCommunityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFCommunityData.h; path = com.salesforce/salesforce/SFCommunityData.h; sourceTree = "<group>"; };
+		526702196F684D88B1F472AE /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = org.apache.cordova.camera/CDVCamera.h; sourceTree = "<group>"; };
+		57686B3F5D094E61A8D4E3E1 /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
+		57977D7EA8D8437288F3D828 /* libSalesforceSDKCore.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSDKCore.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSDKCore.a; sourceTree = "<group>"; };
+		59459FAB384C42F4AA3CA387 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropScaleOrientation.m"; path = "org.apache.cordova.camera/UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
+		5A96EE9F398D416087216B69 /* libSalesforceOAuth.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceOAuth.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceOAuth.a; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		5F3429DA3D7B4F089569066D /* SFIdentityCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFIdentityCoordinator.h; path = com.salesforce/salesforce/SFIdentityCoordinator.h; sourceTree = "<group>"; };
-		62A310C39E7446A399F21AD9 /* AppDelegate+SalesforceHybridSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+SalesforceHybridSDK.h"; path = "com.salesforce/AppDelegate+SalesforceHybridSDK.h"; sourceTree = "<group>"; };
-		6ABB684A42034A82850D2F9B /* SFHybridViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHybridViewConfig.h; path = com.salesforce/salesforce/SFHybridViewConfig.h; sourceTree = "<group>"; };
-		6DAC1873F1864D0BA762F70D /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = com.phonegap.plugins.PushPlugin/PushPlugin.m; sourceTree = "<group>"; };
-		721DAAAE75B14C48AD223252 /* libSalesforceRestAPI.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceRestAPI.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceRestAPI.a; sourceTree = "<group>"; };
-		77A71B8383F145FDA492E230 /* CDVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVConnection.h; path = "org.apache.cordova.network-information/CDVConnection.h"; sourceTree = "<group>"; };
-		77BFF4E8083A4B6F85B48C6D /* libSalesforceOAuth.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceOAuth.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceOAuth.a; sourceTree = "<group>"; };
-		7ABF8C06F36940B2A4C89EF9 /* CDVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = org.apache.cordova.statusbar/CDVStatusBar.h; sourceTree = "<group>"; };
+		6E783C1A22744DAA87A70ADB /* CDVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVConnection.h; path = "org.apache.cordova.network-information/CDVConnection.h"; sourceTree = "<group>"; };
+		72AA606375F742A5BF6E04AC /* ImageIO.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7473BB2514064541BCE8821B /* UIApplication+SalesforceHybridSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+SalesforceHybridSDK.h"; path = "com.salesforce/UIApplication+SalesforceHybridSDK.h"; sourceTree = "<group>"; };
+		7D7C859A9C654230A40EF777 /* SFOAuthCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthCoordinator.h; path = com.salesforce/salesforce/SFOAuthCoordinator.h; sourceTree = "<group>"; };
+		7DF2A6E82DC348C2A7109DD2 /* PushPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushPlugin.h; path = com.phonegap.plugins.PushPlugin/PushPlugin.h; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -166,55 +173,51 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
-		829892C41940461191E9C9C1 /* libSalesforceNetwork.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceNetwork.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceNetwork.a; sourceTree = "<group>"; };
-		83DE565649684AA486E66B3F /* SFLocalhostSubstitutionCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFLocalhostSubstitutionCache.h; path = com.salesforce/salesforce/SFLocalhostSubstitutionCache.h; sourceTree = "<group>"; };
+		81D631720AE342A894857235 /* SFAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthenticationManager.h; path = com.salesforce/salesforce/SFAuthenticationManager.h; sourceTree = "<group>"; };
+		86E16314B6064A7897BBAB82 /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCamera.m; path = org.apache.cordova.camera/CDVCamera.m; sourceTree = "<group>"; };
+		8902617ABB3D44A3BC361984 /* AddressBookUI.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		89F87A1189EB4B60B3F1F5B9 /* AppDelegate+notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; };
+		8C9593B456294DE788D978AE /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = com.salesforce/salesforce/InitialViewController.h; sourceTree = "<group>"; };
+		8CCBC048FA42494B85CBEA3B /* libSalesforceCommonUtils.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceCommonUtils.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceCommonUtils.a; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* IncidentReporting-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "IncidentReporting-Info.plist"; path = "../IncidentReporting-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		8F22FED7A8CC449DAF80148D /* SFOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthCredentials.h; path = com.salesforce/salesforce/SFOAuthCredentials.h; sourceTree = "<group>"; };
-		8FDCD3FE3E044DEF896C3E3E /* AddressBookUI.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		909F395A547A4174B330996C /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCamera.m; path = org.apache.cordova.camera/CDVCamera.m; sourceTree = "<group>"; };
-		920FD9ECF0A64B72BC38B218 /* libsqlcipher.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libsqlcipher.a; path = IncidentReporting/Plugins/com.salesforce/libsqlcipher.a; sourceTree = "<group>"; };
-		92F5D0C83259442EB78206AA /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = org.apache.cordova.camera/CDVCamera.h; sourceTree = "<group>"; };
-		93CA4788478A47C487CE6CDD /* libSalesforceHybridSDK.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceHybridSDK.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceHybridSDK.a; sourceTree = "<group>"; };
-		96681350F37C4077A5AA2D8F /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
-		9788B1C92B28483F8E5872BE /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
-		9A64944FBFA74302A16B5D19 /* SalesforceSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SalesforceSDKResources.bundle; sourceTree = "<group>"; };
-		9C3533E88C97448C86B0B2B4 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = com.salesforce/salesforce/InitialViewController.h; sourceTree = "<group>"; };
-		A1ECD9EDBA7A48F6A0BB2572 /* SFOAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthInfo.h; path = com.salesforce/salesforce/SFOAuthInfo.h; sourceTree = "<group>"; };
-		A4DC337B15AF4FEE99829B2C /* SFDefaultUserManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDefaultUserManagementViewController.h; path = com.salesforce/salesforce/SFDefaultUserManagementViewController.h; sourceTree = "<group>"; };
-		A64F7A1337864795B42DE7B5 /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B06D374E9F8B41D880950A89 /* MessageUI.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		B31173B52D6849E084817F42 /* SalesforceSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKManager.h; path = com.salesforce/salesforce/SalesforceSDKManager.h; sourceTree = "<group>"; };
-		B41ED12C30CF4F5B8C198F0A /* libz.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		B44403BFEAA3467AB0DBD575 /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
-		B869DEC329444D74B8FE206C /* libSmartSync.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSmartSync.a; path = IncidentReporting/Plugins/com.salesforce/libSmartSync.a; sourceTree = "<group>"; };
-		C09BCB0FEB1D4A06A0A580EE /* SystemConfiguration.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C31B677B7C154ED18B1DE0F2 /* SalesforceSDKCoreDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKCoreDefines.h; path = com.salesforce/salesforce/SalesforceSDKCoreDefines.h; sourceTree = "<group>"; };
-		C67986EB294D40CEBD409446 /* CDVReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVReachability.m; path = "org.apache.cordova.network-information/CDVReachability.m"; sourceTree = "<group>"; };
-		CE2465B9B34A4A0AAC38EDC8 /* SFPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPushNotificationManager.h; path = com.salesforce/salesforce/SFPushNotificationManager.h; sourceTree = "<group>"; };
-		D186E39D641247D19BC3D59D /* SFOAuthCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthCoordinator.h; path = com.salesforce/salesforce/SFOAuthCoordinator.h; sourceTree = "<group>"; };
-		D1FF744C39BE43D49B4622C4 /* SFAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthenticationManager.h; path = com.salesforce/salesforce/SFAuthenticationManager.h; sourceTree = "<group>"; };
+		8FA99C8756D4405DBDC5EF33 /* QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		907A9ADFF1AB4D1BBEEFCDB2 /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = org.apache.cordova.camera/CDVJpegHeaderWriter.h; sourceTree = "<group>"; };
+		924DA7B2075C40C3A9E7A9B3 /* libSalesforceNetwork.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceNetwork.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceNetwork.a; sourceTree = "<group>"; };
+		95131EE15AA04C4C8372C601 /* SFDefaultUserManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDefaultUserManagementViewController.h; path = com.salesforce/salesforce/SFDefaultUserManagementViewController.h; sourceTree = "<group>"; };
+		995CE499825A4F7E98BA4C23 /* AppDelegate+SalesforceHybridSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+SalesforceHybridSDK.m"; path = "com.salesforce/AppDelegate+SalesforceHybridSDK.m"; sourceTree = "<group>"; };
+		9FA2263DD7FB4461B6746785 /* SFOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthCredentials.h; path = com.salesforce/salesforce/SFOAuthCredentials.h; sourceTree = "<group>"; };
+		A0263320EA85453DA4EC27C5 /* CDVReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVReachability.h; path = "org.apache.cordova.network-information/CDVReachability.h"; sourceTree = "<group>"; };
+		A1BDEA678DFA4E89917E334E /* CDVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; };
+		A1D8121270274C1EBFAF7B12 /* SFOAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFOAuthInfo.h; path = com.salesforce/salesforce/SFOAuthInfo.h; sourceTree = "<group>"; };
+		A1E5D49B428747188871325E /* Images.xcassets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; path = Images.xcassets; sourceTree = "<group>"; };
+		A64F257939F04E23B393645F /* AppDelegate+SalesforceHybridSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+SalesforceHybridSDK.h"; path = "com.salesforce/AppDelegate+SalesforceHybridSDK.h"; sourceTree = "<group>"; };
+		A841230C19284DC482A5709D /* SalesforceSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SalesforceSDKResources.bundle; sourceTree = "<group>"; };
+		A86F9EE7FFB445FB87C9B48F /* CDVSpinnerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSpinnerDialog.h; path = ru.mcler.phonegap.plugins.SpinnerDialog/CDVSpinnerDialog.h; sourceTree = "<group>"; };
+		A8EF602C04404B348D50B42A /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVExif.h; path = org.apache.cordova.camera/CDVExif.h; sourceTree = "<group>"; };
+		B4F0A8D002C443C2AA90E313 /* AddressBook.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B84C277D8ADD4B4780A4B9D6 /* SFHybridViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHybridViewConfig.h; path = com.salesforce/salesforce/SFHybridViewConfig.h; sourceTree = "<group>"; };
+		B88884E6BE264DF7B5B3DEFF /* Security.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B98F27432AFB40CB97B25BB5 /* SFLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFLogger.h; path = com.salesforce/salesforce/SFLogger.h; sourceTree = "<group>"; };
+		BC8B8DB357B241368EA91CED /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BDDFC369E7AC4C289713236B /* libsqlcipher.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libsqlcipher.a; path = IncidentReporting/Plugins/com.salesforce/libsqlcipher.a; sourceTree = "<group>"; };
+		C370E14410D64E46B8A96D9E /* SFLocalhostSubstitutionCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFLocalhostSubstitutionCache.h; path = com.salesforce/salesforce/SFLocalhostSubstitutionCache.h; sourceTree = "<group>"; };
+		C85A20F6D3134E1CAA71552B /* SalesforceSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKManager.h; path = com.salesforce/salesforce/SalesforceSDKManager.h; sourceTree = "<group>"; };
+		D12DCF5403BB463FAA0A0741 /* SFUserAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountManager.h; path = com.salesforce/salesforce/SFUserAccountManager.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		D7A9A6D698C64597A373ACF1 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = com.salesforce/InitialViewController.m; sourceTree = "<group>"; };
-		D85CBD7FC8064AA0B1B233D5 /* libSalesforceSDKCommon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSDKCommon.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSDKCommon.a; sourceTree = "<group>"; };
-		DBE18FEF9C1A4ABDB0BC1691 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
-		DDCAC2CA2F4A4E528DB6FEF4 /* SFAuthErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAuthErrorHandler.h; path = com.salesforce/salesforce/SFAuthErrorHandler.h; sourceTree = "<group>"; };
-		E0D057A528504D188405AD18 /* SFUserAccountConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountConstants.h; path = com.salesforce/salesforce/SFUserAccountConstants.h; sourceTree = "<group>"; };
-		E214FF5CE316467284B06FB7 /* libSalesforceCommonUtils.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceCommonUtils.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceCommonUtils.a; sourceTree = "<group>"; };
-		E800981947BA4C0182D68D47 /* SFUserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccount.h; path = com.salesforce/salesforce/SFUserAccount.h; sourceTree = "<group>"; };
-		E9D6328E730C449A93384D2D /* SFHybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHybridViewController.h; path = com.salesforce/salesforce/SFHybridViewController.h; sourceTree = "<group>"; };
-		EAB6F075430C46188C93E854 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D95C213A9DBA43A483A6DFDD /* libz.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D9A93DBD80184DD9ADEDBA4E /* libxml2.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E4C786AFC3914E0F8C135A5B /* libSalesforceSDKCommon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libSalesforceSDKCommon.a; path = IncidentReporting/Plugins/com.salesforce/libSalesforceSDKCommon.a; sourceTree = "<group>"; };
+		E987C0E790BE45E89D8406CB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		EA316BA44FA74E34B6B54E77 /* SFUserAccountConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountConstants.h; path = com.salesforce/salesforce/SFUserAccountConstants.h; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		EEE155DA1D3947B5B3721562 /* SFSDKAppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFSDKAppConfig.h; path = com.salesforce/salesforce/SFSDKAppConfig.h; sourceTree = "<group>"; };
-		F163BC77E5BA40C3BA9D00DC /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropScaleOrientation.h"; path = "org.apache.cordova.camera/UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
-		F50610DA276E4B56B83C7F20 /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; };
-		F54B62C3E6B44C95A9E2452B /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVExif.h; path = org.apache.cordova.camera/CDVExif.h; sourceTree = "<group>"; };
+		EE1E3A9A79044F1F866F66B6 /* MessageUI.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F26061B5B917485A87F0EB31 /* SFPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPushNotificationManager.h; path = com.salesforce/salesforce/SFPushNotificationManager.h; sourceTree = "<group>"; };
+		F3612183130B4D25B2F70DFD /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = com.salesforce/InitialViewController.m; sourceTree = "<group>"; };
+		F75174F5D37F41A48CF8AB97 /* UIKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = IncidentReporting/config.xml; sourceTree = "<group>"; };
-		F8D4499EF4864EE693C89EBD /* libxml2.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		F936C2CEA0A44AC08C17D001 /* ImageIO.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		FD36C17BD0B54EEDA8539561 /* PushPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushPlugin.h; path = com.phonegap.plugins.PushPlugin/PushPlugin.h; sourceTree = "<group>"; };
-		FE745620335C4566916F6A49 /* SFCommunityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFCommunityData.h; path = com.salesforce/salesforce/SFCommunityData.h; sourceTree = "<group>"; };
+		FC413D2AB058499DB60AA4D6 /* SFHybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHybridViewController.h; path = com.salesforce/salesforce/SFHybridViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,28 +229,28 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
-				073A4BF43EA549F699484B20 /* libSalesforceCommonUtils.a in Frameworks */,
-				067BF462628C438695C663C9 /* libSalesforceHybridSDK.a in Frameworks */,
-				F998D81A0D584096A82E6DE3 /* libSalesforceOAuth.a in Frameworks */,
-				2817DFE1BDE24B229BC8729E /* libSalesforceSDKCore.a in Frameworks */,
-				FDC8FD9418D7416EA5C9EF84 /* libSalesforceSecurity.a in Frameworks */,
-				2CBE2EBBD1B64CA99D13EB4E /* libSalesforceNetwork.a in Frameworks */,
-				77B5E2334F5841DD9D8D7A64 /* libSalesforceRestAPI.a in Frameworks */,
-				6C9B79E95B1D4778B830FB0D /* libSmartSync.a in Frameworks */,
-				F33A01C028FF447BBA9E5110 /* libSalesforceSDKCommon.a in Frameworks */,
-				EB4E3312A07B4CCA977DFC8D /* libsqlcipher.a in Frameworks */,
-				D60749D888114E70A0DD2D62 /* libxml2.dylib in Frameworks */,
-				4EAB366622014492B5CD890A /* libz.dylib in Frameworks */,
-				3F081378A7D34430AEA9A475 /* AddressBook.framework in Frameworks */,
-				E16416B1FF7C4C658E2938A5 /* AddressBookUI.framework in Frameworks */,
-				5DDD0FE12F1F4F43A6C1F854 /* CoreLocation.framework in Frameworks */,
-				BE55E644AD004D068786B81A /* Foundation.framework in Frameworks */,
-				14A10A0A2E75446584AA56F8 /* MessageUI.framework in Frameworks */,
-				F2B6DF51922A4F02BA6B186F /* QuartzCore.framework in Frameworks */,
-				CC75EC2C888C4EB7BA4DA430 /* Security.framework in Frameworks */,
-				B0E80C68ACA440A7A9AFBF65 /* SystemConfiguration.framework in Frameworks */,
-				798EFA9E567B49BABCCABDE8 /* UIKit.framework in Frameworks */,
-				10C4AF3518714CCAA999C404 /* ImageIO.framework in Frameworks */,
+				9E01D58004F645FCBFD42471 /* libSalesforceCommonUtils.a in Frameworks */,
+				41C3107132804DDCA407EEC3 /* libSalesforceHybridSDK.a in Frameworks */,
+				06FBCA96C2E340D6A321FB8B /* libSalesforceOAuth.a in Frameworks */,
+				993EB1997AB44631AEAB10A6 /* libSalesforceSDKCore.a in Frameworks */,
+				3C6F8418B12546E48F77353F /* libSalesforceSecurity.a in Frameworks */,
+				FEB8788239264413A34ACAE2 /* libSalesforceNetwork.a in Frameworks */,
+				54F22976E30B4D38B930F22C /* libSalesforceRestAPI.a in Frameworks */,
+				CF64A598734642C5AFBFC18C /* libSmartSync.a in Frameworks */,
+				E47D79770B664EDF985AEDFA /* libSalesforceSDKCommon.a in Frameworks */,
+				029F97E52CAC432EB5A4B612 /* libsqlcipher.a in Frameworks */,
+				0A05A3C63CBE46BB9371A6D8 /* libxml2.dylib in Frameworks */,
+				1DBCC8F52F0146D7AA1D9CA8 /* libz.dylib in Frameworks */,
+				4698D5DE37744AEDABD208B1 /* AddressBook.framework in Frameworks */,
+				270D95552E1543718261931C /* AddressBookUI.framework in Frameworks */,
+				0D2521793FE14DAB90A857D3 /* CoreLocation.framework in Frameworks */,
+				DE130AA824824F6B81605D45 /* Foundation.framework in Frameworks */,
+				F9F349BBAA0E413C8206C417 /* MessageUI.framework in Frameworks */,
+				2ADB550009844A1B8035C3B4 /* QuartzCore.framework in Frameworks */,
+				32D100820F6346589C8D9B4F /* Security.framework in Frameworks */,
+				42E7A6D8C4CF41A99964B39A /* SystemConfiguration.framework in Frameworks */,
+				691C283FC1FD476989F2CF0A /* UIKit.framework in Frameworks */,
+				50331394EED2415BAC6280AD /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,22 +276,6 @@
 				1D6058910D05DD3D006BFB54 /* IncidentReporting.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1F766FDB13BBADB100FB74C0 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1F766FDC13BBADB100FB74C0 /* Localizable.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		1F766FDE13BBADB100FB74C0 /* es.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1F766FDF13BBADB100FB74C0 /* Localizable.strings */,
-			);
-			path = es.lproj;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -322,16 +309,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				30A0434214DC770100060A13 /* de.lproj */,
-				30A0434514DC770100060A13 /* se.lproj */,
-				1F766FDB13BBADB100FB74C0 /* en.lproj */,
-				1F766FDE13BBADB100FB74C0 /* es.lproj */,
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* IncidentReporting-Info.plist */,
-				EAB6F075430C46188C93E854 /* Settings.bundle */,
-				9A64944FBFA74302A16B5D19 /* SalesforceSDKResources.bundle */,
-				5AB732110EBD4704918BA84E /* Images.xcassets */,
+				E987C0E790BE45E89D8406CB /* Settings.bundle */,
+				A841230C19284DC482A5709D /* SalesforceSDKResources.bundle */,
+				A1E5D49B428747188871325E /* Images.xcassets */,
 			);
 			name = Resources;
 			path = IncidentReporting/Resources;
@@ -343,28 +326,28 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				E214FF5CE316467284B06FB7 /* libSalesforceCommonUtils.a */,
-				93CA4788478A47C487CE6CDD /* libSalesforceHybridSDK.a */,
-				77BFF4E8083A4B6F85B48C6D /* libSalesforceOAuth.a */,
-				34C8597DA7164EB88892831E /* libSalesforceSDKCore.a */,
-				0184DFC6B1E640AA99111700 /* libSalesforceSecurity.a */,
-				829892C41940461191E9C9C1 /* libSalesforceNetwork.a */,
-				721DAAAE75B14C48AD223252 /* libSalesforceRestAPI.a */,
-				B869DEC329444D74B8FE206C /* libSmartSync.a */,
-				D85CBD7FC8064AA0B1B233D5 /* libSalesforceSDKCommon.a */,
-				920FD9ECF0A64B72BC38B218 /* libsqlcipher.a */,
-				F8D4499EF4864EE693C89EBD /* libxml2.dylib */,
-				B41ED12C30CF4F5B8C198F0A /* libz.dylib */,
-				04574319A4084F3EB642790E /* AddressBook.framework */,
-				8FDCD3FE3E044DEF896C3E3E /* AddressBookUI.framework */,
-				A64F7A1337864795B42DE7B5 /* CoreLocation.framework */,
-				525A7F6D4D054DC49FA3343B /* Foundation.framework */,
-				B06D374E9F8B41D880950A89 /* MessageUI.framework */,
-				22AA73BF18AA4692879E2FF5 /* QuartzCore.framework */,
-				034F80AFA1EA4122B5ED5BDD /* Security.framework */,
-				C09BCB0FEB1D4A06A0A580EE /* SystemConfiguration.framework */,
-				05632D95A1B14CA6B652A489 /* UIKit.framework */,
-				F936C2CEA0A44AC08C17D001 /* ImageIO.framework */,
+				8CCBC048FA42494B85CBEA3B /* libSalesforceCommonUtils.a */,
+				5139E73C12A84701A830AE9B /* libSalesforceHybridSDK.a */,
+				5A96EE9F398D416087216B69 /* libSalesforceOAuth.a */,
+				57977D7EA8D8437288F3D828 /* libSalesforceSDKCore.a */,
+				475C3B10A376475FB571CDF5 /* libSalesforceSecurity.a */,
+				924DA7B2075C40C3A9E7A9B3 /* libSalesforceNetwork.a */,
+				1973B22B810C495A81BACA02 /* libSalesforceRestAPI.a */,
+				135C7F7D92DB4A7EA3199822 /* libSmartSync.a */,
+				E4C786AFC3914E0F8C135A5B /* libSalesforceSDKCommon.a */,
+				BDDFC369E7AC4C289713236B /* libsqlcipher.a */,
+				D9A93DBD80184DD9ADEDBA4E /* libxml2.dylib */,
+				D95C213A9DBA43A483A6DFDD /* libz.dylib */,
+				B4F0A8D002C443C2AA90E313 /* AddressBook.framework */,
+				8902617ABB3D44A3BC361984 /* AddressBookUI.framework */,
+				BC8B8DB357B241368EA91CED /* CoreLocation.framework */,
+				06A615FA24244402B3F67B5E /* Foundation.framework */,
+				EE1E3A9A79044F1F866F66B6 /* MessageUI.framework */,
+				8FA99C8756D4405DBDC5EF33 /* QuartzCore.framework */,
+				B88884E6BE264DF7B5B3DEFF /* Security.framework */,
+				352DC03A5B9F4136A636B99C /* SystemConfiguration.framework */,
+				F75174F5D37F41A48CF8AB97 /* UIKit.framework */,
+				72AA606375F742A5BF6E04AC /* ImageIO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,57 +363,57 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				96681350F37C4077A5AA2D8F /* CDVDevice.m */,
-				DBE18FEF9C1A4ABDB0BC1691 /* CDVDevice.h */,
-				F50610DA276E4B56B83C7F20 /* AppDelegate+notification.m */,
-				6DAC1873F1864D0BA762F70D /* PushPlugin.m */,
-				17B93CA1F01A45D4B9A67F17 /* AppDelegate+notification.h */,
-				FD36C17BD0B54EEDA8539561 /* PushPlugin.h */,
-				585A6D54056747E3A1897376 /* AppDelegate+SalesforceHybridSDK.m */,
-				1F02D07AF4C148FABDE0DEA5 /* UIApplication+SalesforceHybridSDK.m */,
-				D7A9A6D698C64597A373ACF1 /* InitialViewController.m */,
-				D1FF744C39BE43D49B4622C4 /* SFAuthenticationManager.h */,
-				FE745620335C4566916F6A49 /* SFCommunityData.h */,
-				EEE155DA1D3947B5B3721562 /* SFSDKAppConfig.h */,
-				9C3533E88C97448C86B0B2B4 /* InitialViewController.h */,
-				A4DC337B15AF4FEE99829B2C /* SFDefaultUserManagementViewController.h */,
-				6ABB684A42034A82850D2F9B /* SFHybridViewConfig.h */,
-				E9D6328E730C449A93384D2D /* SFHybridViewController.h */,
-				5F3429DA3D7B4F089569066D /* SFIdentityCoordinator.h */,
-				05C4E4C61B5A4A248A0A67DF /* SFIdentityData.h */,
-				83DE565649684AA486E66B3F /* SFLocalhostSubstitutionCache.h */,
-				1D57F2475CD34635A00BF57F /* SFLogger.h */,
-				D186E39D641247D19BC3D59D /* SFOAuthCoordinator.h */,
-				8F22FED7A8CC449DAF80148D /* SFOAuthCredentials.h */,
-				A1ECD9EDBA7A48F6A0BB2572 /* SFOAuthInfo.h */,
-				CE2465B9B34A4A0AAC38EDC8 /* SFPushNotificationManager.h */,
-				E800981947BA4C0182D68D47 /* SFUserAccount.h */,
-				E0D057A528504D188405AD18 /* SFUserAccountConstants.h */,
-				525B6F17E7E34F57A1378636 /* SFUserAccountManager.h */,
-				32711304FF9445C5BD5439D0 /* SFUserAccountIdentity.h */,
-				B31173B52D6849E084817F42 /* SalesforceSDKManager.h */,
-				DDCAC2CA2F4A4E528DB6FEF4 /* SFAuthErrorHandler.h */,
-				2616F0A22ECA4CDE91499D8F /* SFAuthErrorHandlerList.h */,
-				C31B677B7C154ED18B1DE0F2 /* SalesforceSDKCoreDefines.h */,
-				62A310C39E7446A399F21AD9 /* AppDelegate+SalesforceHybridSDK.h */,
-				509311B42D314589A79DB622 /* UIApplication+SalesforceHybridSDK.h */,
-				3144AC5D489E4423BB4F1E2A /* CDVConnection.m */,
-				C67986EB294D40CEBD409446 /* CDVReachability.m */,
-				77A71B8383F145FDA492E230 /* CDVConnection.h */,
-				4215B845698C4E3BA2C83D32 /* CDVReachability.h */,
-				2BA49FEA53B34350BC1716D1 /* UIImage+CropScaleOrientation.m */,
-				909F395A547A4174B330996C /* CDVCamera.m */,
-				03148B2ED06542349614DC2E /* CDVJpegHeaderWriter.m */,
-				F163BC77E5BA40C3BA9D00DC /* UIImage+CropScaleOrientation.h */,
-				92F5D0C83259442EB78206AA /* CDVCamera.h */,
-				342CA9FE5F4844118DBAC287 /* CDVJpegHeaderWriter.h */,
-				F54B62C3E6B44C95A9E2452B /* CDVExif.h */,
-				B44403BFEAA3467AB0DBD575 /* CDVStatusBar.m */,
-				7ABF8C06F36940B2A4C89EF9 /* CDVStatusBar.h */,
-				4F16AFFB06C74C94A73398EA /* CDVInAppBrowser.m */,
-				9788B1C92B28483F8E5872BE /* CDVInAppBrowser.h */,
-				2AEF4DEC3C234626A58A008C /* CDVSpinnerDialog.m */,
-				1960F752FB9D4BE288556D4E /* CDVSpinnerDialog.h */,
+				488EDAA5410940A58DCE7430 /* AppDelegate+notification.m */,
+				17EED0EC76A245A395759335 /* PushPlugin.m */,
+				89F87A1189EB4B60B3F1F5B9 /* AppDelegate+notification.h */,
+				7DF2A6E82DC348C2A7109DD2 /* PushPlugin.h */,
+				1707AF2C2CEB4717A8C44DE3 /* CDVDevice.m */,
+				0B6D76EF631E49A787D7A5F6 /* CDVDevice.h */,
+				995CE499825A4F7E98BA4C23 /* AppDelegate+SalesforceHybridSDK.m */,
+				1271CD24A9E14FCE97B13369 /* UIApplication+SalesforceHybridSDK.m */,
+				F3612183130B4D25B2F70DFD /* InitialViewController.m */,
+				81D631720AE342A894857235 /* SFAuthenticationManager.h */,
+				514328AE00134FD2934573C7 /* SFCommunityData.h */,
+				46E48F12901E4258AAC8D99F /* SFSDKAppConfig.h */,
+				8C9593B456294DE788D978AE /* InitialViewController.h */,
+				95131EE15AA04C4C8372C601 /* SFDefaultUserManagementViewController.h */,
+				B84C277D8ADD4B4780A4B9D6 /* SFHybridViewConfig.h */,
+				FC413D2AB058499DB60AA4D6 /* SFHybridViewController.h */,
+				23400145CB6240BBBD2A068C /* SFIdentityCoordinator.h */,
+				4E51B261EDAC4306BAB8FA2A /* SFIdentityData.h */,
+				C370E14410D64E46B8A96D9E /* SFLocalhostSubstitutionCache.h */,
+				B98F27432AFB40CB97B25BB5 /* SFLogger.h */,
+				7D7C859A9C654230A40EF777 /* SFOAuthCoordinator.h */,
+				9FA2263DD7FB4461B6746785 /* SFOAuthCredentials.h */,
+				A1D8121270274C1EBFAF7B12 /* SFOAuthInfo.h */,
+				F26061B5B917485A87F0EB31 /* SFPushNotificationManager.h */,
+				361D1FAE3B1A4349B16E1388 /* SFUserAccount.h */,
+				EA316BA44FA74E34B6B54E77 /* SFUserAccountConstants.h */,
+				D12DCF5403BB463FAA0A0741 /* SFUserAccountManager.h */,
+				358C4AD9EF1A4E7284690CE9 /* SFUserAccountIdentity.h */,
+				C85A20F6D3134E1CAA71552B /* SalesforceSDKManager.h */,
+				40B6FD90A9FD4E38B9520E22 /* SFAuthErrorHandler.h */,
+				18D212A73C61420BA49E123F /* SFAuthErrorHandlerList.h */,
+				4B444FF428344948B9F33FD4 /* SalesforceSDKCoreDefines.h */,
+				A64F257939F04E23B393645F /* AppDelegate+SalesforceHybridSDK.h */,
+				7473BB2514064541BCE8821B /* UIApplication+SalesforceHybridSDK.h */,
+				59459FAB384C42F4AA3CA387 /* UIImage+CropScaleOrientation.m */,
+				86E16314B6064A7897BBAB82 /* CDVCamera.m */,
+				3CC66A26EC6B4522AA4B43E1 /* CDVJpegHeaderWriter.m */,
+				4BEB80625E3F4D52991C45EC /* UIImage+CropScaleOrientation.h */,
+				526702196F684D88B1F472AE /* CDVCamera.h */,
+				907A9ADFF1AB4D1BBEEFCDB2 /* CDVJpegHeaderWriter.h */,
+				A8EF602C04404B348D50B42A /* CDVExif.h */,
+				047D23858FB7430BBCC58AD7 /* CDVInAppBrowser.m */,
+				02B48692863B4043922422EE /* CDVInAppBrowser.h */,
+				A1BDEA678DFA4E89917E334E /* CDVConnection.m */,
+				089E7ADE7B864AD2B042A20E /* CDVReachability.m */,
+				6E783C1A22744DAA87A70ADB /* CDVConnection.h */,
+				A0263320EA85453DA4EC27C5 /* CDVReachability.h */,
+				57686B3F5D094E61A8D4E3E1 /* CDVStatusBar.m */,
+				27AB06B544354CF69A0EDAE8 /* CDVStatusBar.h */,
+				0B09394462C94E8895EB3856 /* CDVSpinnerDialog.m */,
+				A86F9EE7FFB445FB87C9B48F /* CDVSpinnerDialog.h */,
 			);
 			name = Plugins;
 			path = IncidentReporting/Plugins;
@@ -439,6 +422,7 @@
 		308D052D1370CCF300D202BF /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				30C1856519D5FC0A00212699 /* icon-60@3x.png */,
 				7E7966D41810823500FA85AD /* icon-40.png */,
 				7E7966D51810823500FA85AD /* icon-40@2x.png */,
 				7E7966D61810823500FA85AD /* icon-50.png */,
@@ -460,6 +444,9 @@
 		308D05311370CCF300D202BF /* splash */ = {
 			isa = PBXGroup;
 			children = (
+				30B4F2FD19D5E07200D9F7D8 /* Default-667h.png */,
+				30B4F2FE19D5E07200D9F7D8 /* Default-736h.png */,
+				30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */,
 				D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */,
 				3088BBB7154F3926009F9C59 /* Default-Landscape@2x~ipad.png */,
 				3088BBB8154F3926009F9C59 /* Default-Landscape~ipad.png */,
@@ -469,22 +456,6 @@
 				3088BBBC154F3926009F9C59 /* Default~iphone.png */,
 			);
 			path = splash;
-			sourceTree = "<group>";
-		};
-		30A0434214DC770100060A13 /* de.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				30A0434314DC770100060A13 /* Localizable.strings */,
-			);
-			path = de.lproj;
-			sourceTree = "<group>";
-		};
-		30A0434514DC770100060A13 /* se.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				30A0434614DC770100060A13 /* Localizable.strings */,
-			);
-			path = se.lproj;
 			sourceTree = "<group>";
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
@@ -524,12 +495,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 700;
-				TargetAttributes = {
-					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 5B9VGNK3MV;
-					};
-				};
+				LastUpgradeCheck = 510;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "IncidentReporting" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -578,30 +544,32 @@
 				7E7966E41810823500FA85AD /* icon-76.png in Resources */,
 				7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
+				30B4F30119D5E07200D9F7D8 /* Default-736h.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
-				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
 				7E7966E31810823500FA85AD /* icon-60@2x.png in Resources */,
-				30A0434814DC770100060A13 /* Localizable.strings in Resources */,
 				7E7966E61810823500FA85AD /* icon-small.png in Resources */,
 				3088BBBD154F3926009F9C59 /* Default-Landscape@2x~ipad.png in Resources */,
 				3088BBBE154F3926009F9C59 /* Default-Landscape~ipad.png in Resources */,
 				3088BBBF154F3926009F9C59 /* Default-Portrait@2x~ipad.png in Resources */,
 				7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */,
 				3088BBC0154F3926009F9C59 /* Default-Portrait~ipad.png in Resources */,
+				30B4F30019D5E07200D9F7D8 /* Default-667h.png in Resources */,
 				7E7966DE1810823500FA85AD /* icon-40.png in Resources */,
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				7E7966E21810823500FA85AD /* icon-60.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
+				30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */,
+				30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */,
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
-				5B686862C9264E899F912BE2 /* Settings.bundle in Resources */,
-				54D4685E60D8431C8A2C48D4 /* SalesforceSDKResources.bundle in Resources */,
-				6D77B26F16FC4058A2107195 /* Images.xcassets in Resources */,
+				2A82F5DBB65D49CC8DE20CF0 /* Settings.bundle in Resources */,
+				625432E58DA740FBBC14BE9D /* SalesforceSDKResources.bundle in Resources */,
+				E6ECB6A45F0C4783BEEF61F6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cordova/lib/copy-www-build-step.sh";
+			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -633,20 +601,20 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				D54912F5A6984AC6943FA3A9 /* CDVDevice.m in Sources */,
-				12573972A72B4ED18F6217FA /* AppDelegate+notification.m in Sources */,
-				027F2404E9B3451498113253 /* PushPlugin.m in Sources */,
-				0C84431FC05144E183FE52B7 /* AppDelegate+SalesforceHybridSDK.m in Sources */,
-				9430BEB7C2964B75ACD2ADAF /* UIApplication+SalesforceHybridSDK.m in Sources */,
-				09FD73F038A84232B228BB41 /* InitialViewController.m in Sources */,
-				9E2E5B26EE544358B7707581 /* CDVConnection.m in Sources */,
-				CC8EC5976028450689039A37 /* CDVReachability.m in Sources */,
-				AC8839B060714EE8A2AF2564 /* UIImage+CropScaleOrientation.m in Sources */,
-				1BD7B11442D24C229F65A039 /* CDVCamera.m in Sources */,
-				C8226BCB70DF42108A3683DC /* CDVJpegHeaderWriter.m in Sources */,
-				B720478DB99B47519DAA405A /* CDVStatusBar.m in Sources */,
-				CC5ADEEFFED84B28AB70F537 /* CDVInAppBrowser.m in Sources */,
-				B8DB061C125543ACA0F92B28 /* CDVSpinnerDialog.m in Sources */,
+				56996F8089B9426AA921B76E /* AppDelegate+notification.m in Sources */,
+				4380751E256A4AA488F9EBF9 /* PushPlugin.m in Sources */,
+				D156292B54DB4BF88741EB8C /* CDVDevice.m in Sources */,
+				2D8C3E765C6B4972AB9F2527 /* AppDelegate+SalesforceHybridSDK.m in Sources */,
+				ABAEC911B1AC4777B5738381 /* UIApplication+SalesforceHybridSDK.m in Sources */,
+				62A5061C038140CCABFACB38 /* InitialViewController.m in Sources */,
+				2A7002854F9B48A899C00555 /* UIImage+CropScaleOrientation.m in Sources */,
+				620F1641B5D54885A20590CD /* CDVCamera.m in Sources */,
+				6F17C9574C88463AA27605EC /* CDVJpegHeaderWriter.m in Sources */,
+				67703A977F0E4AC1B1CBF73E /* CDVInAppBrowser.m in Sources */,
+				9D3EE90A6B5A4B28BC8DA907 /* CDVConnection.m in Sources */,
+				411218BF52FA496081B78233 /* CDVReachability.m in Sources */,
+				4AFB6AF528BF4678B131073B /* CDVStatusBar.m in Sources */,
+				F881F80617AA48A291BC7198 /* CDVSpinnerDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,49 +628,12 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		1F766FDC13BBADB100FB74C0 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F766FDD13BBADB100FB74C0 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		1F766FDF13BBADB100FB74C0 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F766FE013BBADB100FB74C0 /* es */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		30A0434314DC770100060A13 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30A0434414DC770100060A13 /* de */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		30A0434614DC770100060A13 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30A0434714DC770100060A13 /* se */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -735,13 +666,9 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-					"-force_load",
-					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hse.incidents;
 				PRODUCT_NAME = IncidentReporting;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -751,8 +678,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IncidentReporting/IncidentReporting-Prefix.pch";
@@ -783,13 +708,9 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-					"-force_load",
-					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hse.incidents;
 				PRODUCT_NAME = IncidentReporting;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -805,8 +726,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = NO;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
@@ -832,8 +751,6 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-					"-force_load",
-					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
 				SDKROOT = iphoneos;
@@ -853,7 +770,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
@@ -866,6 +782,7 @@
 					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
@@ -878,8 +795,6 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-					"-force_load",
-					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
 				SDKROOT = iphoneos;
