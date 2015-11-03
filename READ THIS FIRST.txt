@@ -1,0 +1,5 @@
+If you are just trying to install this app on a demo device:
+	If it's an Apple device: 
+		Open the xcode project in platforms > iOS, connect and select your device in xcode, and run the app
+
+If you are looking to do development work, read the Mobile App Setup guide and the HSE App Information guide in this directory. For questions or problems, email Melanie Beyt (melanieb@slalom.com).
