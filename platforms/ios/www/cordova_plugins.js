@@ -44,18 +44,32 @@ module.exports = [
         "id": "com.salesforce.util.push"
     },
     {
-        "file": "plugins/org.apache.cordova.network-information/www/network.js",
-        "id": "org.apache.cordova.network-information.network",
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
         "clobbers": [
             "navigator.connection",
             "navigator.network.connection"
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.network-information/www/Connection.js",
-        "id": "org.apache.cordova.network-information.Connection",
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
         "clobbers": [
             "Connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-spinner-dialog/www/spinner.js",
+        "id": "cordova-plugin-spinner-dialog.SpinnerDialog",
+        "merges": [
+            "window.plugins.spinnerDialog"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
         ]
     },
     {
@@ -87,36 +101,23 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
-        "id": "org.apache.cordova.statusbar.statusbar",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
         "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
-        "id": "org.apache.cordova.inappbrowser.inappbrowser",
-        "clobbers": [
+            "cordova.InAppBrowser.open",
             "window.open"
         ]
     },
     {
-        "file": "plugins/ru.mcler.phonegap.plugins.SpinnerDialog/www/SpinnerDialog.js",
-        "id": "ru.mcler.phonegap.plugins.SpinnerDialog.SpinnerDialog",
-        "merges": [
-            "window.plugins.SpinnerDialog"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.device/www/device.js",
-        "id": "org.apache.cordova.device.device",
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
         "clobbers": [
             "device"
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
-        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
         "clobbers": [
             "PushNotification"
         ]
@@ -125,15 +126,15 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.0.0",
-    "com.salesforce": "3.3.2",
-    "org.apache.cordova.network-information": "0.2.15",
+    "cordova-plugin-whitelist": "1.2.1",
+    "com.salesforce": "4.0.2",
+    "cordova-plugin-network-information": "1.2.0",
+    "cordova-plugin-spinner-dialog": "1.3.1",
+    "cordova-plugin-statusbar": "2.1.1",
     "org.apache.cordova.camera": "0.3.6",
-    "org.apache.cordova.statusbar": "0.1.10",
-    "org.apache.cordova.inappbrowser": "0.6.0",
-    "ru.mcler.phonegap.plugins.SpinnerDialog": "0.3.3",
-    "org.apache.cordova.device": "0.3.0",
-    "com.phonegap.plugins.PushPlugin": "2.2.1"
+    "cordova-plugin-inappbrowser": "1.3.0",
+    "cordova-plugin-device": "1.1.1",
+    "phonegap-plugin-push": "1.5.3"
 }
 // BOTTOM OF METADATA
 });

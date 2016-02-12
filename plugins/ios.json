@@ -13,23 +13,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<preference name=\"BackupWebStorage\" value=\"local\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"http://localhost\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.force.com\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.salesforce.com\" />",
                             "count": 1
                         },
                         {
@@ -57,11 +45,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "xml": "<feature name=\"SpinnerDialog\"><param name=\"ios-package\" value=\"CDVSpinnerDialog\" /></feature>",
                             "count": 1
                         },
                         {
@@ -77,11 +61,15 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SpinnerDialog\"><param name=\"ios-package\" value=\"CDVSpinnerDialog\" /></feature>",
+                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -89,21 +77,31 @@
             },
             "framework": {
                 "parents": {
-                    "libxml2.dylib": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "libz.dylib": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
                     "AddressBook.framework": [
                         {
+                            "xml": false,
+                            "count": 1
+                        },
+                        {
                             "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "libsqlite3.tbd": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "libz.tbd": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
+                    "libxml2.tbd": [
+                        {
+                            "xml": false,
                             "count": 1
                         }
                     ],
@@ -194,11 +192,23 @@
                             "xml": true,
                             "count": 2
                         }
+                    ],
+                    "CoreTelephony.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
                     ]
                 }
             },
             "*-Info.plist": {
                 "parents": {
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
+                        }
+                    ],
                     "NSAppTransportSecurity": [
                         {
                             "xml": "<dict><key>NSExceptionDomains</key><dict><key>salesforce.com</key><dict><key>NSIncludesSubdomains</key><true /><key>NSExceptionRequiresForwardSecrecy</key><false /></dict><key>force.com</key><dict><key>NSIncludesSubdomains</key><true /><key>NSExceptionRequiresForwardSecrecy</key><false /></dict></dict></dict>",
@@ -217,33 +227,33 @@
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.hse.incidents"
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         },
         "com.salesforce": {
-            "PACKAGE_NAME": "com.hse.incidents"
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.hse.incidents"
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
+        },
+        "cordova-plugin-spinner-dialog": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         },
         "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.hse.incidents"
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.hse.incidents"
-        },
-        "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.hse.incidents"
-        },
-        "ru.mcler.phonegap.plugins.SpinnerDialog": {
-            "PACKAGE_NAME": "com.hse.incidents"
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         }
     },
     "dependent_plugins": {
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.hse.incidents"
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.hse.incidents"
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.slalom.incidentreporting"
         }
     }
 }

@@ -1,12 +1,4 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "com.salesforce": {
         "source": {
             "type": "git",
@@ -16,27 +8,50 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.apache.cordova.device": {
+    "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.device"
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
         },
         "is_top_level": false,
         "variables": {}
     },
-    "com.phonegap.plugins.PushPlugin": {
+    "phonegap-plugin-push": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/forcedotcom/PushPlugin",
-            "subdir": "."
+            "type": "registry",
+            "id": "phonegap-plugin-push"
         },
         "is_top_level": false,
         "variables": {}
     },
-    "org.apache.cordova.network-information": {
+    "cordova-plugin-network-information": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.network-information"
+            "id": "cordova-plugin-network-information"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-spinner-dialog": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-spinner-dialog"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar"
         },
         "is_top_level": true,
         "variables": {}
@@ -49,27 +64,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.apache.cordova.statusbar": {
+    "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.statusbar"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.inappbrowser"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "ru.mcler.phonegap.plugins.SpinnerDialog": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mcler/SpinnerDialog.git",
-            "subdir": "."
+            "id": "cordova-plugin-inappbrowser"
         },
         "is_top_level": true,
         "variables": {}

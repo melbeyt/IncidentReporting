@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hse.incidents" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>IncidentReporting</name>
+<widget id="com.slalom.incidentreporting" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>IR-Demo</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -21,11 +21,13 @@
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
-        <splash src="www/img/hseIPadPortraitSplash.png" width="1536" height="2048"/>
-        <splash src="www/img/hseIPadLandscapeSplash.png" width="2048" height="1536"/>
-        <splash src="www/img/hseIPhonePortraitSplash.png" width="640" height="1136"/>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="StatusBarOverlaysWebView" value="false" />
+        <splash src="www/img/hseIPadPortraitSplashx2.png" width="1536" height="2048"/>
+        <splash src="www/img/hseIPadLandscapeSplashx2.png" width="2048" height="1536"/>
+        <splash src="www/img/hseIPadLandscapeSplash.png" width="1024" height="768"/>
+        <splash src="www/img/hseIPadPortraitSplash.png" width="768" height="1024"/>
+        <splash src="www/img/hseIPhonePortraitSplash.png" width="640" height="1136"/>
     </platform>
 </widget>
